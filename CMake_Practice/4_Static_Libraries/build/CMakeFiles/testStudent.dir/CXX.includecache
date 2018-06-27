@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/student.h
+iostream
+-
+
+/home/pratikp2/Desktop/CMake_Practice/4_Static_Libraries/src/main.cpp
+student.h
+-
+

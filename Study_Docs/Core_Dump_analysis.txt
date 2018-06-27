@@ -1,0 +1,11 @@
+To check the size for core dump generation                              :	ulimit -c
+To Modify the size to unlimited                                         :	ulimit -c unlimited
+To compile code with debug symbols and generate core file               :	g++ main.cpp -o main -g
+To check weather program crashes or not                                 :	./main
+To generate back trace of crash                                         : 	gdb main core
+
+
+ main.cpp -> cpp file , -o main -> to generate binary , -g to compaile with debug symbols with core file .
+
+
+

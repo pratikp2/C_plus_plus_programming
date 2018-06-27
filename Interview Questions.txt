@@ -1,0 +1,45 @@
+Capgemini questions :
+	-- Abstraction , Encapsulation , Runtime Polymorphism , Inheritance
+	-- access specifier , purpose of each access specifiers. calling function from base class from derive pointer (with access  		   specifier)
+	-- Virtual , virtual function without def., pure virtual without def., object of abstract class
+	-- diff for malloc and new.
+	-- default things provided by compiler.
+	-- diff for = operator overloading and copy constructor
+	-- Posix thread , Reason of passing void * in pthread create, Mutual exclusion , Mutex ,
+	-- Build type : Release build and Debug Build Concepts.
+	-- this pointer, deleting this pointer , Calling a function via this pointer after deletion of this pointer.
+	-- Singleton Pattern. why to make static method in singleton.
+
+	A copy constructor is used to initialize a previously uninitialized object from some other object's data.
+	An assignment operator is used to replace the data of a previously initialized object with some other object's data.
+
+
+Pratiti Questions :
+	-- Write code which converts mutiple digit alphanumeric into numeric value.
+	-- Write code for assignment operator overloading.
+
+Robert Bosch Questions :
+	-- Code output recursive main call ,Code output for "for loop"
+	-- code to find out Even no without using conditional operator
+	-- What is the value stored by the compiler for NULL pointer.
+	-- difference between 0 , NULL , '\0'
+	-- can we declare a class within class.
+	-- 4 stages of compilation
+	-- fpic in linux, shared libraries
+	-- git reset hard, git remote push, git rebase,git amend
+	-- virtual concept vtable and vptr.
+	-- runtime polymorphism and inheritance in detail, usefulness of inheritance
+	-- diff between abstract class and interface
+
+TATA Elexi Questions : (9th June 2016)
+	-- initiliazation (types of pointers, variable , function pointer, array of function pointer)
+	-- Memory organization and storage.
+	-- extern, static storage class.
+	-- outputs of code,Base and Derive construction and destruction sequence, 
+	-- virtual concepts
+	-- gTest Frame work
+	-- Abstraction and Encapsulation 
+	-- Exeption handling
+	-- qt framework : signals and slots, qt parent class, qml
+	-- comparision for altia and qt 
+	-- project framework

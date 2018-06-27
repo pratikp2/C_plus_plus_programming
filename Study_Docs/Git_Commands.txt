@@ -1,0 +1,31 @@
+######################################################## WORKING WITH GIT #########################################################
+
+-- Source Code Version Control Tool 
+
+###################################################################################################################################
+
+* git init 
+
+-- The Command run in any directory will be manages by git. The Changes outside directory do not matter.
+-- Inside the directory .git folder will be created which will monitor the contends under parents directory.
+
+* git global -- user.name <UserName>
+* git global -- user.email <UserEmail>
+
+-- To store info regarding git user.
+
+* git global -- user		-- To show diff users
+* git global user		-- To show user info.
+
+###################################################################################################################################
+
+* git add <files>
+
+-- To add everything for recognition to be added in main directory. It do not commit changes it just make changes ready for commit.
+-- With add we can select only files we want to add under main repo.
+
+###################################################################################################################################
+
+* git commit -m "<Message>"
+
+###################################################################################################################################

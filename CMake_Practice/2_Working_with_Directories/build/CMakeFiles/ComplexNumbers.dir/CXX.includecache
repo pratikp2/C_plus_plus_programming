@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Include/header.h
+iostream
+-
+
+/home/pratikp2/Desktop/CMake_Practice/2_Working_with_Directories/src/complex.cpp
+iostream
+-
+header.h
+/home/pratikp2/Desktop/CMake_Practice/2_Working_with_Directories/src/header.h
+
+/home/pratikp2/Desktop/CMake_Practice/2_Working_with_Directories/src/main.cpp
+iostream
+-
+header.h
+/home/pratikp2/Desktop/CMake_Practice/2_Working_with_Directories/src/header.h
+

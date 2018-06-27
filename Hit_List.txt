@@ -1,0 +1,19 @@
+-- Casting
+-- Object Slicing
+-- template (class and function)
+-- Data Structure (Queue Stack searching sorting scheduling rest)
+-- STLs
+-- composition aggregation realization 
+-- UML
+-- git document
+-- Storage Classes 
+-- Linux Signals --> (http://man7.org/linux/man-pages/man7/signal.7.html)
+-- Socket Programming
+-- placement new
+-- D-Bus
+-- Conditional Variables
+-- Inheritance (Code and possibilities)
+-- Diamond problem and remady
+-- File Handling
+-- indiness of machine
+
