@@ -35,7 +35,8 @@ TATA Elexi Questions : (9th June 2016)
 	-- initiliazation (types of pointers, variable , function pointer, array of function pointer)
 	-- Memory organization and storage.
 	-- extern, static storage class.
-	-- outputs of code,Base and Derive construction and destruction sequence, 
+	-- outputs of code,Base and Derive construction and destruction sequence,
+	-- Types of constructors (Move Constructructor)	
 	-- virtual concepts
 	-- gTest Frame work
 	-- Abstraction and Encapsulation 
