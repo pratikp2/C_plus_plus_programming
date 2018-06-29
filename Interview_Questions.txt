@@ -15,7 +15,7 @@ Capgemini questions :
 
 
 Pratiti Questions :
-	-- Write code which converts mutiple digit alphanumeric into numeric value.
+	-- Write code which converts multiple digit alphanumeric into numeric value.
 	-- Write code for assignment operator overloading.
 
 Robert Bosch Questions :
@@ -32,15 +32,15 @@ Robert Bosch Questions :
 	-- diff between abstract class and interface
 
 TATA Elexi Questions : (9th June 2016)
-	-- initiliazation (types of pointers, variable , function pointer, array of function pointer)
+	-- initialization (types of pointers, variable , function pointer, array of function pointer)
 	-- Memory organization and storage.
 	-- extern, static storage class.
 	-- outputs of code,Base and Derive construction and destruction sequence,
-	-- Types of constructors (Move Constructructor)	
+	-- Types of constructors (Move Constructor)
 	-- virtual concepts
 	-- gTest Frame work
-	-- Abstraction and Encapsulation 
-	-- Exeption handling
+	-- Abstraction and Encapsulation
+	-- Exception handling
 	-- qt framework : signals and slots, qt parent class, qml
-	-- comparision for altia and qt 
+	-- comparison for altia and qt
 	-- project framework

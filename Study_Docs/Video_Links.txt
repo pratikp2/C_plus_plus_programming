@@ -1,0 +1,3 @@
+Rvalue and Lvalue - https://www.youtube.com/watch?v=UTUdhjzws5g
+
+vtble and *vptr - https://www.youtube.com/watch?v=Z_FiER8aAqM 
