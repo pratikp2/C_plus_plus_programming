@@ -1,10 +1,11 @@
--- Casting
--- Object Slicing
--- template (class and function)
+-- String class
 -- Data Structure (Queue Stack searching sorting scheduling rest)
 -- STLs
--- composition aggregation realization 
--- UML
+-- Casting
+-- Object Slicing
+-- composition aggregation realization.
+-- function pointer for member function.
+-- function reference 
 -- git document
 -- Storage Classes 
 -- Linux Signals --> (http://man7.org/linux/man-pages/man7/signal.7.html)
