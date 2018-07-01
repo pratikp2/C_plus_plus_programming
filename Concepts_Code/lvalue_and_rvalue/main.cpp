@@ -1,13 +1,12 @@
 #include <iostream>
 using namespace std;
 
-void showNo(int & Number)        // Function 1
+void showNo(int & Number)        // Function 1 (with lvalue reference)
 {
     cout << "The Passed No is " << Number << " with rvalue reference"<<endl;
 }
 
-
-void showNo(int && Number)       // Function 2
+void showNo(int && Number)       // Function 2 (with rvalue reference)
 {
    cout << "The Passed No is " << Number << " with lvalue reference"<<endl;
 }
@@ -23,11 +22,18 @@ int main()
     return 0;
 }
 
-    //&c is lvalue reference and 10 is lvalue whicih can be addressed by (int &&c).
-    //rvalue reference yields a address whereas lvalue don't yield a address (eg. &10 will throw a compiler error)
 
-    //NOTE :
-    //compile with flag "g++ -std=c++11 main.cpp" to include "c++ 11" features,and make necessary
-    //changes to IDE compiler to compile cpp 11 features.
+//  int a = 20;
+
+//  For above instruction "a" is lvalue and "&a" is lvalue reference, whereas "20" is r value.
+//  lvalue us variable value which yields address eg "&a", but on trying to get address of no "20"
+//  compiler will throw an error, hence it is a rvalue.
+
+//  hence "showNO(20)" will call "showNo(int && Number)" because 20 is rvalue reference.
+
+
+//NOTE :
+//compile with flag "g++ -std=c++11 main.cpp" to include "C++ 11" features,and make necessary
+//changes to IDE compiler to compile "C++ 11" features.
 
 
