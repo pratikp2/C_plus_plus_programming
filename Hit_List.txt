@@ -4,7 +4,6 @@
 -- Casting
 -- Object Slicing
 -- composition aggregation realization.
--- function pointer for member function.
 -- function reference 
 -- git document
 -- Storage Classes 
