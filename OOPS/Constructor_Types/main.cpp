@@ -9,17 +9,11 @@ class ConstructorTypes
     public :
         //int x,y;
         ConstructorTypes();// 1.Default Constructor
-
         ConstructorTypes(int var);// 2.Parameterized Constructor
-
         ConstructorTypes(const ConstructorTypes&);// 3.Copy Constructor
-
         ConstructorTypes(ConstructorTypes&&);// 4.Move Constructor.
-
         ConstructorTypes& operator = (const ConstructorTypes &obj);// Assignment Operator
-
         ~ConstructorTypes();// Destructor
-
 
         ConstructorTypes GiveObjectCopy(ConstructorTypes obj);
         void ProcessObjectCopy(ConstructorTypes obj);
@@ -45,7 +39,6 @@ ConstructorTypes :: ConstructorTypes(int size)
 
     this -> size = obj.size;
     this -> arr_ptr = new double [size];
-
     for (int i=0; i<=size; i++)
     {
         this -> arr_ptr[i] = obj.arr_ptr[i];    // Making Expensive Deep Copy.

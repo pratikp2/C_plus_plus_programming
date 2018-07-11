@@ -5,12 +5,14 @@ struct Element;
 class Binary_Search_Tree
 {
 private :
-     Element *root;
-     Element *elementHolder;
+     Element *m_root;
+     Element *m_treeTraverser;
 
     struct Element* createElement(int data);
     bool traverseTree(int data);
-
+    void inOrdertraversal();
+    void preOrdertraversal();
+    void postOrdertraversal();
 
 public :
     Binary_Search_Tree();
@@ -71,9 +73,9 @@ int main()
 
 Binary_Search_Tree :: Binary_Search_Tree()
 {
-    root = new (Element);
-    elementHolder = new (Element);
-    root = NULL;
+    m_root = new (Element);
+    m_treeTraverser = new (Element);
+    m_root = NULL;
 }
 
 Element * Binary_Search_Tree :: createElement(int data)
@@ -96,18 +98,18 @@ bool Binary_Search_Tree :: traverseTree(int data)
 {
     bool flag = false;
 
-    if (elementHolder->data == data)
+    if (m_treeTraverser->data == data)
     {
         flag = true;
     }
-    else if((elementHolder->data > data) && (elementHolder->left != NULL))
+    else if((m_treeTraverser->data > data) && (m_treeTraverser->left != NULL))
     {
-        elementHolder = elementHolder -> left;
+        m_treeTraverser = m_treeTraverser -> left;
         flag = traverseTree(data);
     }
-    else if((elementHolder->data < data) && (elementHolder->right != NULL))
+    else if((m_treeTraverser->data < data) && (m_treeTraverser->right != NULL))
     {
-        elementHolder = elementHolder -> right;
+        m_treeTraverser = m_treeTraverser -> right;
         flag = traverseTree(data);
     }
     return flag;
@@ -117,14 +119,15 @@ void Binary_Search_Tree :: addElement()
 {
     int data;
     bool flag = false;
-    elementHolder = root;
+    Element *Holder;
+    m_treeTraverser = m_root;
 
     cout << "Please Enter the Element to be entered : ";
     cin >> data;
 
-    if(root == NULL)
+    if(m_root == NULL)
     {
-        root = createElement(data);
+        m_root = createElement(data);
     }
     else
     {
@@ -135,18 +138,68 @@ void Binary_Search_Tree :: addElement()
         }
         else
         {
-            elementHolder = (elementHolder->data > data) ? (elementHolder = elementHolder -> left) : (elementHolder = elementHolder -> right);
-            elementHolder -> data = data;
+            Holder = createElement(data);
+            m_treeTraverser = (m_treeTraverser->data > data) ? (m_treeTraverser = Holder -> left) : (m_treeTraverser = Holder -> right);
+            m_treeTraverser -> data = data;
         }
     }
 }
 
-void Binary_Search_Tree :: removeElement()
+void Binary_Search_Tree :: inOrdertraversal()
+{
+
+}
+
+void Binary_Search_Tree :: preOrdertraversal()
+{
+
+}
+
+void Binary_Search_Tree :: postOrdertraversal()
 {
 
 }
 
 void Binary_Search_Tree :: displayTree()
+{
+    int choice = 0;
+    while(choice != 4)
+    {
+        cout <<endl;
+        cout << "1. Display Via Inorder Traversal." << endl;
+        cout << "2. Display Via Preorder Traversal." << endl;
+        cout << "3. Display Via Postorder Traversal."<<endl;
+        cout << "4. Exit."<<endl<<endl;
+
+        cout << "Please Select the Traversal choice : ";
+        cin >> choice;
+        cout <<endl;
+
+        switch(choice)
+        {
+        case 1:
+            cout << "Inorder Traversal" << endl;
+            this -> inOrdertraversal();
+            break;
+
+        case 2:
+            cout << "Preorder Traversal" << endl;
+            this -> preOrdertraversal();
+            break;
+
+        case 3:
+            cout << "Postorder Traversal";
+            this -> postOrdertraversal();
+            break;
+
+        case 4:
+            cout << "Exiting" << endl;
+            break;
+        }
+    }
+}
+
+void Binary_Search_Tree :: removeElement()
 {
 
 }
