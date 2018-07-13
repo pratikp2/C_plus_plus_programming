@@ -31,7 +31,7 @@ Robert Bosch Questions :
 	-- runtime polymorphism and inheritance in detail, usefulness of inheritance
 	-- diff between abstract class and interface
 
-TATA Elexi Questions : (9th June 2016)
+TATA Elexi Questions : (9th June 2018)
 	-- initialization (types of pointers, variable , function pointer, array of function pointer)
 	-- Memory organization and storage.
 	-- extern, static storage class.
@@ -44,3 +44,20 @@ TATA Elexi Questions : (9th June 2016)
 	-- qt framework : signals and slots, qt parent class, qml
 	-- comparison for altia and qt
 	-- project framework
+	
+Dassault Systems : (7th July 2018)
+	-- Inheritance defination, types , concepts, hararchy inheritance questions 
+	-- when to call a destructor, how to call a destructor, is is possible to call in main.
+	-- Runtime polymorphism (Explain with example)
+	-- Difference new and malloc 
+	-- Difference between free and delete.
+	-- when to use delete,free,malloc,calloc,new.
+	-- Write a code to detect weather given series is fibobacci or not.
+	-- Difference between array and link list (time and memory complexity)
+	-- Geomerty : - How many circles can be drawn through three non collinear or collinear points.
+				  - How to calculate the weather a point lies inside or outside of a circle.
+				  - How to calculate the distance between two points.
+	-- Puzzles	: - Three boxes one contains red balls ,one contains blue and one contains both,labels are not correct.
+				  - 12 socks 6 black and 6 black mixed all togehter in dark room.
+				  - An and at a corner of a cube.
+				  - Certain amount of persons in room how many shake hands.	
