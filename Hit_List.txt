@@ -16,4 +16,5 @@
 -- Diamond problem and remady
 -- File Handling
 -- indiness of machine
+-- Design Principles
 

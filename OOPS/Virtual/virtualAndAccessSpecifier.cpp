@@ -1,4 +1,4 @@
-/*********************************************************************************************
+/** *******************************************************************************************
 
     Virtual table is nothing but an array of the function pointer pointing to the functions
     present in the classes. When using virtual function access specifiers get by pass as

@@ -1,4 +1,10 @@
 /** *********************************************    Prototypes    *******************************************************
+ *
+ *  POSIX Threads       : Portable Operating System Interface.
+ *  Traditional Thread  : Single thread of control.
+ *  Modern Thread       : Multiple thread of control.
+ *  Function            : 1. To Create 2. To Manage 3. To Schedule threads.
+ *
  *          int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);
  *
  *          int pthread_join(pthread_t thread, void **retval);

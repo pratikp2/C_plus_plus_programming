@@ -1,10 +1,13 @@
-/***********************************************    Key Points    *******************************************************
+/** *********************************************    Key Points    *************************************************
 
     1) Unlike normal pointers, a function pointer points to code, not data. Typically a function pointer
        stores the start of executable code.
     2) Unlike normal pointers, we do not allocate De-allocate memory using function pointers.
 
- ************************************************************************************************************************/
+    Protoytpe   :   return_type (*fptr)(args) = &functuion_Name;
+    Invoking    :   (*fptr)(args);
+
+ ******************************************************************************************************************/
 
 #include <iostream>
 #include<math.h>

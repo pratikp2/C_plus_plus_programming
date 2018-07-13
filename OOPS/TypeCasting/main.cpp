@@ -1,4 +1,4 @@
-/****************************************** Prototypes **********************************************
+/** **************************************** Prototypes **********************************************
 
 *   Explicit Cast       :   new_type (expression)
 
@@ -15,23 +15,23 @@ using namespace std;
 
 class CastingHub
 {
-    public :
-        int a = 27;
-        int var = 8;                // Declaration and Initialize has to to done at same time for constant types.
-        const int *ptr = &var;
+public :
+    int a = 27;
+    int var = 8;                // Declaration and Initialize has to to done at same time for constant types.
+    const int *ptr = &var;
 
-        CastingHub();
-        void function1(int *ptr1){cout << "Value for the Pointer ptr is : " << *ptr << endl;}
-        void function2() const
-        {
-            (const_cast <CastingHub*> (this) ) -> a = 20;
-        }
+    CastingHub();
+    void function1(int *ptr1){cout << "Value for the Pointer ptr is : " << *ptr << endl;}
+    void function2() const
+    {
+        (const_cast <CastingHub*> (this) ) -> a = 20;
+    }
 }ObjCastingHub;
 
 class Derived : public CastingHub
 {
-    public:
-        Derived();
+public:
+    Derived();
 };
 
 class FreeCall

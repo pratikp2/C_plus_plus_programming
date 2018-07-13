@@ -1,4 +1,4 @@
-/* ****************************** Prototype ********************************************
+/** ***************************** Prototype ********************************************
 
     Declaration :   return_type(class :: *ptr_Name)(args) = &class :: FunctionName;
     Invoke      :   (ObjName.*ptr_Name)(args);
@@ -13,23 +13,23 @@ void (Explore :: *Fptr2)(void) = NULL;
 
 class Explore
 {
-    private :
-        void Function1()
-        {
-            cout << "Calling Private Function1" << endl;
-        }
+private :
+    void Function1()
+    {
+        cout << "Calling Private Function1" << endl;
+    }
 
-    public :
-        void Function2()
-        {
-            cout << "Calling Public Function2" << endl;
-        }
+public :
+    void Function2()
+    {
+        cout << "Calling Public Function2" << endl<<endl;
+    }
 
-        void Assignment()
-        {
-            Fptr1 = &Explore :: Function1;
-            Fptr2 = &Explore :: Function2;
-        }
+    void Assignment()
+    {
+        Fptr1 = &Explore :: Function1;
+        Fptr2 = &Explore :: Function2;
+    }
 };
 
 int main()
@@ -43,9 +43,9 @@ int main()
                             // Function pointer to member function.
     (ObjExplore.*Fptr2)();
 
-//   ptrExplore -> Assignment();      Fails in case of using pointer instead of object.
-//  (ptrExplore -> *Fptr1)();
-//  (ptrExplore -> *Fptr2)();
+    ptrExplore -> Assignment();
+    (ptrExplore ->*Fptr1)();
+    (ptrExplore ->*Fptr2)();
 
     return 0;
 }
