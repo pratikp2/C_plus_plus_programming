@@ -1,20 +1,18 @@
-/* *********************************************************************************************************************************************
+/** ********************************************************************************************************************************************
 *
 * The pthread_detach() function marks the thread identified by thread as detached. When a detached thread
 * terminates, its resources are automatically released back to the system without the need for another
 * thread to join with the terminated thread. Due to this there is no way to determine its return value
 * of detached thread function. pthread_detach() will return non zero value in case of error.
 *
+*   int pthread_attr_init(pthread_attr_t *attr);
+*       The function pthread_attr_init() is used to initialize object attributes to their default values.
+*       The storage is allocated by the thread system during execution.
 *
-*       int pthread_attr_init(pthread_attr_t *attr);
-*
-*  The function pthread_attr_init() is used to initialize object attributes to their default values.
-*  The storage is allocated by the thread system during execution.
-*
-*       int pthread_attr_destroy(pthread_attr_t *attr);
+*   int pthread_attr_destroy(pthread_attr_t *attr);
 *
 *
-* **********************************************************************************************************************************************/
+***********************************************************************************************************************************************/
 #include <iostream>
 #include <pthread.h>
 
@@ -77,4 +75,20 @@ int main ()
 * A detached thread cannot be joined (so you can't wait on its completion), but its resources are
 * freed automatically if it does complete.
 *
-* ********************************************************************************************************/
+* ********************************************************************************************************
+
+typedef struct
+{
+  int __detachstate;
+  int __schedpolicy;
+  struct sched_param __schedparam;
+  int __inheritsched;
+  int __scope;
+  size_t __guardsize;
+  int __stackaddr_set;
+  void *__stackaddr;
+  unsigned long int __stacksize;
+}
+pthread_attr_t;
+
+*************************************************************************************************************/
