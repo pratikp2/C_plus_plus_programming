@@ -26,9 +26,11 @@ destroyed through a pointer to the base class.
 *************************************************************************************************************************************
 ##. What is difference between Abstract Class and Interface ?
 
-An abstract class is a class that has at least a pure virtual method. You can't create instances of that class, but you can have implementation in it, that is shared with the derived classes.
+An abstract class is a class that has at least a pure virtual method. You can't create instances of that class, but you can have
+implementation in it, that is shared with the derived classes.
 
-an interface is a pure virtual class, with no implementation whatsoever.Interfaces cannot contain any data types(only functions)whereas abstract classes can contain both.
+an interface is a pure virtual class, with no implementation whatsoever.Interfaces cannot contain any data types(only functions)
+whereas abstract classes can contain both.
 
 *************************************************************************************************************************************
 ##. Can we delete this pointer ? 
@@ -46,28 +48,9 @@ That includes implicit dereferencing using the class's member variables.
 *************************************************************************************************************************************
 ##. Difference between Null char pointer and Null int pointer
 
-Null pointer is a special reserved value of a pointer. A pointer of any type has such a reserved value. Formally, each specific pointer type (int *, char * etc.) has its own dedicated null-pointer value. Conceptually, when a pointer has that null value it is not pointing anywhere.
-
-*************************************************************************************************************************************
-##. What is a STL ?  
-
-The Standard Template Library (STL) is a set of C++ template classes to provide common programming data structures and functions
-such as lists, stacks, arrays, etc. It is a library of container classes, algorithms and iterators. It is a generalized library
-and so, its components are parameterized. A working knowledge of template classes is a prerequisite  for working with STL.
-
-STL has four components
-1.Algorithms -- sort(first_iterator, last_iterator) – To sort the given vector.
-             -- reverse(first_iterator, last_iterator) – To reverse a vector.
-			 --	*max_element (first_iterator, last_iterator) – To find the maximum element of a vector.
-			 --	*min_element (first_iterator, last_iterator) – To find the minimum element of a vector.
-			 
-2.Containers -- vector, list, deque ,set, multiset, map, multimap
-
-3.Functions  -- Functors are objects that can be treated as though they are a function or function pointer. Functors are most commonly
-				used along with STLs.
-			 -- eg transform() in STL
-			 
-4.Iterators  -- 1.begin() 2.end() 3.advance() 4.prev() 5.next() 
+Null pointer is a special reserved value of a pointer. A pointer of any type has such a reserved value. Formally, each specific pointer
+type (int *, char * etc.) has its own dedicated null-pointer value. Conceptually, when a pointer has that null value it is not pointing
+anywhere.
 
 *************************************************************************************************************************************
 ##.Class:
@@ -84,9 +67,24 @@ Structure
 --The member variable of structure can not be initialized directly.
 
 *************************************************************************************************************************************
+##. STORAGE CALSSES
+
+	STORAGE CALSSES		KEYWORD 	LIFETIME 			VISIBILITY 		INITIAL VALUE
+	
+	Automatic 			auto 		Function Block 		Local 			Garbage
+	External 			extern 		Whole Program 		Global 			Zero
+	Static 				static 		Whole Program 		Local 			Zero
+	Register 			register 	Function Block 		Local 			Garbage
+	Mutable 			mutable 	Class 				Local 			Garbage
+
+*************************************************************************************************************************************
  ## why to make Object Volatile ?
 
-The volatile keyword is intended to prevent the compiler from applying any optimizations on objects that can change in ways that cannot be determined by the compiler.Objects declared as volatile are omitted from optimization because their values can be changed by code outside the scope of current code at any time. The system always reads the current value of a volatile object from the memory location rather than keeping its value in temporary register at the point it is requested, even if a previous instruction asked for a value from the same object.
+The volatile keyword is intended to prevent the compiler from applying any optimizations on objects that can change in ways that
+cannot be determined by the compiler.Objects declared as volatile are omitted from optimization because their values can be 
+changed by code outside the scope of current code at any time. The system always reads the current value of a volatile object from
+the memory location rather than keeping its value in temporary register at the point it is requested, even if a previous instruction
+asked for a value from the same object.
 
 --Global variables modified by an interrupt service routine outside the scope(Geeks for Geeks)
 --Global variables within a multi-threaded application
@@ -94,48 +92,23 @@ The volatile keyword is intended to prevent the compiler from applying any optim
 *************************************************************************************************************************************
 ## why to make function Volatile ?
 
-volatile qualifier states that the member should be used with a volatile object(when used a volatile function all the member variables will become volatile as well), that can be useful if you have a set of functions which are thread-safe, and another set which is not.
-So you can design your class so that the thread-safe functions decleared with volatile qualifier, and if you want an object of that class to be manipulated with threads or processes you will declear it as volatile
+volatile qualifier states that the member should be used with a volatile object(when used a volatile function all the member variables
+will become volatile as well), that can be useful if you have a set of functions which are thread-safe, and another set which is not.
+So you can design your class so that the thread-safe functions decleared with volatile qualifier, and if you want an object of that
+class to be manipulated with threads or processes you will declear it as volatile.
 
 *************************************************************************************************************************************
-## what is a shared library ?
+##. new Vs malloc();
 
-A shared library is a file containing object code that several a.out files may use simultaneously while executing. When a program is link edited with a shared library, the library code that defines the program's external references is not copied into the program's object file. Instead, a special section called .lib that identifies the library code is created in the object file. When the UNIX system executes the resulting a.out file, it uses the information in this section to bring the required shared library code into the address space of the process.
-
-*************************************************************************************************************************************
-##. What is a core dump ? 
-
-In computing, a core dump, memory dump, or system dump consists of the recorded state of the working memory of a computer program at a specific time, generally when the program has crashed or otherwise terminated abnormally.
-
-*************************************************************************************************************************************
-##. What is Segmentation Fault ?
-
-Core Dump/Segmentation fault is a specific kind of error caused by accessing memory that “does not belong to you.”
-When a piece of code tries to do read and write operation in a read only location in memory or freed block of memory, it is known as core dump.It is an error indicating memory corruption.
-
-*************************************************************************************************************************************
-## What is fpic in linux ? 
-
-The f is the gcc prefix for options that "control the interface conventions used in code generation" The PIC stands for "Position Independent Code", it is a specialization of the fpic for m68K and SPARC.
-
-Position Independent Code means that the generated machine code is not dependent on being located at a specific address in order to work.
-E.g. jumps would be generated as relative rather than absolute.
-
-Pseudo-assembly:
-
-PIC: This would work whether the code was at address 100 or 1000
-
-100: COMPARE REG1, REG2
-101: JUMP_IF_EQUAL CURRENT+10
-...
-111: NOP
-
-Non-PIC: This will only work if the code is at address 100
-
-100: COMPARE REG1, REG2
-101: JUMP_IF_EQUAL 111
-...
-111: NOP
+	new 									malloc
+	
+	calls constructor 						doesnot calls constructors
+	It is an operator 						It is a function
+	Returns exact data type 				Returns void *
+	on failure, Throws 	On failure, 		returns NULL
+	Memory allocated from free store 		Memory allocated from heap
+	can be overridden 						cannot be overridden
+	size is calculated by compiler 			size is calculated manually			<---- new and free or malloc and delete
 
 *************************************************************************************************************************************
 -## What difference between 0 , NULL and \0 ? 
