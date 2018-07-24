@@ -60,4 +60,8 @@ Dassault Systems : (7th July 2018)
 	-- Puzzles	: - Three boxes one contains red balls ,one contains blue and one contains both,labels are not correct.
 				  - 12 socks 6 black and 6 black mixed all togehter in dark room.
 				  - An and at a corner of a cube.
-				  - Certain amount of persons in room how many shake hands.	
+				  - Certain amount of persons in room how many shake hands.
+
+Capgemini : (14 July 2018)
+Mind Tree : (21 July 2018)
+Robert Bosch : (24 July 2018)	

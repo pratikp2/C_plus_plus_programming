@@ -1,3 +1,4 @@
+-- Exception Handling (rethrow)
 -- String class
 -- Data Structure (Queue Stack searching sorting scheduling rest)
 -- STLs
