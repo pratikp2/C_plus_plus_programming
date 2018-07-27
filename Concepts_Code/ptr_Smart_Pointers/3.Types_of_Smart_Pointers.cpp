@@ -8,6 +8,7 @@
  *      --This class template is deprecated as of C++11. unique_ptr is a new facility with a similar
  *        functionality, but with improved security.
  *
+ *
  *      2. unique_ptr   :   auto_ptr<DataType> ptrName(new DataType)
  *      --std::unique_ptr was developed in C++11 as a replacement for std::auto_ptr.
  *      --added features (deleters) and support for arrays.
@@ -18,7 +19,14 @@
  *        unique_ptr<A> ptr2 = ptr1;        // Error: can't copy unique_ptr
  *
  *
+ *        3. shared_ptr   :   shared_ptr<DataType> ptrName(new DataType)
+ *      -- It is a reference counting ownership model i.e. it maintains the reference count of its
+ *         contained pointer in cooperation with all copies of the shared_ptr.
+ *      -- Reference Counting: It is a technique of storing the number of references, pointers or handles
+ *         to a resource such as an object, block of memory, disk space or other resources.
+ *
  *********************************************************************************************************/
+
 #include <iostream>
 #include<memory>
 using namespace std;
