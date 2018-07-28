@@ -133,7 +133,6 @@ void link_list :: insetNodeAtEnd()
     temp -> link = NULL;
     holder -> link = temp;
     displayLinkList();
-
 }
 
 void link_list :: insetNodeAtposition()

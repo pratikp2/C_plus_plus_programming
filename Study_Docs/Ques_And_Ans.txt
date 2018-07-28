@@ -69,13 +69,13 @@ Structure
 *************************************************************************************************************************************
 ##. STORAGE CALSSES
 
-	STORAGE CALSSES		KEYWORD 	LIFETIME 			VISIBILITY 		INITIAL VALUE
+        STORAGE CALSSES		KEYWORD 	LIFETIME 		VISIBILITY 		INITIAL VALUE
 	
-	Automatic 			auto 		Function Block 		Local 			Garbage
-	External 			extern 		Whole Program 		Global 			Zero
-	Static 				static 		Whole Program 		Local 			Zero
-	Register 			register 	Function Block 		Local 			Garbage
-	Mutable 			mutable 	Class 				Local 			Garbage
+        Automatic 		auto 		Function Block 		Local 			Garbage
+        External 		extern 		Whole Program 		Global 			Zero
+        Static 			static 		Whole Program 		Local 			Zero
+        Register 		register 	Function Block 		Local 			Garbage
+        Mutable 		mutable 	Class 			Local 			Garbage
 
 *************************************************************************************************************************************
  ## why to make Object Volatile ?
@@ -104,15 +104,15 @@ class to be manipulated with threads or processes you will declear it as volatil
 	
 	calls constructor 						doesnot calls constructors
 	It is an operator 						It is a function
-	Returns exact data type 				Returns void *
-	on failure, Throws 	On failure, 		returns NULL
-	Memory allocated from free store 		Memory allocated from heap
+        Returns exact data type                                         Returns void *
+        on failure, Throws 	On failure,                             returns NULL
+        Memory allocated from free store                                Memory allocated from heap
 	can be overridden 						cannot be overridden
-	size is calculated by compiler 			size is calculated manually			<---- new and free or malloc and delete
+        size is calculated by compiler                                  size is calculated manually			<---- new and free or malloc and delete
 
 *************************************************************************************************************************************
 -## What difference between 0 , NULL and \0 ? 
--
+
 -0 - Integer constant for representing ZERO.
 -0. - Double constant to represent ZERO.
 -‘\0’ - Character constant to represent NULL (nochar)
