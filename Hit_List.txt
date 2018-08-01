@@ -1,4 +1,5 @@
 -- Explicit Keyword.
+-- Overloading of (),new,*,->
 -- Exception Handling (rethrow)
 -- String class
 -- Data Structure (Queue Stack searching sorting scheduling rest)

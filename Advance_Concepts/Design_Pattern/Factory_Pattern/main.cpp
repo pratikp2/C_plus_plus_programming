@@ -1,27 +1,29 @@
-/***********************************************    Key Points    *******************************************************
-
-    1) "Factory Class" has static method to handover the "Data" to Client class.
-    2) "Client Class" can ask for the "Data" via function (In this Case via Constructor Directly)
-    3) "Data" required by the classes may change (In the case enum and Wheeler Classes) , but the Contract between
-       "Factory and Client classes" remains unchanged (static method in factory class).
-    4) https://www.geeksforgeeks.org/design-patterns-set-2-factory-method/
-
+/** *********************************************      IDEA of Factory Pattern     *************************************
+*
+*   1) The idea is to use a static member-function (static factory method) which creates & returns instances, hiding the
+*      details of class modules from user.
+*   2) A factory pattern is one of the core design principles to create an object, allowing clients to create objects
+*      of a library in a way such that "it doesn’t have tight coupling with the class hierarchy of the library".
+*   3) "Data" required by the classes may change (In the case enum and Wheeler Classes) , but the Contract between
+*       Factory class and client class remains same.
+*
 ************************************************************************************************************************/
 
 #include <iostream>
 using namespace std;
 
 enum VehicleType
- {
-   TwoWheelar = 0,
-   ThreeWheelar,
-   FourWheelar
- };
-class Vehicle
 {
-    public :
-        virtual void print()= 0;
-        static Vehicle* create(VehicleType type);
+    TwoWheelar = 0,
+    ThreeWheelar,
+    FourWheelar
+};
+
+class Vehicle   // Factory Class
+{
+public :
+    virtual void print()= 0;
+    static Vehicle* create(VehicleType type);
 };
 
 class Class_TwoWheelar : public Vehicle
@@ -55,26 +57,26 @@ Vehicle * Vehicle :: create(VehicleType type)
     }
 }
 
-class Client
+class Client    // Client Class
 {
-    public :
-        Client()
+public :
+    Client()
+    {
+        VehicleType type = TwoWheelar;
+        pVehicle = Vehicle :: create(type);
+    }
+    Vehicle * getVehicle(){return pVehicle;}
+    ~Client()
+    {
+        if(pVehicle)
         {
-            VehicleType type = TwoWheelar;
-            pVehicle = Vehicle :: create(type);
+            delete pVehicle;
+            pVehicle = NULL;
         }
-        Vehicle * getVehicle(){return pVehicle;}
-        ~Client()
-        {
-            if(pVehicle)
-            {
-                delete pVehicle;
-                pVehicle = NULL;
-            }
-        }
+    }
 
-    private :
-        Vehicle *pVehicle;
+private :
+    Vehicle *pVehicle;
 
 };
 int main()
