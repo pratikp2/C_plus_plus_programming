@@ -1,0 +1,22 @@
+**************************************************************************************************************************************************
+## What is QObject Class in Qt ?
+
+The QObject class is the base class of all Qt objects. Let's us use the object communication using signal ans slots. QObjects organize themselves
+in object trees. When you create a QObject with another object as parent, the object will automatically add itself to the parent's children() 
+list. The parent takes ownership of the object; i.e., it will automatically delete its children in its destructor. You can look for an object by
+name and optionally type using findChild() or findChildren().
+
+**************************************************************************************************************************************************
+## What ia moc Meta Object Compailer ?
+
+The Meta-Object Compiler, moc, is the program that handles Qt's C++ extensions. The moc tool reads a C++ header file. If it finds one or more
+class declarations that contain the Q_OBJECT macro, it produces a C++ source file containing the meta-object code for those classes. Among other
+things, meta-object code is required for the signals and slots mechanism, the run-time type information, and the dynamic property system.
+
+**************************************************************************************************************************************************
+## What is QObject ?
+
+The Q_OBJECT macro must appear in the private section of a class definition that declares its own signals and slots or that uses other services
+provided by Qt's meta-object system. we need to define this macro to use signal and slot, and probably for other purposes (meta-object related) as well.
+
+**************************************************************************************************************************************************
