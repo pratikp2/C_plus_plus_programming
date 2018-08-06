@@ -9,25 +9,25 @@
 #!/usr/bin/env python
 print('\n')
 
-Dictionary = {"apple": "green","banana": "yellow","cherry": "red"}  
-print "1. Dictionary = ", Dictionary
+Dictionary = {"apple": "green","banana": "yellow","cherry": "red"}
+print ("1. Dictionary = ", Dictionary)
 
 Dictionary["apple"] = "red"
-print "2. Dictionary = ", Dictionary
+print ("2. Dictionary = ", Dictionary)
 
 ## It is possible to update the dictionary by adding new index
-Dictionary["guava"] = "green"		
-print "3. Dictionary = ", Dictionary
+Dictionary["guava"] = "green"
+print ("3. Dictionary = ", Dictionary)
 
 ## As well as deleting is done using del() function
 del(Dictionary["guava"])
-print "4. Dictionary = ", Dictionary
+print ("4. Dictionary = ", Dictionary)
 
-## dict() is constructor for Dictionary can be invoked for instantiation 
+## dict() is constructor for Dictionary can be invoked for instantiation
 Dictionary_2 = dict(apple="green", banana="yellow", cherry="red")
-print "5. Dictionary_2 = ", Dictionary_2
+print ("5. Dictionary_2 = ", Dictionary_2)
 
 ## To Print Length of the Dictionary len() function is used
-print "Length of Dictionart_2 is : ", len(Dictionary_2)
+print ("Length of Dictionart_2 is : ", len(Dictionary_2))
 
 print('\n')

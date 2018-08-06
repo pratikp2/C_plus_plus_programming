@@ -18,7 +18,7 @@ class Singleton
 
     private :
         static Singleton* objInstance;
-        Singleton(){};
+        Singleton(){}
 };
 
 Singleton* Singleton :: objInstance = NULL;
@@ -45,9 +45,11 @@ Singleton* Singleton :: releaseInstance()
 int main ()
 {
     Singleton * One = Singleton :: getInstance();
+    cout << "Address for pointer One is : " << &One <<endl;     // Can be implemented using Smatr pointers
     cout << "Address for object One is : " << One <<endl;
 
     Singleton * Two = Singleton :: getInstance();
+    cout << "Address for pointer Two is : " << &Two <<endl;
     cout << "Address for object Two is : " << Two <<endl<<endl;
 
 
