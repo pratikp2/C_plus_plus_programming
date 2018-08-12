@@ -1,0 +1,6 @@
+-- Keyword final
+-- Keyword override
+-- Automatic type deduction
+-- lvaue and rvalue Reference
+-- move Semantics and Move Constructor
+-- unique, shared and weak pointer (Smart Poointer) Improvement over auto pointer.

@@ -44,7 +44,7 @@
 #include<memory>
 using namespace std;
 
-class SmartPointers
+class AliasDataType
 {
 
 };
@@ -71,30 +71,30 @@ int main()
 {
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
-    auto_ptr<SmartPointers> ptr(new SmartPointers);
+    auto_ptr<AliasDataType> ptr(new AliasDataType);
     cout << "Address Of the First auto_ptr  :    " << ptr.get() << endl; // gives address of the pointer.
 
-    auto_ptr<SmartPointers> ptr1(ptr);
+    auto_ptr<AliasDataType> ptr1(ptr);
     cout << "Address Of the Second auto_ptr :    " << ptr1.get() << endl;
     cout << "Address Of the First auto_ptr after second auto_ptr is created :    " << ptr.get() << endl;
     cout << endl<<endl;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
-    unique_ptr<SmartPointers> ptr3(new SmartPointers);
+    unique_ptr<AliasDataType> ptr3(new AliasDataType);
     cout << "Address Of the First unique_ptr  :    " << ptr3.get() << endl; // gives address of the pointer.
 
-    unique_ptr<SmartPointers> ptr4 = move(ptr3);
+    unique_ptr<AliasDataType> ptr4 = move(ptr3);
     cout << "Address Of the Second unique_ptr :    " << ptr4.get() << endl;
     cout << "Address Of the First unique_ptr after second unique_ptr is created :    " << ptr3.get() << endl;
     cout << endl<<endl;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
-    shared_ptr<SmartPointers> ptr5(new SmartPointers);
+    shared_ptr<AliasDataType> ptr5(new AliasDataType);
     cout << "Address Of the First shared_ptr  :    " << ptr5.get() << endl; // gives address of the pointer.
 
-    shared_ptr<SmartPointers> ptr6(ptr5);
+    shared_ptr<AliasDataType> ptr6(ptr5);
     cout << "Address Of the Second shared_ptr :    " << ptr6.get() << endl;
     cout << "Address Of the First shared_ptr after second shared_ptr is created :    " << ptr5.get() << endl;
 

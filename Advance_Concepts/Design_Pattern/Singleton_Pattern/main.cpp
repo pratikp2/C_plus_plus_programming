@@ -52,7 +52,6 @@ int main ()
     cout << "Address for pointer Two is : " << &Two <<endl;
     cout << "Address for object Two is : " << Two <<endl<<endl;
 
-
     One = Singleton :: releaseInstance();
     cout << "Address for object One After releasing Instance is : " << One <<endl;
 
