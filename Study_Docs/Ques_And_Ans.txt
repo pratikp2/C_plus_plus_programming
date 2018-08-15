@@ -111,11 +111,14 @@ class to be manipulated with threads or processes you will declear it as volatil
         size is calculated by compiler                                  size is calculated manually			<---- new and free or malloc and delete
 
 *************************************************************************************************************************************
--## What difference between 0 , NULL and \0 ? 
+## What difference between 0 , NULL and \0 ? 
 
 -0 - Integer constant for representing ZERO.
 -0. - Double constant to represent ZERO.
 -‘\0’ - Character constant to represent NULL (nochar)
 -NULL - Macro to represent NULL pointer (May be expanded to ((void*)0) )
 -nullptr - C++ keyword to represent NULL pointer.
--*************************************************************************************************************************************
+*************************************************************************************************************************************
+## what is ASCII ?
+
+

@@ -11,33 +11,33 @@ Facility::Facility(const char *s,long an, double bl)
 void Facility :: deposit(double amt)
 {
     if (amt < 0)
-        {
-            cout << "Transaction Cancelled"<<endl;
-            cout << "Negative amount can't br Deposited"<<endl;
-        }
+    {
+        cout << "Transaction Cancelled"<<endl;
+        cout << "Negative amount can't br Deposited"<<endl;
+    }
     else
-        {
-            accbalance = accbalance + amt;
-        }
+    {
+        accbalance = accbalance + amt;
+    }
 }
 
 
 void Facility :: withdraw(double amt)
 {
     if (amt < 0)
-        {
-            cout << "Transaction Cancelled"<<endl;
-            cout << "Negative amount can't be withdrawn"<<endl;
-        }
+    {
+        cout << "Transaction Cancelled"<<endl;
+        cout << "Negative amount can't be withdrawn"<<endl;
+    }
     else if(accbalance < amt)
-            {
-                cout << "Transaction Cancelled"<<endl;
-                cout << "Amount requested for withdrawl is more than account balance"<<endl;
-            }
-        else
-            {
-                accbalance = accbalance - amt;
-            }
+    {
+        cout << "Transaction Cancelled"<<endl;
+        cout << "Amount requested for withdrawl is more than account balance"<<endl;
+    }
+    else
+    {
+        accbalance = accbalance - amt;
+    }
 }
 
 
@@ -57,9 +57,9 @@ void Facility :: viewacct() const
 AddFacility ::AddFacility(const char *s,long an,double bl,double ml,double r)
     :Facility(s,an,bl)
 {
-   maxLoan = ml;
-   rate = r;
-   owesBank = 0.0;
+    maxLoan = ml;
+    rate = r;
+    owesBank = 0.0;
 }
 
 AddFacility :: AddFacility(const Facility & af,double ml,double r)
@@ -83,21 +83,21 @@ void AddFacility :: withdraw(double amt)
 {
     double bal = balance();
     if (amt <= bal)
-        {
-            Facility::withdraw(amt);
-        }
+    {
+        Facility::withdraw(amt);
+    }
     else if ( amt <= bal + maxLoan - owesBank)
-            {
-                double advance = amt - bal;
-                owesBank += advance * (1.0 + rate);
-                cout << "Bank advance: $" << advance << endl;
-                cout << "Finance charge: $" << advance * rate << endl;
-                Facility :: deposit(advance);
-                Facility :: withdraw(amt);
-            }
-        else
-            {
-                cout << "Credit limit exceeded. Transaction cancelled.\n";
-            }
+    {
+        double advance = amt - bal;
+        owesBank += advance * (1.0 + rate);
+        cout << "Bank advance: $" << advance << endl;
+        cout << "Finance charge: $" << advance * rate << endl;
+        Facility :: deposit(advance);
+        Facility :: withdraw(amt);
+    }
+    else
+    {
+        cout << "Credit limit exceeded. Transaction cancelled.\n";
+    }
 
 }

@@ -11,7 +11,7 @@ void Worker :: set()
 
     while(cin.get() != "\n")
         continue;
- }
+}
 
 void Worker :: show() const
 {
