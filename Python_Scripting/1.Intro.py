@@ -5,8 +5,14 @@ print ("\n")
 print ('Hello')					#  word	# works with ''," " and """ """
 print ("Hello World : From python")		#  sentense
 print ("""Hello world from Python.
-this is made of multiple lines.""")		#  paragraph : Follows exact paragraph oriemtation given in """ """
+this is made of multiple lines.""")		#  paragraph : Follows exact paragraph orientation given in """ """
 print ("\n")
+
+## Input Functions
+First_Name = raw_input("Input your first name :  ")
+Last_Name = raw_input("Enter Your last name :  ")
+print ("Hello, Entered name is " + First_Name + " " + Last_Name)
+
 
 ## Identifiers (Type : Variables) ##	# Numbers : 1.integer 2.long 3.float 4.complex
 var1 = var2 = var3 = 100		# Integer assignment 	OR var1,var2,var3 = 100, 200, 300
