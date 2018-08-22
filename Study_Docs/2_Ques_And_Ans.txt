@@ -69,13 +69,13 @@ Structure
 *************************************************************************************************************************************
 ##. STORAGE CALSSES
 
-        STORAGE CALSSES		KEYWORD 	LIFETIME 		VISIBILITY 		INITIAL VALUE
+STORAGE CALSSES		KEYWORD 	LIFETIME			VISIBILITY 		INITIAL VALUE
 	
-        Automatic 		auto 		Function Block 		Local 			Garbage
-        External 		extern 		Whole Program 		Global 			Zero
-        Static 			static 		Whole Program 		Local 			Zero
-        Register 		register 	Function Block 		Local 			Garbage
-        Mutable 		mutable 	Class 			Local 			Garbage
+Automatic			auto 		Function Block 		Local 			Garbage
+External			extern 		Whole Program 		Global 			Zero
+Static				static 		Whole Program 		Local 			Zero
+Register			register 	Function Block 		Local 			Garbage
+Mutable				mutable 	Class 				Local 			Garbage
 
 *************************************************************************************************************************************
  ## why to make Object Volatile ?
@@ -102,15 +102,16 @@ class to be manipulated with threads or processes you will declear it as volatil
 
 	new 									malloc
 	
-	calls constructor 						doesnot calls constructors
-	It is an operator 						It is a function
-        Returns exact data type                                         Returns void *
-        on failure, Throws 	On failure,                             returns NULL
-        Memory allocated from free store                                Memory allocated from heap
-	can be overridden 						cannot be overridden
-        size is calculated by compiler                                  size is calculated manually			<---- new and free or malloc and delete
+calls constructor						doesnot calls constructors
+It is an operator						It is a function
+Returns exact data type					Returns void *
+on failure, Throws 	On failure,			returns NULL
+Memory allocated from free store		Memory allocated from heap
+can be overridden						cannot be overridden
+size is calculated by compiler			size is calculated manually			<---- new and free or malloc and delete
 
 *************************************************************************************************************************************
+
 ## What difference between 0 , NULL and \0 ? 
 
 -0 - Integer constant for representing ZERO.
@@ -119,6 +120,41 @@ class to be manipulated with threads or processes you will declear it as volatil
 -NULL - Macro to represent NULL pointer (May be expanded to ((void*)0) )
 -nullptr - C++ keyword to represent NULL pointer.
 *************************************************************************************************************************************
+Compilation : 
+
+1.Preprocessing	:	cc -E hello_world.cpp
+
+The first stage of compilation is called preprocessing. In this stage, lines starting with a # character are interpreted by the 
+preprocessor as preprocessor commands. These commands form a simple macro language with its own syntax and semantics. This language
+is used to reduce repetition in source code by providing functionality to inline files, define macros, and to conditionally omit code.
+
+2.Compailation :	cc -S hello_world.cpp
+
+In this stage, the preprocessed code is translated to assembly instructions specific to the target processor architecture. These
+form an intermediate human readable language. The existence of this step allows for C code to contain inline assembly instructions
+and for different assemblers to be used.
+
+3. Assembly	   :	cc -c hello_world.cpp
+
+During this stage, an assembler is used to translate the assembly instructions to object code. The output consists of actual
+instructions to be run by the target processor.
+
+4. Linking	   :	cc -o hello_world hello_world.c
+
+The object code generated in the assembly stage is composed of machine instructions that the processor understands but some pieces
+of the program are out of order or missing. To produce an executable program, the existing pieces have to be rearranged and the 
+missing ones filled in. This process is called linking. The linker will arrange the pieces of object code so that functions in 
+some pieces can successfully call functions in other ones. It will also add pieces containing the instructions for library functions
+used by the program.
+*************************************************************************************************************************************
+
+Executable files: 
+These are files consisting mostly driver logic or self contained code that can be run directly.
+
+Libraries: 
+These are files that contain reusable code that can be invoked by another library or an executable.
+*************************************************************************************************************************************
+
 ## what is ASCII ?
 
 
