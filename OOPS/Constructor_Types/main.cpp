@@ -9,9 +9,9 @@ class ConstructorTypes
     public :
         //int x,y;
         ConstructorTypes();// 1.Default Constructor
-        ConstructorTypes(int var);// 2.Parameterized Constructor
-        ConstructorTypes(const ConstructorTypes&);// 3.Copy Constructor
-        ConstructorTypes(ConstructorTypes&&);// 4.Move Constructor.
+        ConstructorTypes(int var);// 2.Parameterized Constructor // 3.Conversion Constructor
+        ConstructorTypes(const ConstructorTypes&);// 4.Copy Constructor
+        ConstructorTypes(ConstructorTypes&&);// 5.Move Constructor.
         ConstructorTypes& operator = (const ConstructorTypes &obj);// Assignment Operator
         ~ConstructorTypes();// Destructor
 
@@ -28,7 +28,7 @@ ConstructorTypes :: ConstructorTypes()
 
 ConstructorTypes :: ConstructorTypes(int size)
 {
-    cout << "Invoking Parameterized Constructor." << endl;
+    cout << "Invoking Parameterized Constructor and Conversion Constructor." << endl;
     this -> size = size;
     arr_ptr = new double [size];
 }
@@ -65,6 +65,15 @@ ConstructorTypes :: ~ConstructorTypes()
 ConstructorTypes& ConstructorTypes :: operator = (const ConstructorTypes &obj)
 {
     cout << "Invoking Assignment Operator" << endl;
+    this -> size = obj.size;
+    this->arr_ptr = new double [this->size];
+}
+
+ConstructorTypes& ConstructorTypes :: operator = (int var)
+{
+    cout << "Invoking Assignment Operator for Conversion Constructor" << endl;
+    this -> size = var;
+    this->arr_ptr = new double [this->size];
 }
 
 ConstructorTypes ConstructorTypes :: GiveObjectCopy(ConstructorTypes obj)
@@ -87,16 +96,19 @@ int main ()
   ConstructorTypes obj2(10);                                 // 2.Parameterized Constructor
 
   cout <<endl<<endl<< "3.";
-  ConstructorTypes obj3 = obj1;                              // 3.Copy Constructor
+  ConstructorTypes obj4 = 2;                                 // 3.Conversion Constructor
+
+  cout <<endl<<endl<< "3.";
+  ConstructorTypes obj3 = obj1;                              // 4.Copy Constructor
 
   cout <<endl<<endl<< "4.";
-  obj3.ProcessObjectCopy(obj3.GiveObjectCopy(obj3));         // 4.Move Constructor and Copy Constructor
+  obj3.ProcessObjectCopy(obj3.GiveObjectCopy(obj3));         // 5.Move Constructor and Copy Constructor
 
   cout <<endl<<endl<< "5.";
-  obj3.ProcessObjectCopy(move(obj3));                        // 5. Move Constructor
+  obj3.ProcessObjectCopy(move(obj3));                        // 6.Move Constructor
 
   cout <<endl<<endl<< "6.";
-  obj1 = obj2;                                               // 6. Assignment Operator
+  obj1 = obj2;                                               // Assignment Operator
 
   return 0;
 }

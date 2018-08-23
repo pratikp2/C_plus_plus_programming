@@ -111,7 +111,6 @@ can be overridden						cannot be overridden
 size is calculated by compiler			size is calculated manually			<---- new and free or malloc and delete
 
 *************************************************************************************************************************************
-
 ## What difference between 0 , NULL and \0 ? 
 
 -0 - Integer constant for representing ZERO.
@@ -120,7 +119,12 @@ size is calculated by compiler			size is calculated manually			<---- new and fre
 -NULL - Macro to represent NULL pointer (May be expanded to ((void*)0) )
 -nullptr - C++ keyword to represent NULL pointer.
 *************************************************************************************************************************************
-Compilation : 
+## Properties of main function :
+
+-- Can use alias
+-- Can be recursive.
+*************************************************************************************************************************************
+## Compilation :
 
 1.Preprocessing	:	cc -E hello_world.cpp
 
@@ -148,13 +152,37 @@ some pieces can successfully call functions in other ones. It will also add piec
 used by the program.
 *************************************************************************************************************************************
 
+## Libraries and Executables.
+
 Executable files: 
 These are files consisting mostly driver logic or self contained code that can be run directly.
 
 Libraries: 
 These are files that contain reusable code that can be invoked by another library or an executable.
+
+A static library(.a) OR (.lib):
+a library that can be linked directly into the final executable produced by the linker,it is contained in the executable it self
+and hence there is no need to have the library into the system where the executable will be deployed. Library has to be present in
+compile time for static linking.
+
+A shared library(.so):
+a library that is linked but not embedded in the final executable, so will be loaded when the executable is launched and need to
+be present in the system where the executable is deployed.
+
+A dynamic link library on windows(.dll)
+is like a shared library(.so) on linux but there are some differences between the two implementations that are related to the OS
+(Windows vs Linux) :
+A DLL can define two kinds of functions: exported and internal. The exported functions are intended to be called by other modules,
+as well as from within the DLL where they are defined. Internal functions are typically intended to be called only from within the
+DLL where they are defined.
+An SO library on Linux doesn't need special export statement to indicate exportable symbols, since all symbols are available to an
+interrogating process.
+
+The dlopen(3) function opens a library and prepares it for use. In C its prototype is:   void * dlopen(const char *filename, int flag);
+
+The dlsym() function shall search for the named symbol in all objects loaded automatically as a result of loading the object
+referenced by handle (see dlopen()). Load ordering is used in dlsym() operations upon the global symbol object. The symbol resolution
+algorithm used shall be dependency order as described in dlopen(). :    void *dlsym(void *restrict handle, const char *restrict name);
 *************************************************************************************************************************************
 
-## what is ASCII ?
-
-
+## what is ASCII and Unicode?
