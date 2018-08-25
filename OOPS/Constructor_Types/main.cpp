@@ -8,12 +8,15 @@ class ConstructorTypes
         double * arr_ptr;
     public :
         //int x,y;
-        ConstructorTypes();// 1.Default Constructor
-        ConstructorTypes(int var);// 2.Parameterized Constructor // 3.Conversion Constructor
-        ConstructorTypes(const ConstructorTypes&);// 4.Copy Constructor
-        ConstructorTypes(ConstructorTypes&&);// 5.Move Constructor.
+        ConstructorTypes();                                 // 1.Default Constructor
+        ConstructorTypes(int var1,int var2);                // 2.Parameterized Constructor
+        ConstructorTypes(int var);                          // 3.Conversion Constructor
+        explicit ConstructorTypes(char val);                // 4.Explicit Constructor
+        ConstructorTypes(const ConstructorTypes&);          // 5.Copy Constructor
+        ConstructorTypes(ConstructorTypes&&);               // 6.Move Constructor.
         ConstructorTypes& operator = (const ConstructorTypes &obj);// Assignment Operator
-        ~ConstructorTypes();// Destructor
+        ~ConstructorTypes();                                // Destructor
+
 
         ConstructorTypes GiveObjectCopy(ConstructorTypes obj);
         void ProcessObjectCopy(ConstructorTypes obj);
@@ -28,9 +31,23 @@ ConstructorTypes :: ConstructorTypes()
 
 ConstructorTypes :: ConstructorTypes(int size)
 {
-    cout << "Invoking Parameterized Constructor and Conversion Constructor." << endl;
+    cout << "Invoking Parameterized Constructor as a Conversion Constructor." << endl;
     this -> size = size;
-    arr_ptr = new double [size];
+    arr_ptr = new double [this->size];
+}
+
+ConstructorTypes :: ConstructorTypes(int size1, int size2)
+{
+    cout << "Invoking Parameterized Constructor." << endl;
+    this -> size = (size1+size2);
+    this -> arr_ptr = new double [this->size];
+}
+
+ConstructorTypes :: ConstructorTypes(char size)
+{
+    cout << "Invoking Parameterized Constructor as Explicit Constructor." << endl;
+    if (size == 'A') this -> size = 10;
+    this -> arr_ptr = new double [this->size];
 }
 
  ConstructorTypes :: ConstructorTypes(const ConstructorTypes& obj)
@@ -39,7 +56,8 @@ ConstructorTypes :: ConstructorTypes(int size)
 
     this -> size = obj.size;
     this -> arr_ptr = new double [size];
-    for (int i=0; i<=size; i++)
+
+    for (int i=0; i<size; i++)
     {
         this -> arr_ptr[i] = obj.arr_ptr[i];    // Making Expensive Deep Copy.
     }
@@ -65,15 +83,6 @@ ConstructorTypes :: ~ConstructorTypes()
 ConstructorTypes& ConstructorTypes :: operator = (const ConstructorTypes &obj)
 {
     cout << "Invoking Assignment Operator" << endl;
-    this -> size = obj.size;
-    this->arr_ptr = new double [this->size];
-}
-
-ConstructorTypes& ConstructorTypes :: operator = (int var)
-{
-    cout << "Invoking Assignment Operator for Conversion Constructor" << endl;
-    this -> size = var;
-    this->arr_ptr = new double [this->size];
 }
 
 ConstructorTypes ConstructorTypes :: GiveObjectCopy(ConstructorTypes obj)
@@ -89,35 +98,48 @@ void ConstructorTypes :: ProcessObjectCopy(ConstructorTypes obj)
 
 int main ()
 {
-  cout <<endl<< "1.";
-  ConstructorTypes obj1;                                     // 1.Default Constructor
+  cout <<endl<< "1. ";
+  ConstructorTypes obj1;                                        // 1. Default Constructor
 
-  cout <<endl<<endl<< "2.";
-  ConstructorTypes obj2(10);                                 // 2.Parameterized Constructor
+  cout <<endl<<endl<< "2. ";
+  ConstructorTypes obj2(5,5);                                   // 2. Parameterized Constructor
 
-  cout <<endl<<endl<< "3.";
-  ConstructorTypes obj4 = 2;                                 // 3.Conversion Constructor
+  cout <<endl<<endl<< "3. ";
+  ConstructorTypes obj3 = 10;                                   // 3. Conversion Constructor
 
-  cout <<endl<<endl<< "3.";
-  ConstructorTypes obj3 = obj1;                              // 4.Copy Constructor
+  cout <<endl<<endl<< "4. ";
+  ConstructorTypes obj4('A');                                   // 4. Explicit Constructor
+  //ConstructorTypes obj4 = 'A';
 
-  cout <<endl<<endl<< "4.";
-  obj3.ProcessObjectCopy(obj3.GiveObjectCopy(obj3));         // 5.Move Constructor and Copy Constructor
+  cout <<endl<<endl<< "5. ";
+  ConstructorTypes obj5 = obj1;                                 // 5. Copy Constructor
 
-  cout <<endl<<endl<< "5.";
-  obj3.ProcessObjectCopy(move(obj3));                        // 6.Move Constructor
+  cout <<endl<<endl<< "6. ";
+  obj5.ProcessObjectCopy(move(obj5));                           // 6. Move Constructor
 
-  cout <<endl<<endl<< "6.";
-  obj1 = obj2;                                               // Assignment Operator
+  cout <<endl<<endl<< "7. ";
+  obj3.ProcessObjectCopy(obj3.GiveObjectCopy(obj3));            // 6. Move Constructor and Copy Constructor
+
+  cout <<endl<<endl<< "8. ";
+  obj1 = obj2;                                                  // 7. Assignment Operator
 
   return 0;
 }
 
 // 1. Default Constructor.
-// when providing a parameterize constructor or copy constructor the make sure to provide definition for default
+// When providing a parameterize constructor or copy constructor the make sure to provide definition for default
 // constructor if object is being created using a default constructor (Code Line : ConstructorTypes obj1).
 
-// 5. Move Constructor.
+// 3. Conversion Constructor
+// Invoked when user tries to assign a simple data type to an object whose pararameterized constructor takes same argument
+// as that simple data type
+
+// 4. Explicit Constructor
+// Declared to restrict the explicit type conversion from and simple data type to an object, i.e, if someone tries to invoke
+// the conversion constructor using explit type conversion and that constructor is declared explicit then compiler will throw
+// an error like in code line "ConstructorTypes obj4 = 'A';". This is done to avoid errros due to improper initilizations.
+
+// 6. Move Constructor.
 // Deep copy is Expensive operation mainly used to avoid dangling pointer condition. Some times deep copy can cause
 // more CPU and time usage when heavy memory operations are involved.
 

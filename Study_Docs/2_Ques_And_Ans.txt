@@ -69,13 +69,13 @@ Structure
 *************************************************************************************************************************************
 ##. STORAGE CALSSES
 
-STORAGE CALSSES		KEYWORD 	LIFETIME			VISIBILITY 		INITIAL VALUE
+STORAGE CALSSES		KEYWORD 	LIFETIME		VISIBILITY 		INITIAL VALUE
 	
-Automatic			auto 		Function Block 		Local 			Garbage
-External			extern 		Whole Program 		Global 			Zero
-Static				static 		Whole Program 		Local 			Zero
-Register			register 	Function Block 		Local 			Garbage
-Mutable				mutable 	Class 				Local 			Garbage
+Automatic		auto 		Function Block 		Local 			Garbage
+External		extern 		Whole Program 		Global 			Zero
+Static			static 		Whole Program 		Local 			Zero
+Register		register 	Function Block 		Local 			Garbage
+Mutable			mutable 	Class 			Local 			Garbage
 
 *************************************************************************************************************************************
  ## why to make Object Volatile ?
@@ -100,14 +100,14 @@ class to be manipulated with threads or processes you will declear it as volatil
 *************************************************************************************************************************************
 ##. new Vs malloc();
 
-	new 									malloc
+        new 						malloc
 	
-calls constructor						doesnot calls constructors
-It is an operator						It is a function
-Returns exact data type					Returns void *
-on failure, Throws 	On failure,			returns NULL
+calls constructor				doesnot calls constructors
+It is an operator				It is a function
+Returns exact data type				Returns void *
+on failure, Throws exception                    On failure,returns NULL
 Memory allocated from free store		Memory allocated from heap
-can be overridden						cannot be overridden
+can be overridden				cannot be overridden
 size is calculated by compiler			size is calculated manually			<---- new and free or malloc and delete
 
 *************************************************************************************************************************************
@@ -184,5 +184,3 @@ The dlsym() function shall search for the named symbol in all objects loaded aut
 referenced by handle (see dlopen()). Load ordering is used in dlsym() operations upon the global symbol object. The symbol resolution
 algorithm used shall be dependency order as described in dlopen(). :    void *dlsym(void *restrict handle, const char *restrict name);
 *************************************************************************************************************************************
-
-## what is ASCII and Unicode?

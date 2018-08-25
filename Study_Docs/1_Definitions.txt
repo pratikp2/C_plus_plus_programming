@@ -39,7 +39,8 @@ The capability of a class to derive properties and characteristics from its base
 *************************************************************************************************************************************
 ## Association
 
-Association is a relationship where all objects have their own lifecycle and there is no owner.
+Association is a relationship where all objects have their own lifecycle and there is no owner.one-to-one, one-to-many, many-to-one,
+many-to-many all these words define an association between objects.
 Let's take an example of Teacher and Student. Multiple students can associate with single teacher and single student can associate
 with multiple teachers, but there is no ownership between the objects and both have their own lifecycle. Both can be created and
 deleted independently.
@@ -81,15 +82,6 @@ STL has four components
 			 -- eg transform() in STL
 			 
 4.Iterators  -- 1.begin() 2.end() 3.advance() 4.prev() 5.next() 
-
-*************************************************************************************************************************************
-## what is a shared library ?
-
-A shared library is a file containing object code that several a.out files may use simultaneously while executing. When a program is
-link edited with a shared library, the library code that defines the program's external references is not copied into the program's
-object file. Instead, a special section called .lib that identifies the library code is created in the object file. When the UNIX
-system executes the resulting a.out file, it uses the information in this section to bring the required shared library code into
-the address space of the process.
 
 *************************************************************************************************************************************
 ##. What is a core dump ? 
