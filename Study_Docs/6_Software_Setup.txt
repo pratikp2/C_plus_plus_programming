@@ -1,0 +1,55 @@
+*************************************************************************************************************************************
+## gitconfig Setup
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Pratik Patil
+	email = pppratikpatil723@gmail.com
+
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	ds = diff --staged
+	lg = log -p
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+	ls = ls-files
+	unstage = reset HEAD
+	# Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
+
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    tool = meld
+
+[diff]	
+	tool = Meld
+	
+[difftool]
+	prompt = false
+*************************************************************************************************************************************
+## Environment Variables
+
+C:\Coding_Software\Notepad++
+C:\Coding_Software\Meld\meld
+C:\Coding_Software\CMake\bin\
+C:\Coding_Software\Qt\Tools\QtCreator\bin	
+C:\Coding_Software\Qt\Tools\mingw530_32\bin
+*************************************************************************************************************************************
+## Header files for qt
+
+C:\Coding_Software\Qt\Tools\mingw530_32\i686-w64-mingw32\include
+C:\Coding_Software\Qt\Tools\mingw530_32\i686-w64-mingw32\include\c++
+
+C:\Coding_Software\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\5.1.0\include\c++
+C:\Coding_Software\TDM-GCC-64\lib\gcc\x86_64-w64-mingw32\5.1.0\include
+*************************************************************************************************************************************
+## Hide qt Clang warnings
+Options > Text Editor > Display > Annotation next to line.

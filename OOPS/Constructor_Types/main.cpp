@@ -17,7 +17,6 @@ class ConstructorTypes
         ConstructorTypes& operator = (const ConstructorTypes &obj);// Assignment Operator
         ~ConstructorTypes();                                // Destructor
 
-
         ConstructorTypes GiveObjectCopy(ConstructorTypes obj);
         void ProcessObjectCopy(ConstructorTypes obj);
 };
