@@ -1,12 +1,16 @@
 #include "storagehelper.h"
-int Variable = 100;
+int Variable;
+extern void write_extern();
+
 
 int main ()
 {
     auto int var1 = 10;     //OR int var1 = 10;     // OR auto vatr1 = 10;
     register int var2 = 20;
     StorageHelper ObjStorageHelper;
-    extern int Variable;
+
+    Variable = 5;
+    write_extern();
     return 0;
 }
 

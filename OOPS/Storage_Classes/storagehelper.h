@@ -3,6 +3,7 @@
 #include<iostream>
 #include<pthread.h>
 using namespace std;
+extern int count;
 
 class StorageHelper
 {
