@@ -1,4 +1,40 @@
 *************************************************************************************************************************************
+
+Advantages of C++ :
+    Object oriented
+    Portable language (writing a program irrespective of operating system as well as Hardware)
+    Low-level language like Assembly language on Machine language called portable.
+    It is useful for the low-level programming language and very efficient for general purpose.
+    C++ provide performance and memory efficiency.
+    It provides a high-level abstraction.
+    In the language of the problem domain.
+    C++ is compatible with  C.
+    C++ used reusability of code.
+    C++ used inheritance, polymorphism.
+    C++ use multi-paradigm programming. The Paradigm means the style of programming .paradigm concerned about logics, structure,
+    and procedure of the program. C++ is multi-paradigm means it follows three paradigm Generic, Imperative, Object Oriented.
+
+Portability :
+
+    Portability allows developing program irrespective of hardware
+    It allows moving the program development for one platform to another platform
+    C compatible (COMP): Programs developed in ‘C’ language can be moved without any modifications into C++
+    Which language having low-level features
+    C++ is an object oriented embedded language which is having the characteristics of low-level language & which is also developing
+    the embedded software.
+
+Disadvantages :
+
+    It has no security
+    Complex in a very large high-level program.
+    Used for platform specific application commonly.
+    For a particular operating system or platform, the library set has usually chosen that locks.
+    When C++ used for web applications complex and difficult to debug.
+    C++ can’t support garbage collection.
+    C++ is not secure because it has a pointer, friend function, and global variable.
+    No support for threads built in.
+
+*************************************************************************************************************************************
 ## . What is the purpose of the each access specifier ?
 
 There are 3 access specifiers for a class/struct/Union in C++. These access specifiers define how the members of the class can be
@@ -20,7 +56,7 @@ well.
 ##. Can constructor and destructor be virtual ? 
 
 To build an object the constructor must be of the same type as the object and because of this a constructor cannot be a virtual function.
-But the same thing does not apply to destructors. ... You would use a virtual destructor if you ever expect a derived class to be
+But the same thing does not apply to destructor . ... You would use a virtual destructor if you ever expect a derived class to be
 destroyed through a pointer to the base class.
  
 *************************************************************************************************************************************
@@ -124,6 +160,21 @@ size is calculated by compiler			size is calculated manually			<---- new and fre
 -- Can use alias
 -- Can be recursive.
 *************************************************************************************************************************************
+## Mutex Vs Semaphore
+
+Semaphore :
+A semaphore restricts the number of simultaneous users of a shared resource up to a maximum number. Threads can request access to the
+resource (decrementing the semaphore), and can signal that they have finished using the resource (incrementing the semaphore).
+
+Mutex :
+Mutexes are typically used to serialise access to a section of re-entrant code that cannot be executed concurrently by more than one
+thread. A mutex object only allows one thread into a controlled section, forcing other threads which attempt to gain access to that
+section to wait until the first thread has exited from that section
+
+There is an ambiguity between binary semaphore and mutex. We might have come across that a mutex is binary semaphore. But they are not.
+A mutex is locking mechanism and Semaphore is signaling mechanism.
+*************************************************************************************************************************************
+
 ## Compilation :
 
 1.Preprocessing	:	cc -E hello_world.cpp
