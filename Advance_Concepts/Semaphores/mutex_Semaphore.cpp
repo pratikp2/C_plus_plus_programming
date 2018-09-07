@@ -1,36 +1,36 @@
-/** **************************************************************************************************
- * Once semaphore is initiliaze it can not be or shoulden't be accessed directly, only via two atomic
- * operations : 1) wait 2)signal
+/** ************************************************  Prototype ***************************************************************
  *
- * To solve critical section problem
- * To decide order of the execution among processes.
- * Resource Management
- ****************************************************************************************************/
+*       sem_init(sem_t *sem, int pshared, unsigned int value);
+*               sem :   Specifies the semaphore to be initialized.
+*               value : Specifies the value to assign to the newly initialized semaphore.
+*               pshared : This argument specifies whether or not the newly initialized semaphore is shared between processes or
+*                   between threads. A non-zero value means the semaphore is shared between processes and a value of zero means
+*                    it is shared between threads.
+*
+*       int sem_wait(sem_t *sem);
+*
+*       int sem_post(sem_t *sem);
+*
+*       sem_destoy(sem_t *mutex);
+*
+ ******************************************************************************************************************************/
 
-#include <stdio.h>
+#include <iostream>
 #include <pthread.h>
+#include <semaphore.h>
+#include <unistd.h>
+using namespace std;
 
-typedef int Semaphore;
-Semaphore S = 1;
-
-unsigned int thread_status;
-void signal() {S = S+1;}
-
-void wait()
-{
-    while(S<=0) {printf("Wait Called : %d \n",S);};
-    S = S-1;
-}
+sem_t mutex;
 
 void * functionSynchCheck(void * identifier)
 {
-    wait();
+    sem_wait(&mutex);
     char* id = (char*)identifier;
-    printf("Called routine for thread id : %s \n",id);
-    for (unsigned int i=0; i<1000; i++) {i++;}
-    printf("\n");
-    printf("Routine successfully exited for thread id : %s \n",id);
-    signal();
+    cout << "Called routine for thread id : " << id << endl;
+    sleep(4);
+    cout << "Routine successfully exited for thread id : " << id<< endl;
+    sem_post(&mutex);
     pthread_exit(NULL);
 }
 
@@ -39,20 +39,20 @@ int main()
     int errorCode;
     pthread_t tid1,tid2;
     char one = '1',two = '2';
+    sem_init(&mutex,0,1);
 
     errorCode = pthread_create(&tid1,NULL,functionSynchCheck,(void*)&one);
-    if (errorCode){printf("Thread Createation failed with id %d \n",tid1);}
-    else {printf("Thread Created Successfully with id %d \n",tid1);}
+    if (errorCode){ cout << "Thread Createation failed with id : " << tid1 << endl;}
+    else {cout << "Thread Created Successfully with id : " << tid1 << endl;}
 
+    sleep(2);
     errorCode = pthread_create(&tid2,NULL,functionSynchCheck,(void*)&two);
-    if (errorCode){printf("Thread Createation failed with id %d \n",tid2);}
-    else {printf("Thread Created Successfully with id %d \n",tid2);}
+    if (errorCode){cout << "Thread Createation failed with id : " << tid2 << endl;}
+    else {cout << "Thread Created Successfully with id : " << tid2 << endl;}
 
     errorCode = pthread_join(tid1,NULL);
     errorCode = pthread_join(tid2,NULL);
+    sem_destroy(&mutex);
     return 0;
 }
 
-// The C++ standard does not define a semaphore type. You can write your own with an atomic counter, a mutex
-// and a condition variable if you need, but most uses of semaphores are better replaced with mutexes and/or
-// condition variables anyway
