@@ -1,16 +1,20 @@
 #include "storagehelper.h"
-int Variable;
-extern void write_extern();
+
+int count;
+extern int write_extern();
 
 
 int main ()
 {
     auto int var1 = 10;     //OR int var1 = 10;     // OR auto vatr1 = 10;
     register int var2 = 20;
-    StorageHelper ObjStorageHelper;
+    count = 5;
 
-    Variable = 5;
-    write_extern();
+
+    cout << "Value for auto VAR 1       :  " << var1 << endl;
+    cout << "Value for register VAR 2   :  " << var2 << endl;
+    cout << "Value for extern VAR 3     :  " << write_extern() << endl;
+
     return 0;
 }
 
@@ -25,5 +29,5 @@ int main ()
 // than that of the variables stored in the memory during the runtime of the program. If a free register is
 // not available, these are then stored in the memory only.
 
-// Compile with "g++ .\storagehelper.cpp .\1.auto_register_extern.cpp"
+// Compile with "g++ .\storagehelper.cpp .\1.auto_register_extern.cpp"      // no need to include header file in command
 // Compile with "g++ storagehelper.cpp 1.auto_register_extern.cpp"

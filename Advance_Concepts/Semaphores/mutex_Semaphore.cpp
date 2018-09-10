@@ -1,5 +1,5 @@
 /** ************************************************  Prototype ***************************************************************
- *
+*
 *       sem_init(sem_t *sem, int pshared, unsigned int value);
 *               sem :   Specifies the semaphore to be initialized.
 *               value : Specifies the value to assign to the newly initialized semaphore.

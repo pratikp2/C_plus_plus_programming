@@ -33,7 +33,7 @@ int main()
     const Explore ObjExplore;
     ObjExplore.display();
     ObjExplore.changeVal();         // Changing via member function
-    ObjExplore.Val2 = 200;          // Changing via object otside class
+    ObjExplore.Val2 = 200;          // Changing via object outside class
     ObjExplore.display();
 
     Explore ObjExplore2;
