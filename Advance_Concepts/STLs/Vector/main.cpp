@@ -25,42 +25,46 @@
  *****************************************************************************************************************/
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
+
+bool isOdd (int i)
+{
+    return i%2;
+}
 
 int main()
 {
     int i;
-    vector<int> vec,vec1;
+    vector<int> vec;
     vector<int> :: iterator Itr = vec.begin();
-    vector<int> :: iterator Itr1 = vec1.begin();
-    vector<int> :: reverse_iterator rItr = vec1.rbegin();
+    vector<int> :: reverse_iterator rItr = vec.rbegin();
 
     for(i=0; i<10; i++)
     {
         vec.push_back(i);
     }
 
-    for(i=10; i<20; i++)
-    {
-        vec1.push_back(i);
-    }
     cout << "vector size = " << vec.size() << endl;             //  Current size of the vector.
     cout << "Capacity : " << vec.capacity() <<endl;             //  Total Elements Present in the vector
     cout << "Max_Size : " << vec.max_size()<<endl<<endl;        //  This is the maximum potential size the container can reach.
 
-    for(Itr=vec.begin(); Itr!=vec.end(); ++Itr)
+    for(Itr=vec.begin(); Itr!=vec.end(); Itr++)
     {
-        cout << "value of vec [" << *Itr << "] = " << vec[*Itr] << endl;
+        cout << "Value of vec [" << *Itr << "] = " << vec[*Itr] << endl;
+    }
+    cout << endl;
+
+    for(rItr=vec.rbegin(); rItr!=vec.rend(); rItr++)
+    {
+        cout << "Value of reverse vec [" << *rItr << "] = " << vec[*rItr] << endl;
     }
 
-    for(Itr1=vec1.begin(); Itr1!=vec1.end(); ++Itr1)
-    {
-        cout << "value of vec [" << *Itr1 << "] = " << vec[*Itr1] << endl;
-    }
+    Itr = find_if (vec.begin(), vec.end(), isOdd);
 
-    for(rItr=vec1.rbegin(); rItr!=vec1.rend(); ++Itr1)
-    {
-        cout << "value of vec [" << *rItr << "] = " << vec[*rItr] << endl;
-    }
+
     return 0;
+
+
 }
