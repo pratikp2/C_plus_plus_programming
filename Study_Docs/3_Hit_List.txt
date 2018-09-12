@@ -16,6 +16,7 @@ GNU.
 -- Data Structure (Queue Stack searching sorting scheduling rest)
 -- STLs
 -- Casting
+-- puts gets
 -- composition aggregation realization.
 -- function reference 
 -- git document

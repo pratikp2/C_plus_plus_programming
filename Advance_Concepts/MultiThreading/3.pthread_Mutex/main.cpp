@@ -55,7 +55,7 @@ int main()
  * Study race Condition
  * Synchronization Bugs
 
-Various Pthreads manual pages, for example: pthread_attr_init(3), pthread_atfork(3), pthread_cancel(3), pthread_cleanup_push(3),
+Various Pthreads manual pages, for example: pthread_atfork(3), pthread_cancel(3), pthread_cleanup_push(3),
 pthread_cond_signal(3), pthread_cond_wait(3), pthread_equal(3),pthread_key_create(3), pthread_kill(3), pthread_once(3),
 pthread_setcancelstate(3),pthread_setcanceltype(3), pthread_setspecific(3), pthread_sigmask(3), pthread_sigqueue(3),
 and pthread_testcancel(3)

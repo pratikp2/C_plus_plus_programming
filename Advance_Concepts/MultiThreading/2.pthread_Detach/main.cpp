@@ -11,6 +11,18 @@
 *
 *   int pthread_attr_destroy(pthread_attr_t *attr);
 *
+*   struct pthread_attr_t
+*   {
+*       unsigned p_state;
+*       void *stack;
+*       size_t s_size;
+*       struct sched_param param;
+*   };
+*
+*   struct sched_param
+*   {
+*     int sched_priority;
+*   };
 *
 ***********************************************************************************************************************************************/
 #include <iostream>
@@ -55,40 +67,20 @@ int main ()
     return 0;
 }
 
-/* *******************************************************************************************************
-*
-* Output can change on your system because both main and thread function are running in parallel.
-* If main function exits then all other threads will be exited. Hence If main process exits 1st,
-* output for child thread will not shown.
-*
-*Why to Detach Thread:
-* pthread_join does two things:
-*
-* 1.Wait for the thread to finish.
-* 2.Clean up any resources associated with the thread.
-*
-* If you exit the process without joining, then (2) will be done for you by the OS (although it won't
-* do thread cancellation cleanup, just nuke the thread from orbit), and (1) will not. So whether you
-* need to call pthread_join depends whether you need (1) to happen.
-*
-* If you don't need the thread to run, then as everyone else is saying you may as well detach it.
-* A detached thread cannot be joined (so you can't wait on its completion), but its resources are
-* freed automatically if it does complete.
-*
-* ********************************************************************************************************
-
-typedef struct
-{
-  int __detachstate;
-  int __schedpolicy;
-  struct sched_param __schedparam;
-  int __inheritsched;
-  int __scope;
-  size_t __guardsize;
-  int __stackaddr_set;
-  void *__stackaddr;
-  unsigned long int __stacksize;
-}
-pthread_attr_t;
-
-*************************************************************************************************************/
+//  Output can change on your system because both main and thread function are running in parallel.
+//  If main function exits then all other threads will be exited. Hence If main process exits 1st,
+//  output for child thread will not shown.
+//
+// Why to Detach Thread:
+//  pthread_join does two things:
+//
+//  1.Wait for the thread to finish.
+//  2.Clean up any resources associated with the thread.
+//
+//  If you exit the process without joining, then (2) will be done for you by the OS (although it won't
+//  do thread cancellation cleanup, just nuke the thread from orbit), and (1) will not. So whether you
+//  need to call pthread_join depends whether you need (1) to happen.
+//
+//  If you don't need the thread to run, then as everyone else is saying you may as well detach it.
+//  A detached thread cannot be joined (so you can't wait on its completion), but its resources are
+//  freed automatically if it does complete.
