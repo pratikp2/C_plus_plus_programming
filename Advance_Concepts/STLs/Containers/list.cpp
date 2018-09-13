@@ -4,6 +4,49 @@ using namespace std;
 
 int main()
 {
+    list <int> NumberList {11,22,33,50,45,22,45};
+    list <int> :: iterator Itr = NumberList.begin();
+
+    cout << "Initial List       :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr)
+    {
+        cout <<*Itr << " ";
+    }
+    cout << endl;
+    NumberList.push_front(00);
+    NumberList.push_back(32);
+    NumberList.push_front(23);
+
+    cout << "After Inserting    :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr){cout << *Itr << " ";}
+    cout << endl;
+
+    NumberList.sort();
+    cout << "After Sorting      :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr){cout << *Itr << " ";}
+    cout << endl;
+
+    NumberList.pop_front();
+    NumberList.pop_back();
+    cout << "After poping       :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr){cout << *Itr << " ";}
+    cout << endl;
+
+    NumberList.reverse();
+    cout << "After reversing    :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr){cout << *Itr << " ";}
+    cout << endl;
+
+    NumberList.remove(45);
+    cout << "After removing     :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr){cout << *Itr << " ";}
+    cout << endl;
+
+    NumberList.clear();
+    cout << "After clearing     :   ";
+    for(Itr=NumberList.begin(); Itr!=NumberList.end(); ++Itr){cout << *Itr << " ";}
+    cout << endl;
+
     return 0;
 }
 
