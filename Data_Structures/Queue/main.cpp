@@ -10,8 +10,8 @@ struct Node
 class Queue
 {
 private:
-    bool isEmpty() {return m_nodeCounter == 0;};
-    bool isFull() {return m_nodeCounter == m_size;};
+    bool isEmpty() {return m_nodeCounter == 0;}
+    bool isFull() {return m_nodeCounter == m_size;}
     const int m_size;
     int m_nodeCounter;
     struct Node * m_start;
@@ -44,7 +44,9 @@ int main()
         switch(choice)
         {
         case 1:
-            cout << "Adding a number in the Queue " << endl;
+            cout << "Adding a number in the Queue, Please Enter a Number :  ";
+            cin >> data;
+            cout << data<<endl;
             objQueue.enQueue(data);
             break;
 
@@ -78,10 +80,10 @@ void Queue :: enQueue(int data)
     if(!isFull())
     {
         struct Node *temp = new (struct Node);
+        temp->link = NULL;
         if(isEmpty())
         {
-            temp->link = NULL;
-            temp = m_start;
+            m_start = temp;
         }
         else
         {
@@ -90,9 +92,12 @@ void Queue :: enQueue(int data)
             {
                 holder = holder->link;
             }
-            temp = holder->link;
+            holder->link = temp;
         }
-        temp -> data = data;
+        cout << "Queue Hit : temp = data" << endl;
+        cout << temp->data << " " << data << endl;
+        temp->data = data;
+        cout << "Queue Hit : counter++ " << endl;
         m_nodeCounter++;
     }
     else
@@ -105,7 +110,19 @@ void Queue :: deQueue()
 {
     if(!isEmpty())
     {
-
+        struct Node * temp = m_start;
+        if(m_nodeCounter == 1)
+        {
+            delete m_start;
+            m_start = NULL;
+        }
+        else
+        {
+            m_start = m_start->link;
+            delete temp;
+            temp = NULL;
+        }
+        m_nodeCounter--;
     }
     else
     {
@@ -115,6 +132,11 @@ void Queue :: deQueue()
 
 void Queue :: Display()
 {
-
+    struct Node * temp = m_start;
+    while(temp->link != NULL)
+    {
+        cout << temp->data << " " << endl;
+    }
+    cout << endl;
 }
 
