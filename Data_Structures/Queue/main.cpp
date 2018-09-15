@@ -1,3 +1,21 @@
+/** ****************************************  Types of Queue  ********************************************
+ *  1. Simple Queue :
+ *      Simple queue defines the simple operation of queue in which insertion occurs at the rear of the
+ *      list and deletion occurs at the front of the list.
+ *
+ *  2.Circular Queue:
+ *      In a circular queue, all nodes are treated as circular. Last node is connected back to the first
+ *      node.
+ *
+ *  3.Priority Queue:
+ *      Priority queue contains data items which have some preset priority. While removing an element from a
+ *      priority queue, the data item with the highest priority is removed first.
+ *
+ *  4.Dequeue (Double Ended Queue):
+ *      In Double Ended Queue, insert and delete operation can be occur at both ends that is front and
+ *      rear of the queue. Enque and Dequeue operations are present for both Front and rear.
+ *********************************************************************************************************/
+
 # include <iostream>
 using namespace std;
 
@@ -44,25 +62,25 @@ int main()
         switch(choice)
         {
         case 1:
-            cout << "Adding a number in the Queue, Please Enter a Number :  ";
+            cout << "Adding a number in the Queue, Please Enter a Number    :  ";
             cin >> data;
             cout << data<<endl;
             objQueue.enQueue(data);
             break;
 
         case 2:
-            cout << "Removing a Number from the Queue" << endl;
+            cout << "Removing a Number from the Queue   :" << endl;
             objQueue.deQueue();
             break;
 
         case 3:
-            cout << "Displaying Queue" << endl;
+            cout << "Displaying Queue   :" << endl << endl;
             objQueue.Display();
             break;
 
         case 4:
         default:
-            cout << "Exiting" << endl;
+            cout << "Exiting..." << endl;
             break;
         }
     }
@@ -94,15 +112,12 @@ void Queue :: enQueue(int data)
             }
             holder->link = temp;
         }
-        cout << "Queue Hit : temp = data" << endl;
-        cout << temp->data << " " << data << endl;
         temp->data = data;
-        cout << "Queue Hit : counter++ " << endl;
         m_nodeCounter++;
     }
     else
     {
-        cout << "Queue is Full" << endl;
+        cout << "Queue is Full....!" << endl;
     }
 }
 
@@ -133,10 +148,20 @@ void Queue :: deQueue()
 void Queue :: Display()
 {
     struct Node * temp = m_start;
-    while(temp->link != NULL)
+    cout << "#######################################################"<<endl<<"#"<<endl;
+    cout <<"#";
+    if (!isEmpty())
     {
-        cout << temp->data << " " << endl;
+        while(temp != NULL)
+        {
+            cout << " [" << temp -> data << "] ";
+            temp = temp->link;
+        }
     }
-    cout << endl;
-}
+    else
+    {
+        cout << "   QUEUE is Empyt...! Please Add Numbers.";
+    }
+    cout << endl<<"#"<<endl;
+    cout << "#######################################################"<<endl;}
 
