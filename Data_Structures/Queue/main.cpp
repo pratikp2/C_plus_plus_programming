@@ -1,21 +1,3 @@
-/** ****************************************  Types of Queue  ********************************************
- *  1. Simple Queue :
- *      Simple queue defines the simple operation of queue in which insertion occurs at the rear of the
- *      list and deletion occurs at the front of the list.
- *
- *  2.Circular Queue:
- *      In a circular queue, all nodes are treated as circular. Last node is connected back to the first
- *      node.
- *
- *  3.Priority Queue:
- *      Priority queue contains data items which have some preset priority. While removing an element from a
- *      priority queue, the data item with the highest priority is removed first.
- *
- *  4.Dequeue (Double Ended Queue):
- *      In Double Ended Queue, insert and delete operation can be occur at both ends that is front and
- *      rear of the queue. Enque and Dequeue operations are present for both Front and rear.
- *********************************************************************************************************/
-
 # include <iostream>
 using namespace std;
 
