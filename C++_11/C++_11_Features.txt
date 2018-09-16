@@ -1,6 +1,9 @@
--- Keyword final
--- Keyword override
+Features Added in C++ 11 :
+
+-- Keyword final, override
 -- Automatic type deduction
 -- lvaue and rvalue Reference
--- move Semantics and Move Constructor
+-- move Semantics and move constructor
+-- storage classes volatile and mutable
 -- unique, shared and weak pointer (Smart Poointer) Improvement over auto pointer.
+-- unordered set and multiset

@@ -4,8 +4,9 @@ using namespace std;
 # define MAX_SIZE 20
 int binarySearch(int arr[], int data, int lb, int ub)
 {
+    cout << "Traces || Data : " << data << ", Updated Lower Bound : " << lb << ",Updated Upper Bound : " << ub << endl;
     int mid;
-    mid = 1+(ub-1)/2;
+    mid = lb + (ub-lb)/2;
 
     if(arr[mid] == data) return mid;
     else if (arr[mid]>data) return binarySearch(arr,data,lb,mid-1);

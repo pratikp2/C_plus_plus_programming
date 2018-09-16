@@ -18,7 +18,9 @@
  *  10. It can store duplicate entries as well as order of element is not sorted
  *  11. Rest of the operations are similar to the Set.
  *
- * Unordered Set has been included in c++ 11 hence use -std=c++11 flag while compilation.
+ *  -- Key difference between Vector and unordered set is that elements in vector can be moified,
+ *     whereas for unordered set its not possible.
+ *  -- Unordered Set has been included in c++ 11 hence use -std=c++11 flag while compilation.
 ** ********************************************************************************************************/
 #include <iostream>
 #include <set>
