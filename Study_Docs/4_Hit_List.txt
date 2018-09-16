@@ -13,14 +13,13 @@ GNU.
 -- unary operator Overloading Overloading of (),new,*,->
 -- Exception Handling (rethrow)
 -- String class : compare,find,string :: npos, substr, escape character,
--- Data Structure (Queue Stack searching sorting scheduling rest)
--- STLs
+-- Data Structure (Queue searching sorting scheduling rest)
+-- STLs (Multimap)
 -- Casting
 -- puts gets
 -- composition aggregation realization.
 -- function reference 
 -- git document
--- Storage Classes 
 -- placement new
 -- D-Bus
 -- Conditional Variables
