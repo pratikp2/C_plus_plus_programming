@@ -18,7 +18,7 @@ int main ()
     index = linearSearch(arr,data);
 
     if(index != -1) {cout << "Entered No. found at Location " << index+1 << endl;}
-    else {cout << "Entered No. not Found" << endl;
-    }
+    else {cout << "Entered No. not Found" << endl;}
+
     return 0;
 }

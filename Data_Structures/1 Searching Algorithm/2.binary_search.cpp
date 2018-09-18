@@ -23,7 +23,7 @@ int main ()
     index = binarySearch(arr,data,0,(MAX_SIZE-1));
 
     if(index != -1) {cout << "Entered No. found at Location " << index+1 << endl;}
-    else {cout << "Given Data not Found" << endl;
-    }
+    else {cout << "Given Data not Found" << endl;}
+
     return 0;
 }
