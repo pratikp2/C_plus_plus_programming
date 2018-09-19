@@ -18,7 +18,7 @@ int Waiting_Time[NumberOfProcesses];
 int TurnAround_Time[NumberOfProcesses];
 int Processed_Burst_Time[NumberOfProcesses];
 
-void processPriority(int Priority[],int Burst_Time[])
+void processPriority(int Priority[],int Burst_Time[],int Process[])
 {
     for(int i=0; i<NumberOfProcesses; i++)
     {
@@ -27,6 +27,7 @@ void processPriority(int Priority[],int Burst_Time[])
             if(i+1 == Priority[j])
             {
                 Processed_Burst_Time[i] = Burst_Time[j];
+                Process[i] = j+1;
             }
         }
         cout <<endl;
@@ -65,7 +66,7 @@ int main()
     int Burst_Time[NumberOfProcesses] = {21,3,6,2};
     int Priority[NumberOfProcesses] = {2,1,4,3};
 
-    processPriority(Priority,Burst_Time);
+    processPriority(Priority,Burst_Time,Processes);
     findWaitingTime();
     findTurnAroundTime();
     findAverageTime();
@@ -73,7 +74,7 @@ int main()
     cout << "Process    "<< "Priority   "<< "Burst Time    " << "Processed Burst Time      "<< "Waiting Time      " << "Turn Around Time" <<endl <<endl;
     for(int i=0; i<NumberOfProcesses; i++)
     {
-        cout << "   " <<1+i << "\t      " <<Priority[i] << "\t          "<< Burst_Time[i] << "\t\t  "<< Processed_Burst_Time[i] << "\t\t\t  " << Waiting_Time[i] << "\t\t  " << TurnAround_Time[i] << endl;
+        cout << "   " <<Processes[i] << "\t      " <<Priority[i] << "\t          "<< Burst_Time[i] << "\t\t  "<< Processed_Burst_Time[i] << "\t\t\t  " << Waiting_Time[i] << "\t\t  " << TurnAround_Time[i] << endl;
     }
 
     cout <<"Average Waiting Time is     : "<< (float)AvgWaitTime/(float)NumberOfProcesses <<endl;
