@@ -6,7 +6,7 @@ int main()
     int temp,i,j,index = 7;
     int sort_arr[index] = {1,23,41,5,14,20,33};
 
-    for(i=0; i<index; i++)
+    for(i=0; i<index-1; i++)
     {
         for(j=0; j<index-i-1; j++)
         {
