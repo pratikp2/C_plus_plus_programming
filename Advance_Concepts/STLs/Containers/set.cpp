@@ -1,10 +1,10 @@
 /** ********************************************************************************************************
  *  SET :
  *  1. Set is a types of associative container where each element is unique.
- *  2. No data member can be modified (read only type of container) but nwe value can be added or deleted.
+ *  2. No data member can be modified (read only type of container) but new value can be added or deleted.
  *  3. All the numeric data is sorted in the set and alphanumeric data is sorted via dictionary order.
  *  4. If a value already exists into set and added again then it is excluded
- *  5. The data in the set is stored in the forn of tree, hence it is soterd automatically and can't be modified.
+ *  5. The data in the set is stored in the form of tree, hence it is soterd automatically and can't be modified.
  *
  *  MULTISET :
  *  6. To have duplicate entried multiset can be used.

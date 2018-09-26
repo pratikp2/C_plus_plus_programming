@@ -1,31 +1,28 @@
-                                   // SELECTION SORT //
+// SELECTION SORT //
 # include<iostream>
 using namespace std;
 
 int main()
 {
-    int temp,i,j,index = 7,minindex;
+    int key,i,j,index = 7;
     int sort_arr[index] = {1,23,41,5,14,20,33};
 
-    for(i=0; i<index; i++)
+    for(i=1; i<index; i++)
     {
-        minindex = i;
-        for(j=i+1; j<index; j++)
+        key = sort_arr[i];
+        j = i-1;
+        while (j>=0 && key<sort_arr[j])
         {
-            if (sort_arr[j] < sort_arr[minindex])
-            {
-                minindex = j;
-            }
+            sort_arr[j+1] = sort_arr[j];
+            j = j-1;
         }
-    temp = sort_arr[i];
-    sort_arr[i] = sort_arr[minindex];
-    sort_arr[minindex] = temp;
+        sort_arr[j+1] = key;
     }
 
-    cout << "Sorted sequence using Selection Sort : ";
+    cout << endl <<"Sorted sequence using Selection Sort : ";
     for (i=0; i<index; i++)
     { cout << sort_arr[i] << " ";}
-    cout << endl;
+    cout << endl <<  endl;
 
     return 0;
 }
