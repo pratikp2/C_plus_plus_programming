@@ -11,7 +11,6 @@ CLIENT			------>					Connect			------->		Send/Recieve
 *************************************************************************************************************************************
 
 UDP (User Datagram Protocol)    :
-
     -- Small Packet Size (Header is of 8 bytes)
     -- UDP is connectionless (No need to establish connection before sending data)
     -- When UDP detects corruption in data segment it may or may not try to correct the corruption in data segment.(But turns a warning
@@ -21,8 +20,8 @@ UDP (User Datagram Protocol)    :
     -- No Congestion Control (UDP will cram the data in to busy network irrespective of the availability of the bandwidht.)
     -- Checksum is included for the IPv6 teansmission.
 
-TCP (Transmission Control Protocol) :
 
+TCP (Transmission Control Protocol) :
     -- Large packet size (Header is of 20 bytes)
     -- Connection Oriented (Need to establish connection with three way hand shaking method.)
         1. Sender sendes a requrest to establish the connection
