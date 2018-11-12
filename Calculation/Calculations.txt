@@ -2,7 +2,7 @@ AUG :
 
 Total Dues			44560			Total Dues			40950			
 Min Dues			 3778			Min Dues			 2047
-Payzap G			20475			Payzap G			40950			
+Payzap G			20475			Payzap G			40950	=	61425		
 My Usage			24185			My Usage				0
 
 Paid By Me			8428 + 2050 = 10478
@@ -10,11 +10,23 @@ MY Remaining Amt	24185 - 10478 = 13707
 -----------------------------------------
 SEP :	
 
-Total Dues			55053			
-Min Dues			 3778
-Payzap G			20475			
-My Usage			24185
+Total Dues			55053			Total Dues			41265			
+Min Dues			 3778			Min Dues			 2755
+Payzap G			7333+6150		Payzap G			 2365	=	61425 + 13483 + 2365 =	77273	
+My Usage			 5439			My Usage				0
 
+Paid By Me			3778 + 2800 = 6578
+MY Remaining Amt	13707 + 5439 - 6578 = 12568
+-----------------------------------------
+OCT :	
+
+Total Dues			62815			Total Dues			60007			
+Min Dues			 6850			Min Dues			 3000
+Payzap G				0			Payzap G			 2365	=	77273 - 54000 + 1550 = 24823	
+My Usage			 7678			My Usage				0
+
+Paid By Me			3778 + 2800 = 6578
+MY Remaining Amt	13707 + 5439 - 6578 = 12568
 -----------------------------------------
 
 
@@ -27,11 +39,14 @@ CLai			3000
 Inner ware		1600
 Battery			3500
 Monthly PM		5000
-Cell EMI		4000
+Diwali Sadi		2000
+Electrical 		2000
 Servicing		 650
 Cell Bill 		 500
+BSNL Bill		 820
+Cream			 165
 
 --------------------------
-Total			28255
+Total			29240
 --------------------------
 
