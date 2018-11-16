@@ -51,9 +51,10 @@ BahuBij			1000
 Servicing		 650
 Cell Bill 		 500
 BSNL Bill		 820
+Travel Extra	 500
 Cream			 165
 
 --------------------------
-Total			30240
+Total			30740
 --------------------------
 
