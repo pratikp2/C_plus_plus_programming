@@ -1,12 +1,12 @@
 AUG :																											|		Bike Payment 	
 																												|
 Total Dues			44560			Total Dues			40950													|	Up To May		34500
-Min Dues			 3778			Min Dues			 2047													|	June			3655		38155
-Payzap G			20475			Payzap G			40950	=	61425										|	July			3000		41155
-My Usage			24088			My Usage				0													|	August			4206		45361
-																												|	September		3000		48361
-Paid By Me			8428 + 2050 = 10478																			|	
-MY Remaining Amt	24088 - 10478 = 13610																		|
+Min Dues			 3778			Min Dues			 2047													|	June			3655		
+Payzap G			20475			Payzap G			40950	=	61425										|	July			3000		
+My Usage			24088			My Usage				0													|	August			4206		
+																												|	September		3000
+Paid By Me			8428								 2050													|							
+MY Remaining Amt	24088 - 8428 = 15660				+2050													|	Total			48361
 -----------------------------------------
 SEP :	
 
@@ -15,46 +15,31 @@ Min Dues			 3778			Min Dues			 2755
 Payzap G			7333+6150		Payzap G			 2365	=	61425 + 13483 + 2365 = 77273	
 My Usage			 5439			My Usage				0
 
-Paid By Me			3778 + 2800 = 6578
-MY Remaining Amt	137610 + 5439 - 6578 = 12471
+Paid By Me			3778 								 2800
+MY Remaining Amt	15660 + 5439 - 3778 = 17321			+4850
 -----------------------------------------
 OCT :	
 
 Total Dues			62815			Total Dues			60007			
 Min Dues			 6850			Min Dues			 3000
-Payzap G				0			Payzap G			 2365	=	77273 - 56000 + 1550 = 22823	
-My Usage			 8290			My Usage				0
+Payzap G				0			Payzap G			 2365	
+My Usage			 8290			My Usage			19723
 
-Paid By Me			62815 & 21550				
-MY Remaining Amt	(12471 + 8290) - (1550 + 6815) = 12396
+Paid By Me			62815   							21550				
+MY Remaining Amt	17321 + 8290 - 2815 = 22796			+6670	
 -----------------------------------------
-Biryani + Booz 	= 1831
-Extra Paid 		= 6815
-Previous open	= 5672
+Transferred 	22795 - 6670 = 16125 
+-----------------------------------------
+NOV :	
 
-31642 - 9000
-22642
-````````````````````````````````````````````````````````````````````` 9000 k  ????????????????????????????????????????????????????????
+Total Dues			38701			Total Dues			44420			
+Min Dues			 5650			Min Dues			 2688
+Payzap G				0			Payzap G			10275	
+My Usage			 2700			My Usage			 3700
 
-OCT SAL :
+Paid By Me			 2700 								 3700 + 5440				
+MY Remaining Amt		0				16125 - 5440  = 10685 
+-----------------------------------------
 
-DMART			3428
-GAS				5027
-Interest		1550
-CLai			3000
-Inner ware		1600
-Battery			3500
-Monthly PM		5000
-Diwali Sadi		2000
-Electrical 		2000
-BahuBij			1000
-Servicing		 650
-Cell Bill 		 500
-BSNL Bill		 820
-Travel Extra	 500
-Cream			 165
-
---------------------------
-Total			30740
---------------------------
+Add 10275 + 13250
 
