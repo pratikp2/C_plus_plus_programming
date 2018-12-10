@@ -1,9 +1,6 @@
 *************************************************************************************************************************************
 ## What are Memory Management Techniques ?
-    1. Segmentation
-    2. Paging
-    3. Swapping
-    
+
     Desired Out Come 1. More Memory Space
                      2. Less Access Time
                      3. Less per unit Cost
@@ -12,6 +9,38 @@
     
     OS Duties 1. "Address Allocation" for the process between Physical Address abd logical address.
               2. "Address Translation" for translating addresses between logical address and phusical address.
+
+
+Types of Memory Allocation : 
+	1. Contiguous Memory Allocation : Allocation memory in to logical memory as it is.
+		-- Access time is faster due direct address computation.
+		-- Suffers from External fragmentation which is, the various free spaced holes that are generated in either your memory or disk 	 	   	   space. i.e, required memory is available but still can not allocate to memory because memory is no in contiguous manner.
+			1. Fix Sized Partition
+			2. Variable Sized Partition 
+
+	2. Non-contiguous Memory Allocation : Dividing process in chunk of blocks (pages) and load in logical memory irrespective of its          order.
+		-- Access time more due to shifting to new address after reading one block memory completely.
+		-- Suffers from Internal fragmentation which is the wasted space within each allocated block because of rounding up from the              actual requested allocation to the allocation granularity.
+			    1. Segmentation
+    			2. Paging
+	    		3. Swapping
+
+1. Fix sized partition :
+	-- Available memory is divided into blocks or partitions and the size of the partitions can not be changed.
+	-- Easy to manage
+	-- Suffers from Internal fragmentation
+	-- Only one process can have one partition
+
+2. Variable Sized Partition :
+	-- Entire memory block is treated as single block. If some process requires some amount of space only that amount of space is allocated
+	   instead of allocatiog entire partition.
+	-- No internal fragmentation.
+	-- Hard to manage compared to fixed size partition tech.
+
+Algorithm for memory management 
+	1. First fit Policy
+	2. Best fit policy
+	3. Worst fit policy
 *************************************************************************************************************************************
 ## What is Paging and Frames ?
 
@@ -90,6 +119,12 @@ In this type of Scheduling, the tasks are usually assigned with priorities. At t
 has a higher priority before another task although it is running. Therefore, the running task is interrupted for some time and
 resumed later when the priority task has finished its execution.
 
+Types of Process scheduling algorithm :
+    1. First come first serve
+    2. Shortest job first
+    3. Priority Scheduling 
+    4. Round Robin
+    
 CPU Scheduling: Scheduling Criteria
 There are many different criterias to check when considering the "best" scheduling algorithm, they are:
 
