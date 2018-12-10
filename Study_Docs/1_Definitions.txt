@@ -63,6 +63,15 @@ Let's take again an example of relationship between House and Rooms. House can c
 life of room and any room can not belong to two different houses. If we delete the house - room will automatically be deleted.
 
 *************************************************************************************************************************************
+## Class Relations :
+	1. Association -
+		A. Association
+		B. Aggregation
+		C. Composition
+	2. Dependency (Weak Class Relationship)
+	3. Generalization (Inheritance)
+	4. Realization (Interfaces)
+*************************************************************************************************************************************
 ##. What is a STL ?  
 
 The Standard Template Library (STL) is a set of C++ template classes to provide common programming data structures and functions
