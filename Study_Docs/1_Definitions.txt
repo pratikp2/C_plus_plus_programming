@@ -22,7 +22,7 @@ It is also known as Static binding, Early binding and overloading.
 Overloading is compile time polymorphism where more than one methods share the same name with different parameters or signature and
 different return type.
 
-IMP :    Function overloadind do not happens of function return type (Compiler will threw ambiguity error on same funtion name
+IMP :    Function overloadind do not happens on function return type (Compiler will throw ambiguity error on same funtion name
 but diff arg type)
 
 *************************************************************************************************************************************
