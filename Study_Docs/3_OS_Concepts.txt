@@ -9,6 +9,9 @@
                      3. Less per unit Cost
                      
     | CPU | -----> | Cashe | -----> | Main Memory |  -----> | Physical Address |
+    
+    OS Duties 1. "Address Allocation" for the process between Physical Address abd logical address.
+              2. "Address Translation" for translating addresses between logical address and phusical address.
 *************************************************************************************************************************************
 ## What is Paging and Frames ?
 
