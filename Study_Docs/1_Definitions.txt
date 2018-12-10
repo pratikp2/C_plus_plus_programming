@@ -13,7 +13,7 @@ to represent the needed information in program without presenting the details.
 ## Encapsulation
 
 Encapsulation is a process of combining data members and functions in a single unit called class. This is to prevent the access to
-the data directly, the access to them is provided through the functions of the class.
+the data directly, the access to them is provided through the Object of the class.
 
 *************************************************************************************************************************************
 ## Compiletime Polymorphism
