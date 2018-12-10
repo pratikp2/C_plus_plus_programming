@@ -3,6 +3,12 @@
     1. Segmentation
     2. Paging
     3. Swapping
+    
+    Desired Out Come 1. More Memory Space
+                     2. Less Access Time
+                     3. Less per unit Cost
+                     
+    | CPU | -----> | Cashe | -----> | Main Memory |  -----> | Physical Address |
 *************************************************************************************************************************************
 ## What is Paging and Frames ?
 
