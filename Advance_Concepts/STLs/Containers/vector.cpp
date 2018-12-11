@@ -46,8 +46,8 @@ int main()
         vec.push_back(i);
     }
 
-    cout << "vector size = " << vec.size() << endl;             //  Current size of the vector.
-    cout << "Capacity : " << vec.capacity() <<endl;             //  Total Elements Present in the vector
+    cout << "vector size = " << vec.size() << endl;             //  No of elements present in the vector. = 10
+    cout << "Capacity : " << vec.capacity() <<endl;             //  No of positions Present in the vector = 16 
     cout << "Max_Size : " << vec.max_size()<<endl<<endl;        //  This is the maximum potential size the container can reach.
 
     for(Itr=vec.begin(); Itr!=vec.end(); Itr++)
