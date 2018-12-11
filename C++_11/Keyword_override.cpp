@@ -22,9 +22,6 @@ int main()
 }
 
 
-// As Function 1 in Derived class is Defined with keyword "override" one of the parent
-// class of the Derived Class has to Override it or compiler will throw error.
-
 // In short, it serves the following functions. It helps to check if :
 //  1. There is a method with the same name in the parent class.
 //  2. The method in the parent class is declared as “virtual” which means it was intended to be rewritten.
