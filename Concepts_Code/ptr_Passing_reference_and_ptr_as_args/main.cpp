@@ -41,10 +41,7 @@ int main ()
 	return 0;
 }
 
-void function1 (int *ptr)
-{
-	cout << "1. Value Stored in ptr is 		:	"<< *ptr << endl<<endl;
-}
+void function1 (int *ptr) { cout << "1. Value Stored in ptr is 		:	"<< *ptr << endl<<endl; }
 
 void function2 (int &ref)
 {
@@ -52,12 +49,6 @@ void function2 (int &ref)
 	cout << "2. Value in the Reference arg. is	: 	"<< ref << endl<<endl;
 }
 
-int * function3()
-{
-	return ptr2;	
-}
+int * function3() { return ptr2; }
 
-int & function4()
-{
-	return b;
-}
+int & function4() { return b; }
