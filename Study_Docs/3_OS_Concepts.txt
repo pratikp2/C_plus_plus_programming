@@ -14,14 +14,16 @@
 Types of Memory Allocation : 
 	1. Contiguous Memory Allocation : Allocation memory in to logical memory as it is.
 		-- Access time is faster due direct address computation.
-		-- Suffers from External fragmentation which is, the various free spaced holes that are generated in either your memory or disk 	 	   	   space. i.e, required memory is available but still can not allocate to memory because memory is no in contiguous manner.
+                -- Suffers from External fragmentation which is, the various free spaced holes that are generated in either your memory or disk space.
+                   i.e, required memory is available but still can not allocate to memory because memory is no in contiguous manner.
 			1. Fix Sized Partition
 			2. Variable Sized Partition 
 
-	2. Non-contiguous Memory Allocation : Dividing process in chunk of blocks (pages) and load in logical memory irrespective of its          order.
+        2. Non-contiguous Memory Allocation : Dividing process in chunk of blocks (pages) and load in logical memory irrespective of its order.
 		-- Access time more due to shifting to new address after reading one block memory completely.
-		-- Suffers from Internal fragmentation which is the wasted space within each allocated block because of rounding up from the              actual requested allocation to the allocation granularity.
-			    1. Segmentation
+                -- Suffers from Internal fragmentation which is the wasted space within each allocated block because of rounding up from the actual
+                   requested allocation to the allocation granularity.
+                        1. Segmentation
     			2. Paging
 	    		3. Swapping
 
