@@ -147,17 +147,17 @@ void Binary_Search_Tree :: addElement()
 
 void Binary_Search_Tree :: inOrdertraversal()
 {
-
+    // Left -> Root -> Right
 }
 
 void Binary_Search_Tree :: preOrdertraversal()
 {
-
+    // Root -> Left -> Right
 }
 
 void Binary_Search_Tree :: postOrdertraversal()
 {
-
+    // Left -> Right -> Root
 }
 
 void Binary_Search_Tree :: displayTree()
