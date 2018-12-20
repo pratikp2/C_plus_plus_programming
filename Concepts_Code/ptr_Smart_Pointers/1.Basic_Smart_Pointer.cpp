@@ -30,10 +30,7 @@ public:
         cout << "Smart Pointer Is destroyed" << endl;
     }
 
-    int &operator *()
-    {
-        return *ptr;
-    }
+    int &operator *() { return *ptr; }
 };
 
 int main()

@@ -7,10 +7,7 @@ int main()
 
    cout << "Hello OutSide the Loop.... !" <<endl;
 
-   for (i = 0; 0 ; i++)
-   {
-       cout << "Hello .... !" <<endl;                       // exits without entering in for loop
-   }
+   for (i = 0; 0 ; i++) { cout << "Hello .... !" <<endl; }  // exits without entering in for loop
 
 //   for (i = 0; 1 ; i++)
 //   {

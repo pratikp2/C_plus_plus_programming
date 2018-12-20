@@ -45,8 +45,8 @@ int main()
     float c = 20.10;
     b = c;
     cout << "Value for the variable B is : " << b << endl;      // Implicit typecasting :
-                                                                // compiler automatically casts float into int
-                                                                // and discards the fraction.
+    // compiler automatically casts float into int
+    // and discards the fraction.
     //---------------------------------------------------------------------------------------------------------------//
 
     float d = 5.5;

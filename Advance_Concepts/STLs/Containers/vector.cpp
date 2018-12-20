@@ -47,7 +47,7 @@ int main()
     }
 
     cout << "vector size = " << vec.size() << endl;             //  No of elements present in the vector. = 10
-    cout << "Capacity : " << vec.capacity() <<endl;             //  No of positions Present in the vector = 16 
+    cout << "Capacity : " << vec.capacity() <<endl;             //  No of positions Present in the vector = 16
     cout << "Max_Size : " << vec.max_size()<<endl<<endl;        //  This is the maximum potential size the container can reach.
 
     for(Itr=vec.begin(); Itr!=vec.end(); Itr++)
@@ -65,8 +65,8 @@ int main()
     Itr = find_if(vec.begin(), vec.end(), isOdd);
     cout << *Itr;
 
-//    Itr = find_if_not(vec.begin(), vec.end(), isOdd);
-//    cout << *Itr;
+    //    Itr = find_if_not(vec.begin(), vec.end(), isOdd);
+    //    cout << *Itr;
 
     return 0;
 }

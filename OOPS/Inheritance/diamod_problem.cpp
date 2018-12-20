@@ -59,5 +59,5 @@ int main()
 // due to two definations of a function in the base class but Derived_Three Class still has definations from Derived_One and
 // Derived_Two Class for the same function.
 
-// To resolve this issue scope relolution operator should be used, It allows prgrammer to decide which class's functionality
+// To resolve this issue scope resolution operator should be used, It allows prgrammer to decide which class's functionality
 // should get called.

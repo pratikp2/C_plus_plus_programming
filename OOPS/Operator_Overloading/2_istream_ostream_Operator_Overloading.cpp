@@ -14,43 +14,43 @@ using namespace std;
 
 class Complex
 {
-		int real;
-		int imag;
+    int real;
+    int imag;
 
-	public:
-		Complex();
-		friend istream & operator >> (istream &in, Complex &obj);
-		friend ostream & operator << (ostream &out, const Complex &obj);
+public:
+    Complex();
+    friend istream & operator >> (istream &in, Complex &obj);
+    friend ostream & operator << (ostream &out, const Complex &obj);
 };
 
 Complex :: Complex ()
 {
-	this -> real = 0;
-	this -> imag = 0;
+    this -> real = 0;
+    this -> imag = 0;
 }
 
 istream & operator >> (istream &in, Complex &Obj)
 {
-	cout << "Enter the Real part : " << endl;
-	in >> Obj.real;
-	cout << "Enter the Imagenary part : " << endl;
-	in >> Obj.imag;
-	return in;
+    cout << "Enter the Real part : " << endl;
+    in >> Obj.real;
+    cout << "Enter the Imagenary part : " << endl;
+    in >> Obj.imag;
+    return in;
 }
 
 ostream & operator << (ostream &out, const Complex &Obj)
 {
-	out <<	Obj.real;
-	out <<  " + i" << Obj.imag << endl;
-	return out; 
+    out <<	Obj.real;
+    out <<  " + i" << Obj.imag << endl;
+    return out;
 }
 
 int main ()
 {
-	Complex ObjComplex;
-	cin >> ObjComplex;
-	cout << "The Complex object is : ";
-	cout << ObjComplex;
+    Complex ObjComplex;
+    cin >> ObjComplex;
+    cout << "The Complex object is : ";
+    cout << ObjComplex;
 
-	return 0;
+    return 0;
 }

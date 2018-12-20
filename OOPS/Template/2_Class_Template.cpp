@@ -4,15 +4,15 @@ using namespace std;
 template <class Datatype>
 class Sample
 {
-    private :
-        Datatype A, B;
-        
-    public : 
-        Sample(Datatype A, Datatype B);
-        void getMax ();
-        void add();
-        void getStatVal();
-        static Datatype C;
+private :
+    Datatype A, B;
+
+public :
+    Sample(Datatype A, Datatype B);
+    void getMax ();
+    void add();
+    void getStatVal();
+    static Datatype C;
 
 };
 
@@ -22,8 +22,8 @@ Datatype Sample <Datatype> :: C;
 template <class Datatype>
 Sample <Datatype> :: Sample(Datatype A, Datatype B)
 {
-   this -> A = A;
-   this -> B = B;
+    this -> A = A;
+    this -> B = B;
 }
 
 template <class Datatype>
@@ -68,7 +68,7 @@ int main()
     cout << endl;
     
     ObjSample1.add();
-   //ObjSample2.add();      // char Variables can not be added.
+    //ObjSample2.add();      // char Variables can not be added.
     ObjSample3.add();
     ObjSample4.add();       // After addition string variables will be concatinated.
     

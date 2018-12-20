@@ -1,57 +1,34 @@
 #include <iostream>
-
 using namespace std;
 
-
-
 int main()
-
 {
-
     int * ptr1 = new int(10);
-
     cout << "Address Hold by 1st Pointer    :   "<< ptr1 << endl;
-
     cout << "Value Hold by 1st Pointer      :   "<< *ptr1 << endl << endl;
-    
- 
+
+
     int * ptr2 = new (ptr1) int(100);
-
     cout << "Address Hold by 2nd Pointer    :   "<< ptr2 << endl;
-
     cout << "Value Hold by 2nd Pointer      :   "<< *ptr2 << endl;
-
     cout << "Value Hold by 1st Pointer      :   "<< *ptr1 << endl << endl;
 
-
-    
-int var = 20;
-
+    int var = 20;
     cout << "Address of 1st Variable        :   "<< &var << endl;
-
     cout << "Address of the 1st variable    :   "<< var << endl << endl;
 
-
-    
-int * ptr3 = new (&var) int(200);
-
+    int * ptr3 = new (&var) int(200);
     cout << "Address of 2nd Variable        :   "<< ptr3 << endl;
-
     cout << "Address of the 2nd variable    :   "<< *ptr3 << endl;
-
     cout << "Address of the 1st variable    :   "<< var << endl << endl;
-
 
     delete ptr1;
-
     //delete ptr3;
 
-    
-cout << "Value Hold by 1st Pointer After deleting   :   "<< *ptr1 << endl;
-
+    cout << "Value Hold by 1st Pointer After deleting   :   "<< *ptr1 << endl;
     cout << "Value Hold by 2nd Pointer After deleting   :   "<< *ptr2 << endl << endl;
 
-     return 0;
+    return 0;
 
 }
 

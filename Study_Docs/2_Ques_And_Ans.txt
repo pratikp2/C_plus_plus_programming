@@ -149,7 +149,12 @@ size is calculated by compiler			size is calculated manually			<---- new and fre
 *************************************************************************************************************************************
 ## What is ostream and istream classes ?
 
-All C++ compilers come with classes for streaming input from the console and output to the console. These classes are defined by putting the directive #include <iostream> at the top of the code. The istream class has methods for detecting input errors and the end of input data. The ostream class has methods for formatting output, i.e. specifying scientific notation, fixed decimal notation, or a combination thereof, and for specifying the number of decimal digits displayed. Using some of the features of these classes, we add the capability of reading and writing our own custom types. Finally, the ifstream and ofstream classes let us read from and write to named files. 
+All C++ compilers come with classes for streaming input from the console and output to the console. These classes are defined by
+putting the directive #include <iostream> at the top of the code. The istream class has methods for detecting input errors and the
+end of input data. The ostream class has methods for formatting output, i.e. specifying scientific notation, fixed decimal notation,
+or a combination thereof, and for specifying the number of decimal digits displayed. Using some of the features of these classes, we
+add the capability of reading and writing our own custom types. Finally, the ifstream and ofstream classes let us read from and write
+to named files.
 
 *************************************************************************************************************************************
 ## What difference between 0 , NULL and \0 ? 

@@ -21,15 +21,13 @@ public:
     explicit Smart_ptr(DataType *p = NULL)
     {
         this -> ptr = p;
-        cout << endl;
-        cout << "Smart Pointer Is Instantiated" << endl;
+        cout << endl << "Smart Pointer Is Instantiated" << endl;
     }
 
     ~Smart_ptr()
     {
         delete (ptr);
-        cout << "Smart Pointer Is destroyed" << endl;
-        cout << endl;
+        cout << "Smart Pointer Is destroyed" << endl << endl;
     }
 
     DataType &operator *()
