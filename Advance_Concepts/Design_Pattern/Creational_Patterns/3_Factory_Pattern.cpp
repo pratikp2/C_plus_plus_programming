@@ -1,4 +1,4 @@
-/** *********************************************      IDEA of Factory Pattern     *************************************
+/** ***************************************     IDEA of Factory Pattern     ********************************************
 *
 *   1) The idea is to use a static member-function (static factory method) which creates & returns instances, hiding the
 *      details of class modules from user.
@@ -43,18 +43,9 @@ class Class_FourWheelar : public Vehicle
 
 Vehicle * Vehicle :: create(VehicleType type)
 {
-    if (type == TwoWheelar)
-    {
-        return new Class_TwoWheelar();
-    }
-    else if(type == ThreeWheelar)
-    {
-        return new Class_ThreeWheelar();
-    }
-    else if (type == FourWheelar)
-    {
-        return new Class_FourWheelar();
-    }
+    if (type == TwoWheelar) { return new Class_TwoWheelar(); }
+    else if(type == ThreeWheelar) { return new Class_ThreeWheelar(); }
+    else if (type == FourWheelar) { return new Class_FourWheelar(); }
 }
 
 class Client    // Client Class

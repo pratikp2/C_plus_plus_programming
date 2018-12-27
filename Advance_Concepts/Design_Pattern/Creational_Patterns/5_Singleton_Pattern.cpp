@@ -1,4 +1,4 @@
-/***********************************************    Key Points    *******************************************************
+/** ************************************      IDEA of Singleton Pattern     **********************************************
 
     1) Both getInstance and releaseInstance will be static.
     2) Created Object will be static.
@@ -12,13 +12,13 @@ using namespace std;
 
 class Singleton
 {
-    public :
-        static Singleton* getInstance();
-        static Singleton* releaseInstance();
+public :
+    static Singleton* getInstance();
+    static Singleton* releaseInstance();
 
-    private :
-        static Singleton* objInstance;
-        Singleton(){}
+private :
+    static Singleton* objInstance;
+    Singleton(){}
 };
 
 Singleton* Singleton :: objInstance = NULL;
