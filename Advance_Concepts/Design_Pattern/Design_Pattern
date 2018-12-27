@@ -1,0 +1,20 @@
+Creational Pattions : Use to deal with creation of the new objects. To create new objects.
+	1. Abstract Factory
+	2. Builder
+	3. Factory Method
+	4. Prototype
+	5. Singleton
+
+Structural Pattern : Use to establis the relation between entities
+	1. Adaptor
+	2. Bridge
+	3. Decorator
+	4. Facade
+	5. Flyweight
+	6. proxy
+
+Behavioral Pattern : To carry out the communication between objects. 
+	1. Command
+	2. Interpreter
+	3. Mediator 
+	4. Memento
