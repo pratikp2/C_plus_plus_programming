@@ -54,6 +54,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 	ShowWindow(windowHandle, nCmdShow);
 
 	MSG	message;
+	// GetMessage do not gives control to the User/Main Program, it renders the output on user action.
 	while (GetMessage(&message, NULL, 0, 0)) { DispatchMessage(&message); }
 
 	delete graphics;
