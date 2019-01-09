@@ -1,4 +1,6 @@
 # include "graphics.h"
+# include "Level1.h"
+
 Graphics * graphics;
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -7,10 +9,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		PostQuitMessage(0);
 		return 0;
-	}
-	
+	}	
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);	// Default window behaviour if uMsg is unknown.
-
 }
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
@@ -42,12 +42,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		return -1;
 	}
 
+	GameLevel::Init(graphics);
 	ShowWindow(windowHandle, nCmdShow);
+	GameController::LoadInitialLevel(new Level1());
 
 	MSG	message;
 	message.message = WM_NULL;
-	float y = 0.0f;
-	float ySpeed = 0.0f;
 
 	// PeekMessage Checks for the message, and if there is no message it simply return the control to the User/Main Program.
 	while (message.message != WM_QUIT)
@@ -55,19 +55,14 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int
 		if (PeekMessage(&message, NULL, 0, 0, PM_REMOVE)) { DispatchMessage(&message);}
 		else 
 		{
-			// Update
-			ySpeed = ySpeed + 1.0f;
-			y = y + ySpeed;
-			if (y > 600)
-			{
-				y = 600;
-				ySpeed = -30.0f;
-			}
-
-			//Render
+			// Updatee 
+			GameController::Update();
+			 
+			// Render
 			graphics->BeginDraw();
-			graphics->ClearScreen(0.0f, 0.0f, 0.5f);
-			graphics->DrawCircle(400.0f, y, 50.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+			GameController::Render();
+
+			// Release 
 			graphics->EndDraw();
 		}
 	}
