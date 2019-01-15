@@ -9,8 +9,8 @@ Graphics::Graphics()
 
 Graphics :: ~Graphics()
 {
-	factory->Release();
-	rendertarget->Release();
+	if (factory) factory->Release();
+	if (rendertarget) rendertarget->Release();
 	if(brush) brush->Release();
 }
 
@@ -20,7 +20,7 @@ bool Graphics::Init(HWND windowHandle)
 	if (res != S_OK) { return false;}		// HRESULT is status of the function Value S_OK for HRESULT means function have succeeded.
 
 	RECT rect;
-	GetClientRect(windowHandle, &rect);
+	GetClientRect(windowHandle, &rect); // To set the Size of the rect equal to the window size.
 
 	res = factory->CreateHwndRenderTarget(D2D1 :: RenderTargetProperties(),
 										  D2D1 :: HwndRenderTargetProperties(windowHandle, D2D1 :: SizeU(rect.right,rect.bottom)),

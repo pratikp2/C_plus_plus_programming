@@ -12,7 +12,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	if (uMsg == WM_PAINT)
 	{
 		graphics->BeginDraw();
-		graphics->ClearScreen(0.0f, 0.0f, 0.0f);
+		graphics->ClearScreen(1.0f, 1.0f, 1.0f);
 		graphics->DrawCircle(400, 300, 200, 1.0, 0.0, 0.0, 1.0);
 		graphics->DrawCircle(400, 300, 100, 0.0, 1.0, 0.0, 1.0);
 		graphics->DrawCircle(400, 300, 295, 0.0, 0.0, 1.0, 1.0);

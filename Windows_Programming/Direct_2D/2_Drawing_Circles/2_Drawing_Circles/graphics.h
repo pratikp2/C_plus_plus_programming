@@ -5,8 +5,8 @@
 
 class Graphics 
 {
-	ID2D1Factory * factory;
-	ID2D1HwndRenderTarget * rendertarget;
+	ID2D1Factory * factory;						// Helps to create different resources required for grphics programming.
+	ID2D1HwndRenderTarget * rendertarget;		// Includes the resources which helps paint on screen 
 	ID2D1SolidColorBrush * brush;
 
 public :
