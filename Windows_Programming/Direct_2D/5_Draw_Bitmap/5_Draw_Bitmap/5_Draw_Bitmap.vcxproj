@@ -116,9 +116,11 @@
   <ItemGroup>
     <ClCompile Include="ExportToBMP.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="patterns.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExportToBMP.h" />
+    <ClInclude Include="patterns.h" />
     <ClInclude Include="sources.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

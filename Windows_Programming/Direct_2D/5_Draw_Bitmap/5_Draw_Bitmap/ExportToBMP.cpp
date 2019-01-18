@@ -3,6 +3,8 @@
 const UINT ExportToBMP::sc_bitmapWidth = 300;
 const UINT ExportToBMP::sc_bitmapHeight = 300;
 ID2D1RenderTarget * ExportToBMP::pRT = NULL;
+ID2D1SolidColorBrush * ExportToBMP::pGridBrush = NULL;
+ID2D1BitmapRenderTarget * ExportToBMP::pCompatibleRenderTarget = NULL;
 
 ExportToBMP::ExportToBMP()
 {
@@ -19,12 +21,10 @@ ExportToBMP::ExportToBMP()
 	pPathGeometry = NULL;
 	pSink = NULL;
 	pGradientStops = NULL;
-	pBlackBrush = NULL;
 	pLGBrush = NULL;
 
 	pGridBitmap = NULL;
 	pBitmapBrush = NULL;
-	pCompatibleRenderTarget = NULL;
 }
 
 void ExportToBMP::DrawBitmap()
@@ -99,17 +99,25 @@ void ExportToBMP::DrawBitmap()
 */
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Create Required Brush Pattern
-	if (SUCCEEDED(hr)) { hr = pRT->CreateCompatibleRenderTarget(D2D1::SizeF(4.0f, 4.0f), &pCompatibleRenderTarget);}
+	if (SUCCEEDED(hr)) { hr = pRT->CreateCompatibleRenderTarget(D2D1::SizeF(16.0f, 16.0f), &pCompatibleRenderTarget);}
 	if (SUCCEEDED(hr))
 	{
 		// Draw a pattern.
-		ID2D1SolidColorBrush *pGridBrush = nullptr;
 		hr = pCompatibleRenderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF(0.93f, 0.94f, 0.96f, 1.0f)), &pGridBrush);
 		if (SUCCEEDED(hr))
 		{
 			pCompatibleRenderTarget->BeginDraw();
-			pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 0.0f, 4.0f, 1.0f), pGridBrush);
-			pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 0.1f, 1.0f, 4.0f), pGridBrush);
+			//DrawPattern::DrawGridPattern();
+			//pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 0.0f, 4.0f, 1.0f), pGridBrush);
+			//pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 0.1f, 1.0f, 4.0f), pGridBrush);
+
+			pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 0.0f, 16.0f, 2.0f), pGridBrush);
+
+			//pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 0.0f, 16.0f, 8.0f), pGridBrush);
+
+
+			pCompatibleRenderTarget->FillRectangle(D2D1::RectF(0.0f, 14.0f, 16.0f, 16.0f), pGridBrush);
+
 			pCompatibleRenderTarget->EndDraw();
 
 			// Retrieve the bitmap from the render target.
@@ -124,6 +132,7 @@ void ExportToBMP::DrawBitmap()
 	pRT->CreateBitmapBrush(pGridBitmap, brushProperties, &pBitmapBrush);
 
 	pRT->BeginDraw();
+	pRT->Clear(D2D1::ColorF(0.0f, 0.0f, 0.0f));
 	pRT->FillRectangle(D2D1::RectF(0.0f, 0.0f, 300.0f, 300.0f), pBitmapBrush);
 	pRT->EndDraw();
 
@@ -134,7 +143,7 @@ void ExportToBMP::DrawBitmap()
 	// Use InitializeFromFilename to write to a file. If there is need to write inside the memory, use InitializeFromMemory. 
 	if (SUCCEEDED(hr))
 	{
-		static const WCHAR filename[] = L"C:/Users/aeccy8/Desktop/5_Draw_Bitmap/output.png";
+		static const WCHAR filename[] = L"D:/Code_Practice/Windows_Programming/Direct_2D/5_Draw_Bitmap/output.png";
 		hr = pStream->InitializeFromFilename(filename, GENERIC_WRITE);
 	}
 

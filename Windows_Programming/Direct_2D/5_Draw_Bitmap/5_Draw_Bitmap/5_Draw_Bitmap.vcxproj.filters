@@ -21,12 +21,18 @@
     <ClCompile Include="ExportToBMP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="patterns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ExportToBMP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patterns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
