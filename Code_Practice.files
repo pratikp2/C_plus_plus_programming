@@ -1,72 +1,215 @@
 .Net_Study.txt
 Advance_Concepts/DBus_Practice/kdbusxml2cpp
+Advance_Concepts/DBus_Practice/kdbusxml2cpp
+Advance_Concepts/DBus_Practice/kdbusxml2cpp
+Advance_Concepts/DBus_Practice/set.xml
+Advance_Concepts/DBus_Practice/set.xml
 Advance_Concepts/DBus_Practice/set.xml
 Advance_Concepts/DBus_Practice/setad.cpp
+Advance_Concepts/DBus_Practice/setad.cpp
+Advance_Concepts/DBus_Practice/setad.cpp
+Advance_Concepts/DBus_Practice/setad.h
+Advance_Concepts/DBus_Practice/setad.h
 Advance_Concepts/DBus_Practice/setad.h
 Advance_Concepts/DBus_Practice/setpr.cpp
+Advance_Concepts/DBus_Practice/setpr.cpp
+Advance_Concepts/DBus_Practice/setpr.cpp
 Advance_Concepts/DBus_Practice/setpr.h
+Advance_Concepts/DBus_Practice/setpr.h
+Advance_Concepts/DBus_Practice/setpr.h
+Advance_Concepts/Data_Serilization/main.cpp
+Advance_Concepts/Dbus/client/ak/ak.pro
+Advance_Concepts/Dbus/client/ak/ak.pro
 Advance_Concepts/Dbus/client/ak/ak.pro
 Advance_Concepts/Dbus/client/ak/client
+Advance_Concepts/Dbus/client/ak/client
+Advance_Concepts/Dbus/client/ak/client
+Advance_Concepts/Dbus/client/ak/com.nokia.Demo.xml
+Advance_Concepts/Dbus/client/ak/com.nokia.Demo.xml
 Advance_Concepts/Dbus/client/ak/com.nokia.Demo.xml
 Advance_Concepts/Dbus/client/ak/demoif.cpp
+Advance_Concepts/Dbus/client/ak/demoif.cpp
+Advance_Concepts/Dbus/client/ak/demoif.cpp
+Advance_Concepts/Dbus/client/ak/demoif.h
+Advance_Concepts/Dbus/client/ak/demoif.h
 Advance_Concepts/Dbus/client/ak/demoif.h
 Advance_Concepts/Dbus/client/ak/main.cpp
+Advance_Concepts/Dbus/client/ak/main.cpp
+Advance_Concepts/Dbus/client/ak/main.cpp
+Advance_Concepts/Dbus/client/ak/main.moc
+Advance_Concepts/Dbus/client/ak/main.moc
 Advance_Concepts/Dbus/client/ak/main.moc
 Advance_Concepts/Dbus/client/ak/mainwindow.cpp
+Advance_Concepts/Dbus/client/ak/mainwindow.cpp
+Advance_Concepts/Dbus/client/ak/mainwindow.cpp
+Advance_Concepts/Dbus/client/ak/mainwindow.h
+Advance_Concepts/Dbus/client/ak/mainwindow.h
 Advance_Concepts/Dbus/client/ak/mainwindow.h
 Advance_Concepts/Dbus/client/ak/moc_demoif.cpp
+Advance_Concepts/Dbus/client/ak/moc_demoif.cpp
+Advance_Concepts/Dbus/client/ak/moc_demoif.cpp
+Advance_Concepts/Dbus/client/build-ak-Desktop_Qt_5_2_1_GCC_64bit-Debug/client
+Advance_Concepts/Dbus/client/build-ak-Desktop_Qt_5_2_1_GCC_64bit-Debug/client
 Advance_Concepts/Dbus/client/build-ak-Desktop_Qt_5_2_1_GCC_64bit-Debug/client
 Advance_Concepts/Dbus/client/build-ak-Desktop_Qt_5_2_1_GCC_64bit-Debug/moc_demoif.cpp
+Advance_Concepts/Dbus/client/build-ak-Desktop_Qt_5_2_1_GCC_64bit-Debug/moc_demoif.cpp
+Advance_Concepts/Dbus/client/build-ak-Desktop_Qt_5_2_1_GCC_64bit-Debug/moc_demoif.cpp
+Advance_Concepts/Dbus/server/akshaya.pro
+Advance_Concepts/Dbus/server/akshaya.pro
 Advance_Concepts/Dbus/server/akshaya.pro
 Advance_Concepts/Dbus/server/com.nokia.Demo.xml
+Advance_Concepts/Dbus/server/com.nokia.Demo.xml
+Advance_Concepts/Dbus/server/com.nokia.Demo.xml
+Advance_Concepts/Dbus/server/demoifadaptor.cpp
+Advance_Concepts/Dbus/server/demoifadaptor.cpp
 Advance_Concepts/Dbus/server/demoifadaptor.cpp
 Advance_Concepts/Dbus/server/demoifadaptor.h
+Advance_Concepts/Dbus/server/demoifadaptor.h
+Advance_Concepts/Dbus/server/demoifadaptor.h
+Advance_Concepts/Dbus/server/main.cpp
+Advance_Concepts/Dbus/server/main.cpp
 Advance_Concepts/Dbus/server/main.cpp
 Advance_Concepts/Dbus/server/main.moc
+Advance_Concepts/Dbus/server/main.moc
+Advance_Concepts/Dbus/server/main.moc
+Advance_Concepts/Dbus/server/miss
+Advance_Concepts/Dbus/server/miss
 Advance_Concepts/Dbus/server/miss
 Advance_Concepts/Dbus/server/moc_demoifadaptor.cpp
+Advance_Concepts/Dbus/server/moc_demoifadaptor.cpp
+Advance_Concepts/Dbus/server/moc_demoifadaptor.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/1_Abstract_Factory_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/1_Abstract_Factory_Pattern.cpp
 Advance_Concepts/Design_Pattern/Creational_Patterns/1_Abstract_Factory_Pattern.cpp
 Advance_Concepts/Design_Pattern/Creational_Patterns/2_Builder_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/2_Builder_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/2_Builder_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/3_Factory_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/3_Factory_Pattern.cpp
 Advance_Concepts/Design_Pattern/Creational_Patterns/3_Factory_Pattern.cpp
 Advance_Concepts/Design_Pattern/Creational_Patterns/5_Singleton_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/5_Singleton_Pattern.cpp
+Advance_Concepts/Design_Pattern/Creational_Patterns/5_Singleton_Pattern.cpp
+Advance_Concepts/Design_Pattern/Design_Pattern
+Advance_Concepts/Design_Pattern/Design_Pattern
 Advance_Concepts/Design_Pattern/Design_Pattern
 Advance_Concepts/Design_Pattern/Observer_Pattern/main.cpp
+Advance_Concepts/Design_Pattern/Observer_Pattern/main.cpp
+Advance_Concepts/Design_Pattern/Observer_Pattern/main.cpp
+Advance_Concepts/File_Handeling/File_handling.cpp
+Advance_Concepts/File_Handeling/File_handling.cpp
+Advance_Concepts/File_Handeling/Sample_Text_File.txt
+Advance_Concepts/File_Handeling/a.exe
+Advance_Concepts/File_Handeling/main.cpp
+Advance_Concepts/File_Handeling/main.cpp
 Advance_Concepts/File_handling.cpp
 Advance_Concepts/Linux_System_Calls/1.Fork/a.out
+Advance_Concepts/Linux_System_Calls/1.Fork/a.out
+Advance_Concepts/Linux_System_Calls/1.Fork/a.out
+Advance_Concepts/Linux_System_Calls/1.Fork/main.cpp
+Advance_Concepts/Linux_System_Calls/1.Fork/main.cpp
 Advance_Concepts/Linux_System_Calls/1.Fork/main.cpp
 Advance_Concepts/Linux_System_Calls/2.Sleep/a.exe
+Advance_Concepts/Linux_System_Calls/2.Sleep/a.exe
+Advance_Concepts/Linux_System_Calls/2.Sleep/a.exe
+Advance_Concepts/Linux_System_Calls/2.Sleep/a.out
+Advance_Concepts/Linux_System_Calls/2.Sleep/a.out
 Advance_Concepts/Linux_System_Calls/2.Sleep/a.out
 Advance_Concepts/Linux_System_Calls/2.Sleep/main.cpp
+Advance_Concepts/Linux_System_Calls/2.Sleep/main.cpp
+Advance_Concepts/Linux_System_Calls/2.Sleep/main.cpp
+Advance_Concepts/MultiThreading/1.pthread_Objects/a.out
+Advance_Concepts/MultiThreading/1.pthread_Objects/a.out
 Advance_Concepts/MultiThreading/1.pthread_Objects/a.out
 Advance_Concepts/MultiThreading/1.pthread_Objects/main.cpp
+Advance_Concepts/MultiThreading/1.pthread_Objects/main.cpp
+Advance_Concepts/MultiThreading/1.pthread_Objects/main.cpp
+Advance_Concepts/MultiThreading/2.pthread_Detach/a.exe
+Advance_Concepts/MultiThreading/2.pthread_Detach/a.exe
 Advance_Concepts/MultiThreading/2.pthread_Detach/a.exe
 Advance_Concepts/MultiThreading/2.pthread_Detach/a.out
+Advance_Concepts/MultiThreading/2.pthread_Detach/a.out
+Advance_Concepts/MultiThreading/2.pthread_Detach/a.out
+Advance_Concepts/MultiThreading/2.pthread_Detach/main.cpp
+Advance_Concepts/MultiThreading/2.pthread_Detach/main.cpp
 Advance_Concepts/MultiThreading/2.pthread_Detach/main.cpp
 Advance_Concepts/MultiThreading/3.pthread_Mutex/a.exe
+Advance_Concepts/MultiThreading/3.pthread_Mutex/a.exe
+Advance_Concepts/MultiThreading/3.pthread_Mutex/a.exe
+Advance_Concepts/MultiThreading/3.pthread_Mutex/main.cpp
+Advance_Concepts/MultiThreading/3.pthread_Mutex/main.cpp
 Advance_Concepts/MultiThreading/3.pthread_Mutex/main.cpp
 Advance_Concepts/MultiThreading/3.pthread_Mutex/main.exe
+Advance_Concepts/MultiThreading/3.pthread_Mutex/main.exe
+Advance_Concepts/MultiThreading/3.pthread_Mutex/main.exe
+Advance_Concepts/MultiThreading/4.Conditional_Variables/a.exe
+Advance_Concepts/MultiThreading/4.Conditional_Variables/a.exe
 Advance_Concepts/MultiThreading/4.Conditional_Variables/a.exe
 Advance_Concepts/MultiThreading/4.Conditional_Variables/main.cpp
+Advance_Concepts/MultiThreading/4.Conditional_Variables/main.cpp
+Advance_Concepts/MultiThreading/4.Conditional_Variables/main.cpp
+Advance_Concepts/STLs/Containers/a.exe
+Advance_Concepts/STLs/Containers/a.exe
 Advance_Concepts/STLs/Containers/a.exe
 Advance_Concepts/STLs/Containers/list.cpp
+Advance_Concepts/STLs/Containers/list.cpp
+Advance_Concepts/STLs/Containers/list.cpp
+Advance_Concepts/STLs/Containers/map.cpp
+Advance_Concepts/STLs/Containers/map.cpp
 Advance_Concepts/STLs/Containers/map.cpp
 Advance_Concepts/STLs/Containers/set.cpp
+Advance_Concepts/STLs/Containers/set.cpp
+Advance_Concepts/STLs/Containers/set.cpp
+Advance_Concepts/STLs/Containers/vector.cpp
+Advance_Concepts/STLs/Containers/vector.cpp
 Advance_Concepts/STLs/Containers/vector.cpp
 Advance_Concepts/Scheduling Algorithm/1.First_Come_First_Serve.cpp
+Advance_Concepts/Scheduling Algorithm/1.First_Come_First_Serve.cpp
+Advance_Concepts/Scheduling Algorithm/1.First_Come_First_Serve.cpp
+Advance_Concepts/Scheduling Algorithm/2.Shortest_Job_First.cpp
+Advance_Concepts/Scheduling Algorithm/2.Shortest_Job_First.cpp
 Advance_Concepts/Scheduling Algorithm/2.Shortest_Job_First.cpp
 Advance_Concepts/Scheduling Algorithm/3.Priority_Scheduling.cpp
+Advance_Concepts/Scheduling Algorithm/3.Priority_Scheduling.cpp
+Advance_Concepts/Scheduling Algorithm/3.Priority_Scheduling.cpp
+Advance_Concepts/Scheduling Algorithm/4.Round_Robin.cpp
+Advance_Concepts/Scheduling Algorithm/4.Round_Robin.cpp
 Advance_Concepts/Scheduling Algorithm/4.Round_Robin.cpp
 Advance_Concepts/Scheduling Algorithm/a.exe
+Advance_Concepts/Scheduling Algorithm/a.exe
+Advance_Concepts/Scheduling Algorithm/a.exe
+Advance_Concepts/Semaphores/a.exe
+Advance_Concepts/Semaphores/a.exe
 Advance_Concepts/Semaphores/a.exe
 Advance_Concepts/Semaphores/a.out
+Advance_Concepts/Semaphores/a.out
+Advance_Concepts/Semaphores/a.out
+Advance_Concepts/Semaphores/main.c
+Advance_Concepts/Semaphores/main.c
 Advance_Concepts/Semaphores/main.c
 Advance_Concepts/Semaphores/mutex_Semaphore.cpp
+Advance_Concepts/Semaphores/mutex_Semaphore.cpp
+Advance_Concepts/Semaphores/mutex_Semaphore.cpp
+Advance_Concepts/Socket Programming/CMakeLists.txt
+Advance_Concepts/Socket Programming/CMakeLists.txt
 Advance_Concepts/Socket Programming/CMakeLists.txt
 Advance_Concepts/Socket Programming/Socket Doc.txt
+Advance_Concepts/Socket Programming/Socket Doc.txt
+Advance_Concepts/Socket Programming/Socket Doc.txt
+Advance_Concepts/Socket Programming/client/a.exe
+Advance_Concepts/Socket Programming/client/a.exe
 Advance_Concepts/Socket Programming/client/a.exe
 Advance_Concepts/Socket Programming/client/client.cpp
+Advance_Concepts/Socket Programming/client/client.cpp
+Advance_Concepts/Socket Programming/client/client.cpp
+Advance_Concepts/Socket Programming/server/a.exe
+Advance_Concepts/Socket Programming/server/a.exe
 Advance_Concepts/Socket Programming/server/a.exe
 Advance_Concepts/Socket Programming/server/server.cpp
+Advance_Concepts/Socket Programming/server/server.cpp
+Advance_Concepts/Socket Programming/server/server.cpp
+Advance_Concepts/stack.cpp
+Advance_Concepts/stack.cpp
 Advance_Concepts/stack.cpp
 C++_11/C++_11_Features.txt
 C++_11/Keyword_final.cpp
@@ -404,6 +547,7 @@ Study_Docs/cpp_study1-1.doc
 Study_Docs/cpp_study1-1.docx
 Study_Docs/env_var.bat
 Study_Docs/static_typecasting.txt
+Windows_Programming/Data_Types.txt
 Windows_Programming/Direct_2D/1_Creating_Windows/1_Creating_Windows.sln
 Windows_Programming/Direct_2D/1_Creating_Windows/1_Creating_Windows/1_Creating_Windows.vcxproj
 Windows_Programming/Direct_2D/1_Creating_Windows/1_Creating_Windows/1_Creating_Windows.vcxproj.filters
