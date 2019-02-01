@@ -16,7 +16,19 @@
 #include <boost/serialization/binary_object.hpp>
 
 
-class Info
+class Test1	// For Testing Inheritance while Reading data in Boost Serialization
+{
+public:
+	const char * ptr = "Hello World";
+};
+
+class Test2 // For Testing Composition while Reading data in Boost Serialization
+{
+public:
+	const char * ptr = "Testing Functionality";
+};
+
+class Info : public Test1
 {
 private:
 	// Allow serialization to access non-public data members.  
@@ -31,8 +43,15 @@ private:
 	std::vector<std::string> filenames;
 
 public:
+	int a = 10;
+	Test2 * ptrTest2 = new Test2();
 	void AddFilename(const std::string& filename);
 	void Print() const;
+	~Info()
+	{
+		delete  ptrTest2;
+		ptrTest2 = NULL;		// <- check cancel usecase
+	}
 };
 
 void Info::Print() const { std::copy(filenames.begin(), filenames.end(), std::ostream_iterator<std::string>(std::cout, "\n")); }
@@ -45,8 +64,8 @@ int main(int argc, char** argv)
 
 	Info info1, info2;
 	info1.AddFilename("ThisFile.txt");
-	info2.AddFilename("ThatFile.txt");
-	info2.AddFilename("OtherFile.txt");
+	info1.AddFilename("ThatFile.txt");
+	info1.AddFilename("OtherFile.txt");
 
 	info2.AddFilename("ABC");
 	info2.AddFilename("123");
@@ -77,6 +96,9 @@ int main(int argc, char** argv)
 	{
 		Info info = *it;
 		info.Print();
+		std::cout << info.a << std::endl;
+		std::cout << info.ptr << std::endl;
+		std::cout << info.ptrTest2->ptr << std::endl;
 	}
 
 	std::cout << "Testing : " << std::endl;
