@@ -33,8 +33,8 @@ public :
 void CreatePerson();
 void EditPerson();
 void DisplayPerson();
-void SavePerson();
-void LoadPerson();
+void SavePersonInFile();
+void LoadPersonFromFile();
 
 Person * ptrPerson;
 
@@ -47,16 +47,16 @@ int main()
     while (Choice !=6)
     {
 
-        cout << " ------------------------------ Main Menu -----------------------------" << endl;
-        cout << "|                                                                      |" << endl;
-        cout << "|              1. Create a Person                                      |" << endl;
-        cout << "|              2. Edit a Person's Information                          |" << endl;
-        cout << "|              3. Display a Person                                     |" << endl;
-        cout << "|              4. Save a Person                                        |" << endl;
-        cout << "|              5. Load a Person                                        |" << endl;
-        cout << "|              6. Quit                                                 |" << endl;
-        cout << "|                                                                      |" << endl;
-        cout << "-----------------------------------------------------------------------" << endl << endl;
+        cout << " ------------------------- Main Menu -----------------------" << endl;
+        cout << "|                                                           |" << endl;
+        cout << "|              1. Create a Person                           |" << endl;
+        cout << "|              2. Edit a Person's Information               |" << endl;
+        cout << "|              3. Save a Person                             |" << endl;
+        cout << "|              4. Load a Person                             |" << endl;
+        cout << "|              5. Display a Person                          |" << endl;
+        cout << "|              6. Quit                                      |" << endl;
+        cout << "|                                                           |" << endl;
+        cout << " -----------------------------------------------------------" << endl << endl;
 
         cout << "Enter the Choice from following" << endl;
         cin >> Choice;
@@ -64,9 +64,9 @@ int main()
         switch (Choice) {
         case 1: CreatePerson(); break;
         case 2: EditPerson(); break;
-        case 3: DisplayPerson(); break;
-        case 4: SavePerson(); break;
-        case 5: LoadPerson(); break;
+        case 3: SavePersonInFile(); break;
+        case 4: LoadPersonFromFile(); break;
+        case 5: DisplayPerson(); break;
         case 6: cout << endl <<"Exiting Main Menu "; break;
         default: cout << endl << "Invalid Input ";break;
         }
@@ -117,7 +117,7 @@ void DisplayPerson()
     cout << " ----------------------------------------------------------------" << endl;
 }
 
-void SavePerson()
+void SavePersonInFile()
 {
     try
     {
@@ -140,7 +140,7 @@ void SavePerson()
     }
 }
 
-void LoadPerson()
+void LoadPersonFromFile()
 {
     try
     {
@@ -148,19 +148,15 @@ void LoadPerson()
         ifstream DATA_FILE;
         DATA_FILE.open("DATA1_FILE.txt",ios::in);
 
-        cout << "NAME          : ";
         getline(DATA_FILE,TEMP);
         ptrPerson->SetPersonName(TEMP);
 
-        cout << "Occupation    : ";
         getline(DATA_FILE,TEMP);
         ptrPerson->SetPersonOccupation(TEMP);
 
-        cout << "Location       : ";
         getline(DATA_FILE,TEMP);
         ptrPerson->SetPersonLocation(TEMP);
 
-        cout << "References     : ";
         getline(DATA_FILE,TEMP);
         ptrPerson->SetPersonReference(TEMP);
 
