@@ -1,41 +1,19 @@
 /** ************************************************************** Boost Setup for Visual Studios *******************************************************************
 
-1. Inside property Manager in project property add a new property inside "Release | x64" named "Boost_Release_x64" and open it.
-2. Inside section C/C++ in "Additional Include directories" add path up to boost in side boost_version.
-3. Inside section Linker in "Additional Library directories" add path up to "boost_veriosn/stage/x64/lib"
-4. Now outside Change Solution configuratiosn to "Release" and Solution Platforms to x64 and compile.
+	1. Inside property Manager in project property add a new property inside "Release | x64" named "Boost_Release_x64" and open it.
+	2. Inside section C/C++ in "Additional Include directories" add path up to boost in side boost_version.
+	3. Inside section Linker in "Additional Library directories" add path up to "boost_veriosn/stage/x64/lib"
+	4. Now outside Change Solution configuratiosn to "Release" and Solution Platforms to x64 and compile.
 
 ********************************************************************************************************************************************************************/
 
-#include <iostream>
-#include <vector>  
-#include <fstream>   
-#include <boost/serialization/vector.hpp>   
-#include <boost/archive/binary_oarchive.hpp>
-#include <boost/archive/binary_iarchive.hpp>
-#include <boost/serialization/binary_object.hpp>
+#include "TestClasses.h"
 
-
-class Test1	// For Testing Inheritance while Reading data in Boost Serialization
-{
-public:
-	const char * ptr = "Hello World";
-};
-
-class Test2 // For Testing Composition while Reading data in Boost Serialization
-{
-public:
-	const char * ptr = "Testing Functionality";
-};
-
-class Info : public Test1
+class Info : public Layer3
 {
 private:
 	// Allow serialization to access non-public data members.  
 	friend class boost::serialization::access;
-
-	//template<class Archive>
-	//void save(Archive & ar, const unsigned int version) const { ar & filenames;}
 
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) { ar & filenames; }
@@ -43,20 +21,18 @@ private:
 	std::vector<std::string> filenames;
 
 public:
-	int a = 10;
-	Test2 * ptrTest2 = new Test2();
+	Test1 * ptrTest = new Test1();
 	void AddFilename(const std::string& filename);
 	void Print() const;
 	~Info()
 	{
-		delete  ptrTest2;
-		ptrTest2 = NULL;		// <- check cancel usecase
+		delete  ptrTest;
+		ptrTest = NULL;		// <- check cancel usecase
 	}
 };
 
 void Info::Print() const { std::copy(filenames.begin(), filenames.end(), std::ostream_iterator<std::string>(std::cout, "\n")); }
 void Info::AddFilename(const std::string& filename) { filenames.push_back(filename); }
-
 
 int main(int argc, char** argv)
 {
@@ -79,7 +55,6 @@ int main(int argc, char** argv)
 		std::ofstream Obj_ofstream("data.dat", std::ios::binary);
 		boost::archive::binary_oarchive op_archive(Obj_ofstream);
 		op_archive << infs;
-		//Obj_ofstream.close();
 	}
 
 	// Restore from saved data and print to verify contents  
@@ -88,20 +63,22 @@ int main(int argc, char** argv)
 		std::ifstream Obj_ifstream("data.dat", std::ios::binary);
 		boost::archive::binary_iarchive ip_archive(Obj_ifstream);
 		ip_archive >> restored_info;
-		//Obj_ifstream.close();
 	}
 
 	std::vector<Info>::const_iterator it = restored_info.begin();
+	Info info = *it;
 	for (; it != restored_info.end(); ++it)
 	{
-		Info info = *it;
 		info.Print();
-		std::cout << info.a << std::endl;
-		std::cout << info.ptr << std::endl;
-		std::cout << info.ptrTest2->ptr << std::endl;
 	}
 
-	std::cout << "Testing : " << std::endl;
+	std::cout << std::endl << info.Layer1::ptr << std::endl;
+	std::cout << info.Layer2::ptr << std::endl;
+	std::cout << info.Layer3::ptr << std::endl;
+
+	std::cout << std::endl << info.ptrTest->ptr << std::endl;
+	std::cout << info.Layer1::m_ptrTest2->ptr << std::endl;
+
 	system("PAUSE");
 	return 0;
 }
