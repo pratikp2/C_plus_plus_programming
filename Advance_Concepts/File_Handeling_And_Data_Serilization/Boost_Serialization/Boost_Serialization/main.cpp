@@ -12,27 +12,42 @@
 class Info : public Layer3
 {
 private:
+	 float version;
+
 	// Allow serialization to access non-public data members.  
 	friend class boost::serialization::access;
 
 	template<class Archive>
-	void serialize(Archive & ar, const unsigned int version) { ar & filenames; }
+	void serialize(Archive & ar, const unsigned float version)
+	{
+		if (boost::serialization::version.type == version)
+		{
+			ar & filenames;
+		}
+	}
 
 	std::vector<std::string> filenames;
 
 public:
 	Test1 * ptrTest = new Test1();
+
+	Info();
+	~Info();
+
 	void AddFilename(const std::string& filename);
 	void Print() const;
-	~Info()
-	{
-		delete  ptrTest;
-		ptrTest = NULL;		// <- check cancel usecase
-	}
+
+
 };
+
+BOOST_CLASS_VERSION(Info, 1)
+
+Info::Info() { this->version = -1; }
+Info::~Info() { delete  ptrTest; ptrTest = NULL; }
 
 void Info::Print() const { std::copy(filenames.begin(), filenames.end(), std::ostream_iterator<std::string>(std::cout, "\n")); }
 void Info::AddFilename(const std::string& filename) { filenames.push_back(filename); }
+
 
 int main(int argc, char** argv)
 {
@@ -82,3 +97,28 @@ int main(int argc, char** argv)
 	system("PAUSE");
 	return 0;
 }
+
+// ##########################################			serialize()			################################################################
+
+// While serializing the standard data type you can define Save() and Load() Methods, and call them.
+
+// In order to serialize objects of user-defined types, you must define the member function serialize(). This function is called when
+// the object is serialized to or restored from a byte stream. Because serialize() is used for both serializing and restoring, 
+// Boost.Serialization supports the operator operator& in addition to operator<< and operator>>. With operator& there is no need to 
+// distinguish between serializing and restoring within serialize().
+
+// serialize() is automatically called any time an object is serialized or restored.It should never be called explicitly and, thus,
+// should be declared as private.If it is declared as private, the class boost::serialization::access must be declared as a friend 
+// to allow Boost.Serialization to access the member function.
+
+// More Info : https://theboostcpplibraries.com/boost.serialization-archive
+
+// ##########################################			Versioning for Archive		##########################################################
+
+// The macro BOOST_CLASS_VERSION assigns a version number to a class. If BOOST_CLASS_VERSION is not used, the version number is 0 by default.
+// The version number is stored in the archive and is part of it.While the version number specified for a particular class via the BOOST_CLASS_VERSION
+// macro is used during serialization, the parameter version of serialize() is set to the value stored in the archive when restoring.If the
+// new version of animal accesses an archive containing an object serialized with the old version, the member variable name_ would not be 
+// restored because the old version did not have such a member variable.
+
+// ##############################################################################################################################################
