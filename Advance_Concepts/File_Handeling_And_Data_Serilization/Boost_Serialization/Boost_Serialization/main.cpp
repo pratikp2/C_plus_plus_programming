@@ -8,21 +8,28 @@
 ********************************************************************************************************************************************************************/
 
 #include "TestClasses.h"
+#include <boost/serialization/version.hpp>
 
 class Info : public Layer3
 {
 private:
-	 float version;
+	const unsigned int EncoderVersion = 58;
 
 	// Allow serialization to access non-public data members.  
 	friend class boost::serialization::access;
 
 	template<class Archive>
-	void serialize(Archive & ar, const unsigned float version)
+	void serialize(Archive & ar, const unsigned int DecoderVersion)
 	{
-		if (boost::serialization::version.type == version)
+		if (DecoderVersion == EncoderVersion)
 		{
 			ar & filenames;
+		}
+		else
+		{
+			std::cout << " Error Occured....! Version Mismatch " << std::endl;
+			std::cout << " Serialization Version	: " << EncoderVersion << std::endl;
+			std::cout << " De-Serialization Version : " << DecoderVersion << std::endl;
 		}
 	}
 
@@ -36,13 +43,11 @@ public:
 
 	void AddFilename(const std::string& filename);
 	void Print() const;
-
-
 };
 
-BOOST_CLASS_VERSION(Info, 1)
+BOOST_CLASS_VERSION(Info, 58)
 
-Info::Info() { this->version = -1; }
+Info::Info() {}
 Info::~Info() { delete  ptrTest; ptrTest = NULL; }
 
 void Info::Print() const { std::copy(filenames.begin(), filenames.end(), std::ostream_iterator<std::string>(std::cout, "\n")); }
@@ -81,18 +86,22 @@ int main(int argc, char** argv)
 	}
 
 	std::vector<Info>::const_iterator it = restored_info.begin();
-	Info info = *it;
+
 	for (; it != restored_info.end(); ++it)
 	{
+	    Info info = *it;
 		info.Print();
 	}
 
-	std::cout << std::endl << info.Layer1::ptr << std::endl;
-	std::cout << info.Layer2::ptr << std::endl;
-	std::cout << info.Layer3::ptr << std::endl;
+	it = restored_info.begin();
+	Info ObjInfo = *it;
 
-	std::cout << std::endl << info.ptrTest->ptr << std::endl;
-	std::cout << info.Layer1::m_ptrTest2->ptr << std::endl;
+	std::cout << std::endl << ObjInfo.Layer1::ptr << std::endl;
+	std::cout << ObjInfo.Layer2::ptr << std::endl;
+	std::cout << ObjInfo.Layer3::ptr << std::endl;
+
+	std::cout << std::endl << ObjInfo.ptrTest->ptr << std::endl;
+	std::cout << ObjInfo.Layer1::m_ptrTest2->ptr << std::endl;
 
 	system("PAUSE");
 	return 0;
