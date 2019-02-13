@@ -8,12 +8,14 @@
 ********************************************************************************************************************************************************************/
 
 #include "TestClasses.h"
-#include <boost/serialization/version.hpp>
 
-class Info : public Layer3
+
+class Info : public InfoBase
 {
-private:
-	const unsigned int EncoderVersion = 58;
+	const int EncoderVersion = 58;
+	std::vector<std::string> filenames;
+	std::unique_ptr<Test1> ptrTest1;
+	Test2* ptrTest2;
 
 	// Allow serialization to access non-public data members.  
 	friend class boost::serialization::access;
@@ -33,32 +35,41 @@ private:
 		}
 	}
 
-	std::vector<std::string> filenames;
-
 public:
-	Test1 * ptrTest = new Test1();
+	Info()
+	{
+		ptrTest1 = std::make_unique<Test1>();
+		ptrTest2 = new Test2();
+	}
+	Info(const Info& val)
+	{
+		filenames = val.filenames;
+		ptrTest2 = new Test2();
+		*ptrTest2 = *(val.ptrTest2);
+	}
 
-	Info();
-	~Info();
+	void PrintUniquePtr() const { std::cout << "\n Content of unique ptr: " << ptrTest1->ptr << "\n"; }
 
 	void AddFilename(const std::string& filename);
 	void Print() const;
+	~Info()
+	{
+		delete ptrTest2;
+	}
 };
 
-BOOST_CLASS_VERSION(Info, 58)
-
-Info::Info() {}
-Info::~Info() { delete  ptrTest; ptrTest = NULL; }
+BOOST_CLASS_VERSION(Info, 58);
 
 void Info::Print() const { std::copy(filenames.begin(), filenames.end(), std::ostream_iterator<std::string>(std::cout, "\n")); }
 void Info::AddFilename(const std::string& filename) { filenames.push_back(filename); }
-
 
 int main(int argc, char** argv)
 {
 	std::vector<Info> infs;
 
-	Info info1, info2;
+	Info info1;
+	Info info2;
+
 	info1.AddFilename("ThisFile.txt");
 	info1.AddFilename("ThatFile.txt");
 	info1.AddFilename("OtherFile.txt");
@@ -76,6 +87,9 @@ int main(int argc, char** argv)
 		boost::archive::binary_oarchive op_archive(Obj_ofstream);
 		op_archive << infs;
 	}
+	// clear the vector so respective destructors are called
+	infs.clear();
+
 
 	// Restore from saved data and print to verify contents  
 	std::vector<Info> restored_info;
@@ -86,22 +100,19 @@ int main(int argc, char** argv)
 	}
 
 	std::vector<Info>::const_iterator it = restored_info.begin();
-
 	for (; it != restored_info.end(); ++it)
 	{
-	    Info info = *it;
-		info.Print();
+		it->Print();
+		it->PrintUniquePtr();
 	}
 
-	it = restored_info.begin();
-	Info ObjInfo = *it;
+	restored_info[0].TestFunctionfromInfoBase();
+	restored_info[0].TestFunctionfromLayer1();
+	restored_info[0].TestFunctionfromLayer2();
 
-	std::cout << std::endl << ObjInfo.Layer1::ptr << std::endl;
-	std::cout << ObjInfo.Layer2::ptr << std::endl;
-	std::cout << ObjInfo.Layer3::ptr << std::endl;
-
-	std::cout << std::endl << ObjInfo.ptrTest->ptr << std::endl;
-	std::cout << ObjInfo.Layer1::m_ptrTest2->ptr << std::endl;
+	restored_info[1].TestFunctionfromInfoBase();
+	restored_info[1].TestFunctionfromLayer1();
+	restored_info[1].TestFunctionfromLayer2();
 
 	system("PAUSE");
 	return 0;
