@@ -39,7 +39,6 @@ Singleton* Singleton :: releaseInstance()
         delete objInstance;
         objInstance = NULL;
     }
-    return objInstance;
 }
 
 int main ()

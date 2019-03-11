@@ -13,3 +13,23 @@
 -- git document
 -- Conditional Variables
 
+################################################### Bjarne Stroustrup ################################################33
+
+-- Mayer's, Monostate, Namespace Singleton Class
+-- Factory Pattern (Virtual Constructor), Parameterized Factory
+-- Stratergy Pattern
+-- Null Object Pattern
+-- Push Pull Model
+-- Command Pattern
+-- State Pattern
+-- Visitor Pattern (Double Dispatch - Wikipedia)
+-- Adaptor Pattern
+
+-- SFML 2D Framework Gaming
+-- C single threaded Model - Seesinglethreadedmodel
+-- Ace_Malloc
+-- C++ 11 CALL_ONCE (init_once, execute_once)
+-- C++ 17 Inline variable
+-- C++ 17 Delete operator on Functions.
+-- ACE and MFC Libraries.
+
