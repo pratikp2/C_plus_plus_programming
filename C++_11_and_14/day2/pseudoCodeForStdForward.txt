@@ -1,0 +1,9 @@
+PSEUDO CODE for std::forward
+
+template<typename T>
+T&& std::forward(T&& param)
+{
+	return static_cast<T&&>(param);
+}
+
+Case printWrapper(10);

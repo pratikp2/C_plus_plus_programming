@@ -1,0 +1,15 @@
+
+PSEUDO CODE for std::move
+
+template<typename T>
+remove_reference<T>::type&& move(T&& t)
+{
+	return static_cast<remove_reference<T>::type&&>(t);
+}
+
+Case 1: std::move(10)
+
+Case 2: std::move(i)
+
+
+---------------------------------------------------
