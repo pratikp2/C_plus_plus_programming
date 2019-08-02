@@ -1,0 +1,4 @@
+text
+Lambda Expressions
+How to use lambda expressions
+These are substitutes for function objects or functors

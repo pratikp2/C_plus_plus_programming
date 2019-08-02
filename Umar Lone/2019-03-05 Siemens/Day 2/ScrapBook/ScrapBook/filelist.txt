@@ -1,0 +1,2 @@
+textscrap.txt
+imagescrap.png
