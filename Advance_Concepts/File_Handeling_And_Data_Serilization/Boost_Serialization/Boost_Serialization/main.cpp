@@ -10,59 +10,6 @@
 #include "TestClasses.h"
 
 
-class Info : public InfoBase
-{
-	const int EncoderVersion = 58;
-	std::vector<std::string> filenames;
-	std::unique_ptr<Test1> ptrTest1;
-	Test2* ptrTest2;
-
-	// Allow serialization to access non-public data members.  
-	friend class boost::serialization::access;
-
-	template<class Archive>
-	void serialize(Archive & ar, const unsigned int DecoderVersion)
-	{
-		if (DecoderVersion == EncoderVersion)
-		{
-			ar & filenames;
-		}
-		else
-		{
-			std::cout << " Error Occured....! Version Mismatch " << std::endl;
-			std::cout << " Serialization Version	: " << EncoderVersion << std::endl;
-			std::cout << " De-Serialization Version : " << DecoderVersion << std::endl;
-		}
-	}
-
-public:
-	Info()
-	{
-		ptrTest1 = std::make_unique<Test1>();
-		ptrTest2 = new Test2();
-	}
-	Info(const Info& val)
-	{
-		filenames = val.filenames;
-		ptrTest2 = new Test2();
-		*ptrTest2 = *(val.ptrTest2);
-	}
-
-	void PrintUniquePtr() const { std::cout << "\n Content of unique ptr: " << ptrTest1->ptr << "\n"; }
-
-	void AddFilename(const std::string& filename);
-	void Print() const;
-	~Info()
-	{
-		delete ptrTest2;
-	}
-};
-
-BOOST_CLASS_VERSION(Info, 58);
-
-void Info::Print() const { std::copy(filenames.begin(), filenames.end(), std::ostream_iterator<std::string>(std::cout, "\n")); }
-void Info::AddFilename(const std::string& filename) { filenames.push_back(filename); }
-
 int main(int argc, char** argv)
 {
 	std::vector<Info> infs;

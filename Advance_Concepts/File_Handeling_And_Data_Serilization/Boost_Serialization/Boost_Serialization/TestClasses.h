@@ -1,94 +1,102 @@
 #pragma once
-
-#include <iostream>
-#include <vector>  
-#include <fstream>   
-#include <string>
-#include <memory>
-#include <boost/serialization/vector.hpp>   
-#include <boost/archive/binary_oarchive.hpp>
-#include <boost/archive/binary_iarchive.hpp>
-#include <boost/serialization/binary_object.hpp>
-#include <boost/serialization/version.hpp>
+#include "stdafx.h"
 
 
 class Value
 {
 	std::string strValue;
 public:
-	Value() { strValue = "Test Std String"; }
-	std::string get() const { return strValue; }
-	void set(std::string val) { strValue = val; }
+	Value();
 	~Value() {}
+	std::string get() const;
+	void set(std::string val);
 };
 
 class Test1
 {
+protected:
 public:
-	const char * ptr = "Test 1";
+
+	const char * ptr = nullptr;
+	Test1();
+	~Test1();
+	std::string get() const;
 };
 
 class Test2
 {
-	int value;
-	Value* ptrValue;
+	int value = 0;
+	Value* ptrValue = nullptr;
 public:
-	Test2()
-	{
-		value = 10;
-		ptrValue = new Value();
-	}
-	Test2(const Test2& val)
-	{
-		value = val.value;
-		ptrValue = new Value();
-		ptrValue->set(val.get());
-	}
-	Test2* operator =(const Test2& val)
-	{
-		value = val.value;
-		if (ptrValue)
-		{
-			delete ptrValue;
-			ptrValue = nullptr;
-		}
-		ptrValue = new Value();
-		ptrValue->set(val.get());
-		return this;
-	}
-	std::string get() const { return ptrValue->get(); }
-	~Test2() { delete ptrValue; }
+	Test2();
+	Test2(const Test2& val);
+	Test2* operator =(const Test2& val);
+	std::string get() const;
+	~Test2();
 };
 
 
 
 class Layer1
 {
-	Test1* ptrLayer1;
+	Test1* ptrLayer1 = nullptr;
 public:
-	Layer1() { ptrLayer1 = new Test1; }
-	~Layer1()
-	{
-		delete ptrLayer1;
-	}
-	void TestFunctionfromLayer1() { std::cout << "Test Function from Layer 1 Called which has value " << ptrLayer1->ptr << std::endl; }
+	Layer1();
+	~Layer1();
+	void TestFunctionfromLayer1();
 };
 
 class Layer2 : public Layer1
 {
-	Test2* ptrLayer2;
+	Test2* ptrLayer2 = nullptr;
 public:
-	Layer2() { ptrLayer2 = new Test2; }
-	~Layer2()
-	{
-		delete ptrLayer2;
-	}
-	void TestFunctionfromLayer2() { std::cout << "Test Function from Layer 2 Called which has value " << ptrLayer2->get() << std::endl; }
+	Layer2();
+	~Layer2();
+	void TestFunctionfromLayer2();
 };
 
 class InfoBase : public Layer2
 {
-	const char * ptrInfoBase = "Info Base";
+	const char * ptrInfoBase = nullptr;
 public:
-	void TestFunctionfromInfoBase() { std::cout << "Test Function from " << ptrInfoBase << " Called" << std::endl; }
+	InfoBase();
+	~InfoBase();
+	void TestFunctionfromInfoBase();
 };
+
+class Info : public InfoBase
+{
+	const int EncoderVersion = 58;
+	std::vector<std::string> filenames;
+	std::unique_ptr<Test1> ptrTest1;
+	Test2* ptrTest2 = nullptr;
+
+public:
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int DecoderVersion)
+	{
+		if (DecoderVersion == EncoderVersion)
+		{
+			ar & filenames;
+		}
+		else
+		{
+			std::cout << " Error Occured....! Version Mismatch " << std::endl;
+			std::cout << " Serialization Version	: " << EncoderVersion << std::endl;
+			std::cout << " De-Serialization Version : " << DecoderVersion << std::endl;
+		}
+	}
+
+	Info();
+	Info(const Info& val);
+	~Info();
+
+	void PrintUniquePtr() const;
+	void AddFilename(const std::string& filename);
+	void Print() const;
+};
+
+BOOST_CLASS_VERSION(Info, 58);
+
+
