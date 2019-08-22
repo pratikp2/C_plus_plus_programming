@@ -35,5 +35,8 @@
     <ClInclude Include="UseCases.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="serializationOption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

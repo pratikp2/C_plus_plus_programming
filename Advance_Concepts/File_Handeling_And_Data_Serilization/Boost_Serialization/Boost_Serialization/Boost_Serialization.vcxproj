@@ -121,6 +121,7 @@
     <ClCompile Include="UseCases.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="serializationOption.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TestClasses.h" />
     <ClInclude Include="UseCases.h" />
