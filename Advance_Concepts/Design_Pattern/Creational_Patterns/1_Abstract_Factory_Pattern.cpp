@@ -54,8 +54,8 @@ public :
 class WindowsFactory : public Factory
 {
 public :
-    Widget * DrawButton() { return new LinuxButton; }
-    Widget * DrawMenu() { return new LinuxMenu; }
+    Widget * DrawButton() { return new WindowsButton; }
+    Widget * DrawMenu() { return new WindowsMenu; }
 };
 
 class Client

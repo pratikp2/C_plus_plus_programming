@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    int temp,i,j,index = 7,minindex;
+    int temp,i,j,index = 7,minindex = 0;
     int sort_arr[index] = {1,23,41,5,14,20,33};
 
     for(i=0; i<index; i++)

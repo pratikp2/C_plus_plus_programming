@@ -11,9 +11,12 @@ int main()
     //cout <<"Value for *ptr                        : "<<*ptr<<endl;    //Telling compiler to dereference a void* but since it is a void * compiler has no idea
                                                                         //to what the memory at ptr is meant to look like.Is it a int or float or char memory ?
     ptr = &a;
-    cout <<"Value for *ptr after int assignment    : "<<(*(int*)ptr)<<endl;
+    cout <<"Value for *ptr after int assignment         : "<<(*(int*)ptr)<<endl;
+    cout <<"Value for *ptr after after wrong Casting    : "<<(*(float*)ptr)<<endl;
+
     ptr = &b;
-    cout <<"Value for *ptr after float assignment  : "<<(*(float*)ptr)<<endl<<endl;
+    cout <<"Value for *ptr after float assignment       : "<<(*(float*)ptr)<<endl<<endl;
+    cout <<"Value for *ptr after after wrong Casting    : "<<(*(int*)ptr)<<endl<<endl;
 
     /**
      *  A void pointer is a pointer that can point to any type of object, but does not know what type of object it points to.

@@ -12,6 +12,7 @@ public:
     void Release(){cout << __FUNCSIG__ << endl;}
 };
 }
+
 inline namespace SMNew
 {
     class Memory
@@ -23,7 +24,6 @@ inline namespace SMNew
 }
 
 void setMemory(Memory* mem){cout << __FUNCSIG__<< endl;}
-
 }
 void main()
 {
