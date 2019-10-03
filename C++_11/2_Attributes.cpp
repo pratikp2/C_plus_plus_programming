@@ -14,8 +14,7 @@ using namespace std;
 
 
 [[depricated("The Function1 has been Depricated Please use Function 2")]]
-void Function1(){cout << "Raised compiler warning for deprication" << endl;}
-
+void Function1(){}
 void Function2(){}
 
 int main()
@@ -24,4 +23,4 @@ int main()
 	
 	Function2();
 	return 0;
-}	
+}
