@@ -31,5 +31,8 @@
 -- C++ 11 CALL_ONCE (init_once, execute_once)
 -- C++ 17 Inline variable
 -- C++ 17 Delete operator on Functions.
--- ACE and MFC Libraries.
+-- ACE Libraries. 
+-- MFC Libraries.
+-- Iterator Facade (Boost Libraries)
 
+https://www.wisdomjobs.com/e-university/advanced-c-plus-plus-interview-##s.html <- imp

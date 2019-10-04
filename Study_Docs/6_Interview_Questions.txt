@@ -1,4 +1,4 @@
-Capgemini questions :
+Capgemini ##s :
 	-- Abstraction , Encapsulation , Runtime Polymorphism , Inheritance
 	-- access specifier , purpose of each access specifiers. calling function from base class from derive pointer (with access  		   specifier)
 	-- Virtual , virtual function without def., pure virtual without def., object of abstract class
@@ -14,11 +14,11 @@ Capgemini questions :
 	An assignment operator is used to replace the data of a previously initialized object with some other object's data.
 
 
-Pratiti Questions :
+Pratiti ##s :
 	-- Write code which converts multiple digit alphanumeric into numeric value.
 	-- Write code for assignment operator overloading.
 
-Robert Bosch Questions :
+Robert Bosch ##s :
 	-- Code output recursive main call ,Code output for "for loop"
 	-- code to find out Even no without using conditional operator
 	-- What is the value stored by the compiler for NULL pointer.
@@ -31,7 +31,7 @@ Robert Bosch Questions :
 	-- runtime polymorphism and inheritance in detail, usefulness of inheritance
 	-- diff between abstract class and interface
 
-TATA Elexi Questions : (9th June 2018)
+TATA Elexi ##s : (9th June 2018)
 	-- initialization (types of pointers, variable , function pointer, array of function pointer)
 	-- Memory organization and storage.
 	-- extern, static storage class.
@@ -46,7 +46,7 @@ TATA Elexi Questions : (9th June 2018)
 	-- project framework
 	
 Dassault Systems : (7th July 2018)
-	-- Inheritance defination, types , concepts, hararchy inheritance questions 
+	-- Inheritance defination, types , concepts, hararchy inheritance ##s 
 	-- when to call a destructor, how to call a destructor, is is possible to call in main.
 	-- Runtime polymorphism (Explain with example)
 	-- Difference new and malloc 
