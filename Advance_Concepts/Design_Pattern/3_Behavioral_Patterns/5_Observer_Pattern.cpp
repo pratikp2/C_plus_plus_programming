@@ -1,3 +1,15 @@
+/** ********************************************* Idea of Observer Pattern **********************************************
+*
+*   1) The Observer Pattern (also known as Publish-Subscribe Pattern) is a behavioral design pattern which defines a
+*      one-to-many relationship between objects such that, when one object changes its state, all dependent objects are
+*      notified and updated automatically
+*   2) The Observer class provides an update() method which will be called by the subject to notify it of the subject’s
+*      state change.
+*   3) The Subject class is also an abstract class and defines four primary methods: attach(), detach(), setState(),
+*      and notify().
+*
+************************************************************************************************************************/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
