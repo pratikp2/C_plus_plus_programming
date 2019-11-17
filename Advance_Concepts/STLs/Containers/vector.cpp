@@ -22,6 +22,11 @@
  *  returns an object of reverse_iterator that holds pointer to an element before the first element of the array.
  *  The location pointed to by the rend is invalid and hence should not be de-referenced.
  *
+ *
+ *  Ways to Fill Data into Vector.
+ *
+ *      //vec.push_back(7);
+ *      // vector<int> vec{1,2,3,8,5};
  *****************************************************************************************************************/
 #include <iostream>
 #include <vector>
