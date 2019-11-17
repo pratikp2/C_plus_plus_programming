@@ -1,4 +1,4 @@
-/***********************************************    Key Points    *******************************************************
+ /***********************************************    Key Points    *******************************************************
 
 1) cout is an object of ostream class and cin is an object istream class
 2) These operators must be overloaded as a global function. And if we want to allow them to access private data members 
