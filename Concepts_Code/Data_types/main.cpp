@@ -13,7 +13,6 @@
 ***************************************************************************************** */
 
 #include <iostream>
-#include <time.h>
 using namespace std;
 
 int main()
@@ -47,11 +46,6 @@ int main()
 
     cout << "Size of float          : " << sizeof(float) << endl;
     cout << "Size of double         : " << sizeof(double) << endl <<endl;
-
-    cout << "Size of double         : " << sizeof(TIME) << endl <<endl;
-
-    cout << "signed char A Value    : " <<(int)h << endl;
-    cout << "unsigned char A Value  : " <<(int)i << endl<<endl;
 
     return 0;
 }

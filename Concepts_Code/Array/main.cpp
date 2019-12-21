@@ -5,15 +5,12 @@ const int size1D = 8;
 const int size2D = 4;
 const int size3D = 2;
 
-
-
 void show1DArray(int []);
 void show2DArray(int [size2D][size2D]);              // const size is needed while passing Multidimentional arrays
 void show3DArray(int [size3D][size3D][size3D]);      // array as an argument
 
 int main()
 {
-
     int arr1D[]={1,2,3,4,5,6,7,8};
     show1DArray(arr1D);
 

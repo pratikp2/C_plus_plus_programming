@@ -30,13 +30,13 @@ public:
         cout << "Smart Pointer Is destroyed" << endl << endl;
     }
 
-    DataType &operator *()
+    DataType & operator *()
     {
         cout << "Overloading *" << endl;
         return *ptr;
     }
 
-    DataType* operator ->()
+    DataType * operator ->()
     {
         cout << "Overloading ->" << endl;
         return ptr;

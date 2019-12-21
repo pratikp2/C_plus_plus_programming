@@ -16,7 +16,7 @@ void FuncSig2(int * ptr) {}
 //void FuncSig3(int (*fptr)()){}-> Function Overloading does not happen because both args call same function
 
 void FuncSig4(int a) {}
-//void FuncSig4(const int a) {}	-> Function Overloading does not happen just because argument storage class is different.
+//void FuncSig4(const int a) {}	-> Function Overloading does not happen just because const variable is pass to function.
 
 void FuncSig5(int a){}
 //void FuncSig5(int a = 0) {}	-> Function Overloading does not happen just because default arg is different.

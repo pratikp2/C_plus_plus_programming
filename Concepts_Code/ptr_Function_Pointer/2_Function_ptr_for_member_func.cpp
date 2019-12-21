@@ -1,7 +1,8 @@
 /** ***************************** Prototype ********************************************
 
     Declaration :   return_type(class :: *ptr_Name)(args) = &class :: FunctionName;
-    Invoke      :   (ObjName.*ptr_Name)(args);
+    Invoke      :   (ObjName.*ptr)(args);
+                :   (ptrName->*ptr)(args)
 
 ****************************************************************************************/
 #include<iostream>
