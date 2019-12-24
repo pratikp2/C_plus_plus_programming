@@ -1,30 +1,32 @@
 #include <iostream>
 using namespace std;
 
-struct Element;
+class Binary_Search_Tree;
+
+struct Node
+{
+    int data;
+    Node *left;
+    Node *right;
+};
+
 class Binary_Search_Tree
 {
 private :
-     Element *m_root;
-     Element *m_treeTraverser;
+    Node *m_root = nullptr;
+    Node *m_treeTraverser = nullptr;
 
-    struct Element* createElement(int data);
-    bool traverseTree(int data);
+    struct Node* createNode(int);
+    Node * search(int);
     void inOrdertraversal();
     void preOrdertraversal();
     void postOrdertraversal();
 
 public :
-    Binary_Search_Tree();
-    void addElement();
-    void removeElement();
+    Binary_Search_Tree(){}
+    bool doesNodeExist(int);
+    void insert(int);
     void displayTree();
-};
-
-struct Element
-{
-    int data;
-    Element *left, *right;
 };
 
 int main()
@@ -35,8 +37,8 @@ int main()
     while(choice != 4)
     {
         cout <<endl;
-        cout << "1. Add a Element in Binary tree." << endl;
-        cout << "2. Remove Element from Tree." << endl;
+        cout << "1. Add a Node in Binary tree." << endl;
+        cout << "2. Search Node from Tree." << endl;
         cout << "3. Display Tree."<<endl;
         cout << "4. Exit."<<endl<<endl;
 
@@ -49,13 +51,17 @@ int main()
         switch(choice)
         {
         case 1:
-            cout << "Adding a number in BST " << endl;
-            objBST.addElement();
+            cout << "Enter the Number to be inserted" << endl;
+            int temp1;
+            cin >> temp1;
+            objBST.insert(temp1);
             break;
 
         case 2:
-            cout << "Removing an Element from Binary Tree " << endl;
-            objBST.removeElement();
+            cout << "Enter the Number to be Search " << endl;
+            int temp2;
+            cin >> temp2;
+            objBST.doesNodeExist(temp2);
             break;
 
         case 3:
@@ -71,20 +77,11 @@ int main()
     return 0;
 }
 
-Binary_Search_Tree :: Binary_Search_Tree()
+Node * Binary_Search_Tree :: createNode(int data)
 {
-    m_root = new (Element);
-    m_treeTraverser = new (Element);
-    m_root = NULL;
-}
-
-Element * Binary_Search_Tree :: createElement(int data)
-{
-    Element *Temp = new (struct Element);\
+    Node *Temp = new (struct Node);
     if (Temp == NULL)
-    {
         cout << "No Memory Allocated" << endl;
-    }
     else
     {
         Temp -> data = data;
@@ -94,60 +91,55 @@ Element * Binary_Search_Tree :: createElement(int data)
     }
 }
 
-bool Binary_Search_Tree :: traverseTree(int data)
+Node * Binary_Search_Tree :: search(int data)
 {
-    bool flag = false;
-
-    if (m_treeTraverser->data == data)
+    Element * temp = m_root;
+    while (temp != nullptr)
     {
-        flag = true;
+        if (temp->data == data)
+            break;
+        else if(temp->data > data)
+            temp = temp->left;
+        else
+            temp = temp->right;
     }
-    else if((m_treeTraverser->data > data) && (m_treeTraverser->left != NULL))
-    {
-        m_treeTraverser = m_treeTraverser -> left;
-        flag = traverseTree(data);
-    }
-    else if((m_treeTraverser->data < data) && (m_treeTraverser->right != NULL))
-    {
-        m_treeTraverser = m_treeTraverser -> right;
-        flag = traverseTree(data);
-    }
-    return flag;
+    return temp;
 }
 
-void Binary_Search_Tree :: addElement()
+void Binary_Search_Tree :: insert(int data)
 {
-    int data;
-    bool flag = false;
-    Element *Holder;
-    m_treeTraverser = m_root;
-
-    cout << "Please Enter the Element to be entered : ";
-    cin >> data;
-
-    if(m_root == NULL)
-    {
-        m_root = createElement(data);
-    }
+    if(m_root == nullptr)
+        m_root = createNode(data);
     else
     {
-        flag = traverseTree(data);
-        if(flag)
+        if(!doesNodeExist(data))
         {
-            cout << "Entered Data is already in BST" <<endl;
+            Node * temp = m_root;
+            while(temp != nullptr)
+            {
+                if(temp->data > data)
+                    temp = temp->left;
+                else
+                    temp = temp->right;
+            }
+            temp = createNode(data);
         }
         else
-        {
-            Holder = createElement(data);
-            m_treeTraverser = (m_treeTraverser->data > data) ? (m_treeTraverser = Holder -> left) : (m_treeTraverser = Holder -> right);
-            m_treeTraverser -> data = data;
-        }
+            cout << "Can not insert Node" << endl;
     }
+
 }
 
-void Binary_Search_Tree :: inOrdertraversal()
+bool Binary_Search_Tree :: doesNodeExist(int data)
 {
-    // Left -> Root -> Right
+    if(this->search(data))
+        return true;
+    return false;
+}
+
+void Binary_Search_Tree :: inOrdertraversal()   // Left -> Root -> Right
+{
+
 }
 
 void Binary_Search_Tree :: preOrdertraversal()
@@ -162,7 +154,7 @@ void Binary_Search_Tree :: postOrdertraversal()
 
 void Binary_Search_Tree :: displayTree()
 {
-    if (m_root != NUL)
+    if (m_root != nullptr)
     {
         int choice = 0;
         while(choice != 4)
@@ -204,9 +196,4 @@ void Binary_Search_Tree :: displayTree()
     {
         cout << "Binary Search Tree Empty. Please Add data First."<< endl;
     }
-}
-
-void Binary_Search_Tree :: removeElement()
-{
-
 }
