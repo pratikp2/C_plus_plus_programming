@@ -35,6 +35,12 @@
 
 **************************************************************************************************************************************
 ## Binary Tree
-    1. Root is the topmost node of the tree     2.Edge is the link between two nodes    3.Child is a node that has a parent node
-    4. Parent is a node that has an edge to a child node    5. Leaf is a node that does not have a child node in the tree
-    6. Height is the length of the longest path to a leaf   7. Depth is the length of the path to its root
+    1. Root is the topmost node of the tree
+    2. Edge is the link between two nodes
+    3. Child is a node that has a parent node
+    4. Parent is a node that has an edge to a child node
+    5. Leaf is a node that does not have a child node in the tree
+    6. Height is the length of the longest path to a leaf
+    7. Depth is the length of the path to its root
+
+**************************************************************************************************************************************

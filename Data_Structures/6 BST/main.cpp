@@ -16,13 +16,17 @@ private :
     Node *m_root = nullptr;
     Node *m_treeTraverser = nullptr;
 
-    struct Node* createNode(int);
+    //struct Node* createNode(int);
     Node * search(int);
-    void inOrdertraversal();
-    void preOrdertraversal();
-    void postOrdertraversal();
+    void inOrdertraversal(Node*);
+    //void preOrdertraversal(Node*);
+    void postOrdertraversal(Node*);
 
 public :
+
+    struct Node* createNode(int);
+    void preOrdertraversal(Node*);
+
     Binary_Search_Tree(){}
     bool doesNodeExist(int);
     void insert(int);
@@ -34,7 +38,29 @@ int main()
     int choice;
     Binary_Search_Tree objBST;
 
-    while(choice != 4)
+
+    Node * root = objBST.createNode(5);
+
+    Node * lefty = objBST.createNode(3);
+    Node * righty = objBST.createNode(7);
+
+    Node * one = objBST.createNode(2);
+    Node * two = objBST.createNode(4);
+    Node * three = objBST.createNode(6);
+    Node * four = objBST.createNode(8);
+
+    root->left = lefty;
+    root->right = righty;
+
+    lefty->left = one;
+    lefty->right = two;
+
+    righty->left = three;
+    righty->right = four;
+
+    objBST.preOrdertraversal(root);
+
+    /*while(choice != 4)
     {
         cout <<endl;
         cout << "1. Add a Node in Binary tree." << endl;
@@ -74,7 +100,7 @@ int main()
         }
     }
 
-    return 0;
+    return 0;*/
 }
 
 Node * Binary_Search_Tree :: createNode(int data)
@@ -93,7 +119,7 @@ Node * Binary_Search_Tree :: createNode(int data)
 
 Node * Binary_Search_Tree :: search(int data)
 {
-    Element * temp = m_root;
+    Node * temp = m_root;
     while (temp != nullptr)
     {
         if (temp->data == data)
@@ -137,19 +163,34 @@ bool Binary_Search_Tree :: doesNodeExist(int data)
     return false;
 }
 
-void Binary_Search_Tree :: inOrdertraversal()   // Left -> Root -> Right
+void Binary_Search_Tree :: inOrdertraversal(Node * parent)   // Left -> Root -> Right
 {
+    if(parent != nullptr)
+        return;
 
+    inOrdertraversal(parent->left);
+    cout << " [" << parent->data <<"]";
+    inOrdertraversal(parent->right);
 }
 
-void Binary_Search_Tree :: preOrdertraversal()
+void Binary_Search_Tree :: preOrdertraversal(Node * parent)  // Root -> Left -> Right
 {
-    // Root -> Left -> Right
+    if(parent == nullptr)
+        return;
+
+    cout << " [" << parent->data <<"]";
+    preOrdertraversal(parent->left);
+    preOrdertraversal(parent->right);
 }
 
-void Binary_Search_Tree :: postOrdertraversal()
+void Binary_Search_Tree :: postOrdertraversal(Node * parent) // Left -> Right -> Root
 {
-    // Left -> Right -> Root
+    if(parent == nullptr)
+        return;
+
+    postOrdertraversal(parent->left);
+    postOrdertraversal(parent->right);
+    cout << " [" << parent->data <<"]";
 }
 
 void Binary_Search_Tree :: displayTree()
@@ -163,7 +204,7 @@ void Binary_Search_Tree :: displayTree()
             cout << "1. Display via Inorder Traversal." << endl;
             cout << "2. Display via Preorder Traversal." << endl;
             cout << "3. Display via Postorder Traversal."<<endl;
-            cout << "4. Exit."<<endl<<endl;
+            cout << "4. Back to Previous Menu."<<endl<<endl;
 
             cout << "Please Select the Traversal choice : ";
             cin >> choice;
@@ -172,18 +213,18 @@ void Binary_Search_Tree :: displayTree()
             switch(choice)
             {
             case 1:
-                cout << "Inorder Traversal" << endl;
-                this -> inOrdertraversal();
+                cout << "Inorder Traversal      :";
+                this -> inOrdertraversal(m_root);
                 break;
 
             case 2:
-                cout << "Preorder Traversal" << endl;
-                this -> preOrdertraversal();
+                cout << "Preorder Traversal     :";
+                this -> preOrdertraversal(m_root);
                 break;
 
             case 3:
-                cout << "Postorder Traversal";
-                this -> postOrdertraversal();
+                cout << "Postorder Traversal    :";
+                this -> postOrdertraversal(m_root);
                 break;
 
             case 4:
