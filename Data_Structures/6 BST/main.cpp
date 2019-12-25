@@ -16,60 +16,36 @@ private :
     Node *m_root = nullptr;
     Node *m_treeTraverser = nullptr;
 
-    //struct Node* createNode(int);
+    struct Node* createNode(int);
     Node * search(int);
     void inOrdertraversal(Node*);
-    //void preOrdertraversal(Node*);
+    void preOrdertraversal(Node*);
     void postOrdertraversal(Node*);
+    static void freeBST(Node*);
 
 public :
-
-    struct Node* createNode(int);
-    void preOrdertraversal(Node*);
-
     Binary_Search_Tree(){}
+    ~Binary_Search_Tree(){freeBST(m_root);}
     bool doesNodeExist(int);
     void insert(int);
     void displayTree();
+    Node * getRoot(){return m_root;}
+
 };
 
 int main()
 {
     int choice;
+    bool flag;
     Binary_Search_Tree objBST;
-
-
-    Node * root = objBST.createNode(5);
-
-    Node * lefty = objBST.createNode(3);
-    Node * righty = objBST.createNode(7);
-
-    Node * one = objBST.createNode(2);
-    Node * two = objBST.createNode(4);
-    Node * three = objBST.createNode(6);
-    Node * four = objBST.createNode(8);
-
-    root->left = lefty;
-    root->right = righty;
-
-    lefty->left = one;
-    lefty->right = two;
-
-    righty->left = three;
-    righty->right = four;
-
-    objBST.preOrdertraversal(root);
-
-    /*while(choice != 4)
+    while(choice != 5)
     {
         cout <<endl;
         cout << "1. Add a Node in Binary tree." << endl;
         cout << "2. Search Node from Tree." << endl;
         cout << "3. Display Tree."<<endl;
-        cout << "4. Exit."<<endl<<endl;
-
-
-
+        cout << "4. Check if data exists in BST" <<endl;
+        cout << "5. Exit."<<endl<<endl;
         cout << "Please Select the choice : ";
         cin >> choice;
         cout <<endl;
@@ -84,7 +60,7 @@ int main()
             break;
 
         case 2:
-            cout << "Enter the Number to be Search " << endl;
+            cout << "Enter the Number to be Searched " << endl;
             int temp2;
             cin >> temp2;
             objBST.doesNodeExist(temp2);
@@ -95,12 +71,23 @@ int main()
             break;
 
         case 4:
+            cout << "Please Enter Number to Searched" << endl;
+            int data;
+            cin >> data;
+            flag = objBST.doesNodeExist(data);
+            if (flag)
+                cout << "BST contains entered number." << endl;
+            else
+                cout << "BST does not contain entered number." << endl;
+            break;
+
+        case 5:
             cout << "Exiting" << endl;
             break;
         }
     }
 
-    return 0;*/
+    return 0;
 }
 
 Node * Binary_Search_Tree :: createNode(int data)
@@ -141,19 +128,33 @@ void Binary_Search_Tree :: insert(int data)
         if(!doesNodeExist(data))
         {
             Node * temp = m_root;
-            while(temp != nullptr)
+            while(true)
             {
                 if(temp->data > data)
-                    temp = temp->left;
+                {
+                    if(temp ->left == nullptr)
+                    {
+                        temp->left = createNode(data);
+                        return;
+                    }
+                    else
+                        temp = temp->left;
+                }
                 else
-                    temp = temp->right;
+                {
+                    if(temp ->right == nullptr)
+                    {
+                        temp->right = createNode(data);
+                        return;
+                    }
+                    else
+                        temp = temp->right;
+                }
             }
-            temp = createNode(data);
         }
         else
             cout << "Can not insert Node" << endl;
     }
-
 }
 
 bool Binary_Search_Tree :: doesNodeExist(int data)
@@ -165,7 +166,7 @@ bool Binary_Search_Tree :: doesNodeExist(int data)
 
 void Binary_Search_Tree :: inOrdertraversal(Node * parent)   // Left -> Root -> Right
 {
-    if(parent != nullptr)
+    if(parent == nullptr)
         return;
 
     inOrdertraversal(parent->left);
@@ -237,4 +238,15 @@ void Binary_Search_Tree :: displayTree()
     {
         cout << "Binary Search Tree Empty. Please Add data First."<< endl;
     }
+}
+
+void Binary_Search_Tree ::freeBST(Node * parent)
+{
+    if(parent == nullptr)
+        return;
+
+    freeBST(parent->right);
+    freeBST(parent->left);
+    delete parent;
+    parent = nullptr;
 }
