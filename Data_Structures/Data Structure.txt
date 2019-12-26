@@ -44,3 +44,10 @@
     7. Depth is the length of the path to its root
 
 **************************************************************************************************************************************
+## What is complexity of an algorithm?
+
+Algorithm complexity is a measure which evaluates the order of the count of operations, performed by a given or algorithm as a function
+of the size of the input data. To put this simpler, complexity is a rough approximation of the number of steps necessary to execute an
+algorithm.
+
+**************************************************************************************************************************************

@@ -27,5 +27,7 @@ int main()
     return 0;
 }
 
+// Time Complexity : О(n2) : n square
+
 // To Optimize Code introduce a flag which checks weather swapping is happened or not.If There is no swapping in
 // middle of complete checks it means the sequence is already sorted , no need to do more swapping.

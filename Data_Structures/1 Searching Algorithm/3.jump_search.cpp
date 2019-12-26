@@ -3,7 +3,7 @@
 using namespace std;
 
 # define MAX_SIZE 20
-int jumpSearch(int arr[], int data)
+int jumpSearch(int arr[], int data)     // Complexity O(√n)
 {
     int step = sqrt(MAX_SIZE), prev = 0;
 

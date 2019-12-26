@@ -2,7 +2,7 @@
 using namespace std;
 
 # define MAX_SIZE 10
-int linearSearch(int arr[],int data)
+int linearSearch(int arr[],int data) // Complexity is O(n)
 {
     int i=0;
     for (i=0; i<MAX_SIZE; i++){if(data == arr[i]){return i;}}

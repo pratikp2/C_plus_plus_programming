@@ -257,3 +257,10 @@ The dlsym() function shall search for the named symbol in all objects loaded aut
 referenced by handle (see dlopen()). Load ordering is used in dlsym() operations upon the global symbol object. The symbol resolution
 algorithm used shall be dependency order as described in dlopen(). :    void *dlsym(void *restrict handle, const char *restrict name);
 *************************************************************************************************************************************
+
+## What is complexity of an algorithm?
+
+Algorithm complexity is a measure which evaluates the order of the count of operations, performed by a given or algorithm as a function
+of the size of the input data. To put this simpler, complexity is a rough approximation of the number of steps necessary to execute an
+algorithm.
+*************************************************************************************************************************************

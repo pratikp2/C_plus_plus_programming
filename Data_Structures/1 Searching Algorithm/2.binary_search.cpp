@@ -2,7 +2,7 @@
 using namespace std;
 
 # define MAX_SIZE 20
-int binarySearch(int arr[], int data, int lb, int ub)
+int binarySearch(int arr[], int data, int lb, int ub)  // Complexity is O(log n)
 {
     cout << "Traces || Data : " << data << ", Updated Lower Bound : " << lb << ",Updated Upper Bound : " << ub << endl;
     int mid;

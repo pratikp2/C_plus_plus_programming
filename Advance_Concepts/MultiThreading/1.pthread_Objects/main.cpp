@@ -30,7 +30,7 @@ int main()
 
     for(i=0;i<5;i++)
     {
-        tr = pthread_create(&tid[i],NULL,PrintHello,(void *)&i);             // The Format of pthread_create() don't have separate API formats for just to take
+        tr = pthread_create(&tid[i],NULL,PrintHello,(void *)&i);            // The Format of pthread_create() don't have separate API formats for just to take
                                                                             // different data types as input (viz. int, char etc.). Hence the void pointer has
                                                                             // been passed to the API so that after passing void pointer the data type can be
                                                                             // retrieved by typecasting.
