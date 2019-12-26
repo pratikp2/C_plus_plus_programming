@@ -14,7 +14,6 @@ class Binary_Search_Tree
 {
 private :
     Node *m_root = nullptr;
-    Node *m_treeTraverser = nullptr;
 
     struct Node* createNode(int);
     Node * search(int);
@@ -26,6 +25,7 @@ private :
 public :
     Binary_Search_Tree(){}
     ~Binary_Search_Tree(){freeBST(m_root);}
+
     bool doesNodeExist(int);
     void insert(int);
     void displayTree();
@@ -35,7 +35,7 @@ public :
 
 int main()
 {
-    int choice;
+    int choice = 0;
     bool flag;
     Binary_Search_Tree objBST;
     while(choice != 5)
@@ -93,13 +93,13 @@ int main()
 Node * Binary_Search_Tree :: createNode(int data)
 {
     Node *Temp = new (struct Node);
-    if (Temp == NULL)
+    if (Temp == nullptr)
         cout << "No Memory Allocated" << endl;
     else
     {
         Temp -> data = data;
-        Temp -> left = NULL;
-        Temp -> right = NULL;
+        Temp -> left = nullptr;
+        Temp -> right = nullptr;
         return Temp;
     }
 }
@@ -194,6 +194,17 @@ void Binary_Search_Tree :: postOrdertraversal(Node * parent) // Left -> Right ->
     cout << " [" << parent->data <<"]";
 }
 
+void Binary_Search_Tree ::freeBST(Node * parent)
+{
+    if(parent == nullptr)
+        return;
+
+    freeBST(parent->right);
+    freeBST(parent->left);
+    delete parent;
+    parent = nullptr;
+}
+
 void Binary_Search_Tree :: displayTree()
 {
     if (m_root != nullptr)
@@ -238,15 +249,4 @@ void Binary_Search_Tree :: displayTree()
     {
         cout << "Binary Search Tree Empty. Please Add data First."<< endl;
     }
-}
-
-void Binary_Search_Tree ::freeBST(Node * parent)
-{
-    if(parent == nullptr)
-        return;
-
-    freeBST(parent->right);
-    freeBST(parent->left);
-    delete parent;
-    parent = nullptr;
 }

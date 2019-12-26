@@ -40,7 +40,7 @@ int main()
 
     for (int i=0; i<5; i++)
     {
-        pthread_create(&ThID[i],NULL,ExecRoutine,(void *)i);
+        pthread_create(&ThID[i],NULL,ExecRoutine,(void *)&i);
     }
 
     for(int j=0; j<5; j++)

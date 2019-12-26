@@ -1,4 +1,4 @@
-  /** *********************************************    Prototypes    *******************************************************
+/** *********************************************    Prototypes    *******************************************************
  *
  *  POSIX Threads       : Portable Operating System Interface.
  *  Traditional Thread  : Single thread of control.
@@ -19,8 +19,8 @@ using namespace std;
 
 void *PrintHello(void *);
 int SystemSignal;                           // Thread status must be always GLOBAL. When declared locally if thread goes
-                                            // out of scope, locally declared variables also goes out of scope, hence garbage
-                                            // value as a status is read by the main function.
+// out of scope, locally declared variables also goes out of scope, hence garbage
+// value as a status is read by the main function.
 
 int main()
 {
@@ -30,7 +30,7 @@ int main()
 
     for(i=0;i<5;i++)
     {
-        tr = pthread_create(&tid[i],NULL,PrintHello,(void *)i);             // The Format of pthread_create() don't have separate API formats for just to take
+        tr = pthread_create(&tid[i],NULL,PrintHello,(void *)&i);             // The Format of pthread_create() don't have separate API formats for just to take
                                                                             // different data types as input (viz. int, char etc.). Hence the void pointer has
                                                                             // been passed to the API so that after passing void pointer the data type can be
                                                                             // retrieved by typecasting.
@@ -52,12 +52,12 @@ int main()
 
 void *PrintHello(void * tid)
 {
-    int ThreadID = (int)tid;
+    int *  ThreadID = (int*)tid;
     SystemSignal = 7;
     cout << "Printing Thread NO. : "<< ThreadID << endl;
 
     pthread_exit(&SystemSignal);                                 // void pthread_exit(void *retval);
-                                                                //<- Here is 0 is the system signal (execution status of routine) returned to the main programme.
+    //<- Here is 0 is the system signal (execution status of routine) returned to the main programme.
 }
 
 
