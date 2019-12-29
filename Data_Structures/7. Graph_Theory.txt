@@ -1,0 +1,174 @@
+    ********************************************************************************************
+
+                            ***************************
+                            *                         *
+                            *       Graph theory      *
+                            *                         *
+                            ***************************
+
+    ********************************************************************************************
+
+    A graph "G" is an ordered pair of sets "V" vertices and Edges "E".
+    it can be represented G = (V,E)
+
+    For Following Example :
+    G = (V,E) where V = {v1, v2, v3, v4, v5, v6, v7, v8} and,
+    E = { {v1,v2}, {v1,v3}, {v1,v4}, {v2,v5}, {v2,v6}, {v3,v7}, {v4,v8}, {v7,v8}, {v5,v8}, {v6,v8} }
+
+
+                    |V1| -------------------|V2|
+                     | \                     /|
+                  ___|  \                   / |___
+                  |      \                 /      |
+                 |V3|     \               /     |V6|
+                  |        \             /       /
+                  |        |V4|        |V5|    /
+                 |V7|        \         /     /
+                    \         \       /    /
+                        \      \     /   /
+                            \   \   /  /
+                               \ \ / /
+                                 |V8|
+
+    Ordered Pair                            Unordered Pair
+    (a,b) != (b,a) if a != b                {a,b} = {b,a}
+
+
+    Edges :
+
+    Directed Edge :-                    |         Undirected Edge :-
+                                        |           No Direction present.
+        (u,v)                           |
+    v <---------> u                     |          v ---------- u
+        (v,u)                           |
+                                        |
+    hence unordered                     |           hence un ordered pair
+    (u,v) and (v,u)                     |           {u,v}
+
+
+
+    ********************************************************************************************
+
+
+            Undirected Graph                |                   Directed Graph
+                                            |
+                                            |
+      |V1| -------------------|V2|          |             |V1| <----------------->|V2|
+       | \                     /|           |              ^ ^                    ^ ^
+    ___|  \                   / |___        |           ___|  \                   / |___
+    |      \                 /      |       |           |      \                 /      |
+   |V3|     \               /     |V6|      |          |V3|     \               /     |V6|
+    |        \             /       /        |           ^        \             /       ^
+    |        |V4|        |V5|    /          |           |        |V4|        |V5|    /
+   |V7|        \         /     /            |          |V7|        ^         ^     /
+        \       \       /    /              |               \       \       /    /
+           \     \     /   /                |                  \     \     /   /
+              \   \   /  /                  |                     \   \   /  /
+                 \ \ / /                    |                        \ \ / /
+                   |V8|                     |                          |V8|
+                                            |
+                                            |
+    Example :                               |       Example :
+                                            |
+    Social Network -                        |       Web pages on internet -
+    Multiple Nodes (Friends) Connected to   |       Multile pages connected to each other via
+    to Each other with out any direction.   |       hyperlink. Connection is directred multiple
+                                            |       nodes can be traveresed in single way.
+
+    ********************************************************************************************
+
+    Unweighted Graph :
+        It's a graph where all the edges in the graph has unit value i,e. 1. Travesing distance
+        between all the Nodes is same. Eg., Connetion between users of social networking sites,
+        Webpags.
+
+    Weighted Graph :
+        It's type whwre all the Eges connecting node has a unique or different travesing cost
+        Associated with it. Eg., Actual Map of Cities where all the roads(edges) connecting the
+        cities has different distance (value).
+
+
+                        250 Km
+            |V1| -------------------|V2|
+             | \                     /|
+      130km _|  \                   / |___ 100 km
+          |      \  150km          /      |
+         |V3|     \         150km /      |V6|
+          |        \             /       /
+  170km   |        |V4|        |V5|    /
+         |V7|        \         /     /
+            \         \       /    /    250 km
+                \      \     /   /
+             50 km  \   \   /  /
+                       \ \ / /
+                        |V8|
+
+    Self Loop :
+        If origin and destination for an edge is same then node is self looped.
+
+    Multi Edged Node :
+        If a multiple edges has same origin and destination then those nodes are Multi edge
+        nodes.
+
+                            Path 1
+                        -------------
+                  V1 ---|           |--- V2
+                        -------------
+                            Path 2
+
+    Simple Node :
+        If a node is not seld looped and do not has multi edge then it is called as Simple Node.
+
+    Dense Graph :
+        Contains too many edges across all nodes. Possibly each node is connected to other node via
+        dedicated edge.
+
+    Spars Grapg :
+        Contains too few edges across all nodes. Not all nodes has dedicated egde to connect to other
+        Nodes. To connect with them traversing via different is requied.
+
+    Path :
+        Sequence of vertices where each adjecent pair is connected via edge.
+
+    ********************************************************************************************
+
+        DATA STRUCTURE 1 : Edge List Representation.  (Mainly used for spaars Graph)
+
+
+                  |A | -------------------|B |                          struct Edge   OR   class Edge
+                   | \                     /|                           {
+                ___|  \                   / |___                            char * StartVertex;
+                |      \                 /      |                           char * EndVertex;
+               |C |     \               /     |F |                          int weight;
+                |        \             /       /                        };
+                |        |D |        |E |    /
+              |G |        \         /     /
+                 \         \       /    /
+                     \      \     /   /
+                         \   \   /  /
+                            \ \ / /
+                              |H |
+
+
+        Vertex List :           |                   | Start Vertex  |   End Vertex  |   Cost    |
+                                |                   |               |               |           |
+            | A |               |                   |       A       |       B       |     5     |
+            | B |               |                   |       A       |       C       |     10    |
+            | C |               |                   |       A       |       D       |     11    |
+            | D |               |                   |       B       |       E       |     13    |
+            | E |               |                   |       B       |       F       |     17    |
+            | F |               |                   |       C       |       G       |     9     |
+            | G |               |                   |       D       |       H       |     100   |
+            | H |               |
+                                |
+
+
+
+
+
+
+
+
+
+
+
