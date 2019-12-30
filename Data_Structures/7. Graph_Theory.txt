@@ -127,12 +127,41 @@
         Contains too few edges across all nodes. Not all nodes has dedicated egde to connect to other
         Nodes. To connect with them traversing via different is requied.
 
-    Path :
+    Walk :
         Sequence of vertices where each adjecent pair is connected via edge.
+
+    Closed Walk :
+        Where a path starts and ends with same vertex and traversing cost is not zero.
+
+    Simple Cycle :
+        A closed walk in which other than start and end vertex no other vertex is repeted.
+
+    Acyclic graph :
+        A graph in which no cycle is present. A directed graph can be acyclic graph in which
+        there can be loop due to connected edge but there can't be loop due to traversing i.e,
+        restriction of edge direction.
+
+    Path :
+        A Walk in which no vertices are repeated (Hence No edges are repeated).
+
+    Trail :
+        A walk in which no edges are repeated but vertices can be repeated. (e.g, Diagram drawing game
+        via connecting dots.)
+
+    Not Connected Graph :
+        This is a type of graph in which there are two sets of vertices and not single set of vertices
+        shares and edge with other set of vertices.
+
+    Weakly Connected :
+        Type of graph in in which one or more vertex creates block i.e, one or more vertex just have incoming
+        edges and not outgoing edges.
+
+    Strongly Connected Graph :
+        This is type of Graph in which there is path availabe to any vertex from any vertex.
 
     ********************************************************************************************
 
-        DATA STRUCTURE 1 : Edge List Representation.  (Mainly used for spaars Graph)
+        DATA STRUCTURE 1 : Edge List Representation.  (Mainly used for spaars Graph E.g Facebook)
 
 
                   |A | -------------------|B |                          struct Edge   OR   class Edge
@@ -150,7 +179,7 @@
                               |H |
 
 
-        Vertex List :           |                   | Start Vertex  |   End Vertex  |   Cost    |
+        Vertex_List :           |                   | Start Vertex  |   End Vertex  |   Cost    |
                                 |                   |               |               |           |
             | A |               |                   |       A       |       B       |     5     |
             | B |               |                   |       A       |       C       |     10    |
@@ -159,16 +188,83 @@
             | E |               |                   |       B       |       F       |     17    |
             | F |               |                   |       C       |       G       |     9     |
             | G |               |                   |       D       |       H       |     100   |
-            | H |               |
-                                |
+            | H |               |                   |       E       |       H       |     20    |
+                                |                   |       F       |       H       |     30    |
+                                |                   |       G       |       H       |     50    |
+
+        Hence
+            string Vertex_List [MAX_SIZE];
+            struct Edge edge_List [MAX_SIZE];
+
+        Better to have Reference in the of start vertex and end vertex from Vertex_List in the edge_List instead
+        of having actual value because if the string is too long then Edge list will have to store entire string
+        again in edge list.
+
+        OR
+
+        Directly store indices of the Vertex_List inside edge_List.
+
+        Cost :
+        1. Time Complexity :    Depends on the type of operation we are performing.
+        2. Space Complecity :   O|V| + O|E|
+
+    ********************************************************************************************
+
+        DATA STRUCTURE 2 : Adjacency Matrix Representation.  (Mainly used for Dense Graph but have disadvantages)
 
 
+                      |A | -------------------|B |                          struct Edge   OR   class Edge
+                       | \                     /|                           {
+                    ___|  \                   / |___                            char * StartVertex;
+                    |      \                 /      |                           char * EndVertex;
+                   |C |     \               /     |F |                          int weight;
+                    |        \             /       /                        };
+                    |        |D |        |E |    /
+                   |G |        \         /     /
+                      \         \       /    /
+                          \      \     /   /
+                              \   \   /  /
+                                 \ \ / /
+                                  |H |
+                                                                         Two dimensional Array A[MAX_SIZE][MAX_SIZE];
+
+                Vertex_List :           |                   |   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |
+                                        |
+                    | A |               |                0  |   0   |   5   |   7   |   3   |   0   |   0   |   0   |   0   |
+                    | B |               |                1  |   5   |   0   |   0   |   0   |   2   |   9   |   0   |   0   |
+                    | C |               |                2  |   7   |   0   |   0   |   0   |   0   |   0   |   1   |   0   |
+                    | D |               |                3  |   3   |   0   |   0   |   0   |   0   |   0   |   0   |   9   |
+                    | E |               |                4  |   0   |   2   |   0   |   0   |   0   |   0   |   0   |   9   |
+                    | F |               |                5  |   0   |   9   |   0   |   0   |   0   |   0   |   0   |   4   |
+                    | G |               |                6  |   0   |   0   |   1   |   0   |   0   |   0   |   0   |   6   |
+                    | H |               |                7  |   0   |   0   |   0   |   6   |   9   |   9   |   4   |   0   |
+                                        |
+                                        |
+
+                To store Cost : Using Simple Value
+                To store empty code : invalid input number
+                To mention no need to trace further : other invalid input check.
 
 
+        Cost :
+        1. Time Complexity :    Depends on the type of operation we are performing.
+        2. Space Complecity :   O|V| + O|V*V|
+
+    ********************************************************************************************
+
+        DATA STRUCTURE 3 : Adjacency List Representation.  (Mainly used for Dense Graph )
 
 
-
-
-
-
-
+              |A | -------------------|B |                          struct Edge   OR   class Edge
+               | \                     /|                           {
+            ___|  \                   / |___                            char * StartVertex;
+            |      \                 /      |                           char * EndVertex;
+           |C |     \               /     |F |                          int weight;
+            |        \             /       /                        };
+            |        |D |        |E |    /
+           |G |        \         /     /
+              \         \       /    /
+                  \      \     /   /
+                      \   \   /  /
+                         \ \ / /
+                          |H |
