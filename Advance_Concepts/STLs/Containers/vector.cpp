@@ -48,7 +48,7 @@ int main()
 
     for(i=0; i<10; i++)
     {
-        vec.push_back(i);
+        vec.push_back(i*100);
     }
 
     cout << "vector size = " << vec.size() << endl;             //  No of elements present in the vector. = 10

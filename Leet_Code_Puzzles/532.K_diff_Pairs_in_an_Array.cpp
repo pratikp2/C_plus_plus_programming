@@ -1,14 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int findPairs(vector<int>& nums, int k)
 {
-    int count = 0;
-    int temp = 0;
+    if (nums.empty())
+        return 0;
 
-    if(k == 0)
-        temp = -1;
+    int count = 0;
+    int temp = -255;
+
+    sort(nums.begin(), nums.end());
 
     for (int i=0; i<nums.size()-1; i++)
     {
@@ -26,7 +30,11 @@ int findPairs(vector<int>& nums, int k)
 
 int main()
 {
-    vector<int> vec = {1,1,1,2,1};
-    cout << findPairs(vec,0); << endl;
+    //vector<int> vec = {3,1,4,1,5};
+    //vector<int> vec = {1,1,1,2,1};
+    //vector<int> vec;
+    //vector<int> vec = {-1,0,0,1,0,0,-1};
+    vector<int> vec = {1,2,3,4,5};
+    cout << findPairs(vec,4) << endl;
     return 0;
 }
