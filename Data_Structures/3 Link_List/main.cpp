@@ -130,7 +130,6 @@ void link_list :: insetNodeAtEnd()
     {
         holder = holder -> link;
     }
-    temp -> link = NULL;
     holder -> link = temp;
     displayLinkList();
 }
@@ -151,7 +150,6 @@ void link_list :: insetNodeAtposition()
     {
         holder = holder -> link;
         nodeCounter++;
-        cout << "1st While hit Node Count is : " << nodeCounter<<endl;
     }
 
     if(nodePosition > nodeCounter)
@@ -165,6 +163,7 @@ void link_list :: insetNodeAtposition()
     }
     else if (1 == nodePosition)
     {
+        temp = createNode(value);
         if (start == NULL)
         {
             start = temp;
@@ -172,7 +171,6 @@ void link_list :: insetNodeAtposition()
         }
         else
         {
-            temp = createNode(value);
             holder = start;
             start = temp;
             start -> link = holder;

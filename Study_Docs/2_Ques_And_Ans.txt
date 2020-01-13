@@ -81,6 +81,17 @@ an interface is a pure virtual class, with no implementation whatsoever.Interfac
 whereas abstract classes can contain both.
 
 *************************************************************************************************************************************
+## Can we define purevirtual function and if yes How to call it.
+
+We can define pure virtual function, but it has to br defined out side of the class body.
+I can be called via derived class using scope resolution.
+e.g, Interface :: Function();
+
+Pure virtual functions must not be called from a C++ constructor. As a general rule, you should never call any kind of virtual
+function in a constructor or destructor because those calls will never go to a more derived class than the currently executing
+constructor or destructor.
+
+*************************************************************************************************************************************
 ##. Can we delete this pointer ? 
 
 Ideally delete operator should not be used for this pointer. However, if used, then following points must be considered.
@@ -124,6 +135,21 @@ External		extern 		Whole Program 		Global 			Zero
 Static			static 		Whole Program 		Local 			Zero
 Register		register 	Function Block 		Local 			Garbage
 Mutable			mutable 	Class 			Local 			Garbage
+
+*************************************************************************************************************************************
+##. Polymorphism
+
+    Compile Time Polymorphism:
+        1. Function Overloading.
+        2. Operator Overloaving.
+        3. Templates.
+        4. auto keyword.
+
+        Every declaration must have a known type at compile time so auto doesn't get
+        special treatment, it has to deduce the type at compile time.
+
+    Runtime Polymorphism:
+        1. Function Overriding.
 
 *************************************************************************************************************************************
  ## why to make Object Volatile ?

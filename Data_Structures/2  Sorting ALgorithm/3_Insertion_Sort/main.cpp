@@ -14,7 +14,7 @@ int main()
         while (j>=0 && key<sort_arr[j])
         {
             sort_arr[j+1] = sort_arr[j];
-            j = j-1;
+            j--;
         }
         sort_arr[j+1] = key;
     }
