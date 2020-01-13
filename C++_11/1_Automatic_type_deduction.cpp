@@ -3,7 +3,6 @@
 using namespace std;
 
 int main()
-
 {
     auto a = 20;
     auto b = 20.10;

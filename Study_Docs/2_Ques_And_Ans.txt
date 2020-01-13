@@ -81,7 +81,7 @@ an interface is a pure virtual class, with no implementation whatsoever.Interfac
 whereas abstract classes can contain both.
 
 *************************************************************************************************************************************
-## Can we define purevirtual function and if yes How to call it.
+## Can we define Pure virtual function and if yes How to call it.
 
 We can define pure virtual function, but it has to br defined out side of the class body.
 I can be called via derived class using scope resolution.
@@ -90,6 +90,13 @@ e.g, Interface :: Function();
 Pure virtual functions must not be called from a C++ constructor. As a general rule, you should never call any kind of virtual
 function in a constructor or destructor because those calls will never go to a more derived class than the currently executing
 constructor or destructor.
+
+*************************************************************************************************************************************
+## What is the Logic behind giving body to a pure virtual Function ?
+
+Ideally Derived classes who overrides pure virtual function may call original Pure virtual function implementation somewhere in
+their code.If part of the code of tow overriden functionalities from two distinct derived classes is similar then it makes sense
+to move it up in the hierarchy, i,e in Pure Virtual Function.
 
 *************************************************************************************************************************************
 ##. Can we delete this pointer ? 

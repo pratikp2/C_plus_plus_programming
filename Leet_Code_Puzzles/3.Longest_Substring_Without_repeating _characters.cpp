@@ -16,19 +16,21 @@ int lengthOfLongestSubstring(string s)
     char holder[size+1];
     strcpy(holder, s.c_str());
 
-    for(int i=0; i<(size-temp); i++)
+    for(int i=0; i<size; i++)
     {
         for (int j=i; j<size; j++)
         {
-            if(std::find (vec.begin(), vec.end(), holder[i]) == vec.end())
+            if(std::find (vec.begin(), vec.end(), holder[j]) == vec.end())
             {
-                vec.push_back(holder[i]);
-                cout << " Holder " << holder[i] << " Vector " << *--(vec.end()) << endl;
+                vec.push_back(holder[j]);
                 temp1++;
             }
+            else
+                break;
         }
         temp = (temp>temp1) ? temp : temp1;
-        cout << " Temp " << temp <<endl;
+        vec.clear();
+        temp1 = 0;
     }
     return temp;
 }
