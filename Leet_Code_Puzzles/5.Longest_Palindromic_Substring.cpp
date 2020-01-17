@@ -7,21 +7,37 @@ string longestPalindrome(string s)
 {
     int size = s.length();
     string palindrome = "";
-    string dummy = "";
     bool flag = false;
     char holder[size+1];
     strcpy(holder, s.c_str());
 
     for(int i=0; i<(size-1); i++)
     {
-        for(int j=size; j>=i+1; j--)
+        for(int j=size; j>i; j--)
         {
             if(holder[i] == holder[j])
             {
-
+                cout << "index " << i << " = " << holder[i] <<" index " << j << " = " << holder[j] << endl;
+                for (int k=i,q=0; k<=(i+(j-i)/2); k++,q++)
+                {
+                    if(holder[k] != holder[j-q])
+                    {
+                        flag = false;
+                        break;
+                    }
+                    else
+                        flag = true;
+                }
+                for(int l=i;l<=j;l++)
+                    palindrome = palindrome + holder[l];
             }
+            if(flag)
+                break;
         }
+        if(flag)
+            break;
     }
+
     if (palindrome == "")
         return palindrome = holder[0];
     return palindrome;
@@ -31,11 +47,11 @@ int main()
 {
     string s;
     //s = "babad";
-    //s = "badefbey";
+    s = "badefbey";
     //s = "cbbd";
     //s = "ccc";
     //s = "caba";
-    s = "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa";
+    //s = "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa";
     cout << "Longest Substring Palindrome length is : " << longestPalindrome(s) << endl;
     return 0;
 }
