@@ -2,7 +2,6 @@
 #include <fstream>
 #include <cstring>
 #include <map>
-
 using namespace std;
 
 struct DataTemplate
@@ -14,6 +13,7 @@ struct DataTemplate
 
 struct DataTemplate* ConvertData(string);
 string GetString();
+void ProcessData(struct DataTemplate*);
 void SetString(struct DataTemplate*);
 
 int main()
@@ -28,7 +28,9 @@ int main()
     cout << "Sequence   :   ";
     for(int i=0; i<ptr->slices.size(); i++)
         cout << ptr->slices[i] << " ";
-    SetString(ptr);
+    cout << endl<< endl;
+    ProcessData(ptr);
+    //SetString(ptr);
 
     return 0;
 }
@@ -52,6 +54,29 @@ struct DataTemplate* ConvertData(string s)
         ptr->slices.insert(pair<int,int> (i,stoi(temp)));
     }
     return ptr;
+}
+
+void ProcessData(struct DataTemplate * ptr)
+{
+    int SliceSum = 0, Difference = 0;
+    int size = ptr->slices.size();
+
+    for(int i=0; i<size; i++)
+        SliceSum = SliceSum + ptr->slices[i];
+
+    if (SliceSum < ptr->MaxSlices)
+        return;
+    else
+        Difference = SliceSum - ptr->MaxSlices;
+
+    /*while (SliceSum <= ptr->MaxSlices)
+    {
+
+    }*/
+
+    cout <<"Slices NO  :   "<<SliceSum << endl;
+    cout <<"Difference :   "<<Difference << endl;
+    cout << endl;
 }
 
 string GetString()
@@ -84,7 +109,7 @@ void SetString(struct DataTemplate * ptr)
         for(int i=0; i<size; i++)
             temp = temp + " " + to_string(ptr->slices[i]);
         temp.erase(0,1);
-         DATA_FILE << temp <<endl;
+        DATA_FILE << temp <<endl;
 
         DATA_FILE.close();
     }
