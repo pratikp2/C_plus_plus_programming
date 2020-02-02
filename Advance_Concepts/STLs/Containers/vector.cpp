@@ -30,48 +30,45 @@
  *****************************************************************************************************************/
 #include <iostream>
 #include <vector>
-#include <bits/stdc++.h>
-
+#include <algorithm>
 using namespace std;
-
-bool isOdd (int i)
-{
-    return i%2;
-}
 
 int main()
 {
-    int i;
     vector<int> vec;
+    vector<int> vec2 {100,200,300,400,500};                     // Way to initiliaze vector C++ 11 Feature
     vector<int> :: iterator Itr = vec.begin();
     vector<int> :: reverse_iterator rItr = vec.rbegin();
 
-    for(i=0; i<10; i++)
-    {
+    for(int i=0; i<10; i++)
         vec.push_back(i*100);
-    }
 
     cout << "vector size = " << vec.size() << endl;             //  No of elements present in the vector. = 10
     cout << "Capacity : " << vec.capacity() <<endl;             //  No of positions Present in the vector = 16
     cout << "Max_Size : " << vec.max_size()<<endl<<endl;        //  This is the maximum potential size the container can reach.
 
+    cout << "Printing via iteraror          :   ";
     for(Itr=vec.begin(); Itr!=vec.end(); Itr++)
-    {
-        cout << "Value of vec [" << *Itr << "] = " << vec[*Itr] << endl;
-    }
+        cout << *Itr << " ";
     cout << endl;
 
+    cout << "Printing via Reverse iteraror  :   ";
     for(rItr=vec.rbegin(); rItr!=vec.rend(); rItr++)
-    {
-        cout << "Value of reverse vec [" << *rItr << "] = " << vec[*rItr] << endl;
-    }
+        cout << *rItr << " ";
+    cout << endl << endl;;
+
+    // Insert data at desired index or position.
+    for(int i=5; i<10; i++)
+        vec2.insert(vec2.begin()+i,(i+1)*100);
+
+    cout << "Insert at specific location    :   ";
+    for(auto temp : vec2)
+        cout << temp << " ";
     cout << endl;
 
-    Itr = find_if(vec.begin(), vec.end(), isOdd);
-    cout << *Itr;
-
-    //    Itr = find_if_not(vec.begin(), vec.end(), isOdd);
-    //    cout << *Itr;
+    cout << "Getting Index of entry 900     :   ";
+    Itr = find(vec2.begin(),vec2.end(),900);
+    cout << distance(vec2.begin(), Itr) << endl << endl;
 
     return 0;
 }

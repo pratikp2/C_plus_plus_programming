@@ -117,7 +117,7 @@
                             Path 2
 
     Simple Node :
-        If a node is not seld looped and do not has multi edge then it is called as Simple Node.
+        If a node is not self looped and do not has multi edge then it is called as Simple Node.
 
     Dense Graph :
         Contains too many edges across all nodes. Possibly each node is connected to other node via
