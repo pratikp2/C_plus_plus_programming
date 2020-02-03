@@ -8,7 +8,7 @@
         namespaces or classes, categorize them according to types.
 
     Rules :
-    1. try block should be immediately followed by catch block( not single one of them should be misplaced missing).
+    1. try block should be immediately followed by catch block( not single one of them should be misplaced).
     2. There can be multiple catch block (similar to overloading)
     3. An Exception can be thrown from out side try block only via function called through try.
     4. Every exception must be caught by the code or else it will terminate at runtime.(Including one throw and diff

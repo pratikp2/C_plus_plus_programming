@@ -5,7 +5,7 @@ class Explore
 {
 private :
     int A = 10,a;                   //
-    const string Hold = "Hello";      // Allows defination inside class body.
+    const string Hold = "Hello";    // Allows defination inside class body.
     float fraction = 2.5f, frac;    //
 
 public :

@@ -10,7 +10,7 @@ private:
 
 public:
     Graph(int);
-    ~Graph(){cout << "Proper Termination ----- " << endl;}
+    ~Graph(){}
     void addEdges(int,int);
     void pringGraph();
 };
@@ -34,7 +34,6 @@ int main()
 
 Graph::Graph(int vertexCount)
 {
-    cout << "Proper Build ----- " << endl;
     this->m_vertex = vertexCount;
 
     for(int i=0; i<m_vertex; i++)
@@ -47,7 +46,7 @@ Graph::Graph(int vertexCount)
 void Graph::addEdges(int a ,int b)
 {
     m_Edges[a].push_back(b);
-    m_Edges[b].push_back(a);
+    m_Edges[b].push_back(a);    // pushing in both vectors for Bi Directional Graphs
 }
 
 void Graph::pringGraph()
