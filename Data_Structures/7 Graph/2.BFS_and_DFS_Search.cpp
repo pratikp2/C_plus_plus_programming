@@ -22,8 +22,8 @@ void populateData(Graph*);
 
 int main()
 {
-    int choice = 0;
-    Graph * ptr = new Graph(5);
+    int choice = 0, a=0, b=0;
+    Graph * ptr = new Graph(4);
 
     while(choice !=4)
     {
@@ -45,12 +45,10 @@ int main()
             break;
 
         case 2:
-
-            int a=0, b=0;
             cout << "Enter edges Data considering Vertex from 0 to 4" << endl;
             cout << "1st vertex" << endl;
-            cin << a;
-            cin << b;
+            cin >> a;
+            cin >> b;
             ptr->addEdges(a,b);
             break;
 
@@ -58,7 +56,7 @@ int main()
             ptr->pringGraph();
             break;
 
-        case 6:
+        case 4:
             cout << "Exiting" << endl;
             break;
         }
@@ -69,13 +67,12 @@ int main()
 
 void populateData(Graph * ptr)
 {
-    ptr->addEdges(0,1);
-    ptr->addEdges(0,4);
-    ptr->addEdges(1,2);
-    ptr->addEdges(1,3);
-    ptr->addEdges(1,4);
-    ptr->addEdges(2,3);
-    ptr->addEdges(3,4);
+    ptr->addEdges(0,1);                 //         | 0 | -----> | 1 |
+    ptr->addEdges(0,2);                 //           ^        /^
+    ptr->addEdges(1,2);                 //           |     /
+    ptr->addEdges(2,0);                 //           v  /                       BSF : 2 -> 0 -> 3 -> 1
+    ptr->addEdges(2,3);                 //         | 2 | -----> | 3 | -|        DSF : 2 -> 0 -> 1 -> 3
+    ptr->addEdges(3,3);                 //                        ^----|
 }
 
 Graph::Graph(int vertexCount)
@@ -91,19 +88,34 @@ void Graph::addEdges(int a ,int b)
 
 void Graph::pringGraph()
 {
-    char choice;
+    int choice = 0;
 
-    cout << "Choose the search method to Display Sequence" << endl;
-    cout << "1. Breadth search First (BFS) : Press B" << endl;
-    cout << "2. Depth search First (DFS) : Press D" << endl;
-    cout << "0. To Previous menu : E" << endl;
+    while(choice !=3)
+    {
+        cout << "Choose the search method to Display Sequence" << endl;
+        cout << "1. Breadth search First (BFS)" << endl;
+        cout << "2. Depth search First (DFS)" << endl;
+        cout << "3. To Previous menu" << endl;
 
-    cin >> choice;
+        cout << "Please Select the Choice : ";
+        cin >> choice;
+        cout <<endl;
 
-    if(choice == 'B' || choice == 'b')
-        this->BFS(2);
-    else if(choice == 'D' || choice == 'd')
-        this->DFS(2);
+        switch(choice)
+        {
+        case 1:
+            this->BFS(2);
+            break;
+
+        case 2:
+            this->DFS(2);
+            break;
+
+        case 3:
+            break;
+        }
+    }
+
 }
 
 void Graph::BFS(int data)
@@ -117,24 +129,45 @@ void Graph::BFS(int data)
 
     while(!queue.empty())
     {
-        cout << queue.front() << " ";
+        cout <<"|"<< queue.front() <<"| ";
         data = queue.front();
         queue.pop_front();
 
         for(itr = ptr[data].begin(); itr != ptr[data].end(); ++itr)
         {
-            if(!visited[data])
+            if(!visited[*itr])
             {
-                visited[data] = true;
-                queue.push_back(data);
+                visited[*itr] = true;
+                queue.push_back(*itr);
             }
         }
     }
+    cout << endl << endl;
 }
 
 void Graph::DFS(int data)
 {
+    list<int> stack;
+    list<int> :: iterator itr;
+    bool visited[m_vertex] = {false};
 
+    visited[data] = true;
+    stack.push_back(data);
+
+    while(!stack.empty())
+    {
+        cout <<"|"<< stack.front() << "| ";
+        data = stack.back();
+        stack.pop_back();
+        for(itr = ptr[data].begin(); itr != ptr[data].end(); ++itr)
+        {
+            if(!visited[*itr])
+            {
+                visited[*itr] = true;
+
+            }
+        }
+    }
 }
 
 Graph::~Graph()
