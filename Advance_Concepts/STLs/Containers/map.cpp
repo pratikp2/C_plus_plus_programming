@@ -16,36 +16,25 @@ using namespace std;
 
 int main()
 {
-    int i;
     map <int,int> Num;
     map <long int,string> EmployeeID;
 
-    map <int ,int> :: iterator Itr = Num.begin();
-    map <long int,string> :: iterator CItr = EmployeeID.begin();
+    EmployeeID[0] = "zero";
+    EmployeeID[1] = "one";
+    EmployeeID[2] = "two";
+    EmployeeID[3] = "three";
+    EmployeeID[4] = "four";
+    EmployeeID[5] = "five";
 
-    for(i=0; i<10; i++)
-    {
+    for(int i=0; i<10; i++)
         Num.insert(pair <int,int> (i,(10*i)));
-    }
 
-    EmployeeID[127151] = "Prat!k";
-    EmployeeID[127149] = "Savkare";
-    EmployeeID[127147] = "Kalingad";
-    EmployeeID[127200] = "Shinde";
-    EmployeeID[127232] = "Mogrekar";
-    EmployeeID[127150] = "Garibancha Sherlock";
-
-    for(Itr=Num.begin(); Itr!=Num.end(); ++Itr)
-    {
+    for(map<int,int>::iterator Itr=Num.begin(); Itr!=Num.end(); ++Itr)
         cout << "value of Map [" << Itr->first << "] = " << Itr->second << endl;
-    }
-
     cout << endl;
 
-    for(CItr=EmployeeID.begin(); CItr!=EmployeeID.end(); ++CItr)
-    {
+    for(map<long int,string>::iterator CItr=EmployeeID.begin(); CItr!=EmployeeID.end(); ++CItr)
         cout << "Employee Id " << CItr->first << " is : " << CItr->second << endl;
-    }
 
     return 0;
 }

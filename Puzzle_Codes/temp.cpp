@@ -16,9 +16,9 @@ void RecursionBackTracking(int arr[], string s, int index)
 
 int main()
 {
-    int size = 10;
-    //int arr[size] = {2,4,6,10,15};
-    int arr[size] = {4,14,15,18,29,32,36,82,95,95};
+    int size = 4;
+    int arr[size] = {2,5,6,8};
+    //int arr[size] = {4,14,15,18,29,32,36,82,95,95};
     RecursionBackTracking(arr, "", size-1);
 
     return 0;
