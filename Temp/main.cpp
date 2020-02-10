@@ -77,21 +77,24 @@ void ProcessData(struct DataTemplate* ptr)
 
 unsigned int RecursionBackTracking(DataTemplate * ptr, unsigned int sliceSum, int index, string temp)
 {
-    cout << temp + " " + to_string(ptr->slices[index]) << " ";
-    if ((sliceSum + ptr->slices[index] > ptr->MaxSlices) ||
-            (index < 0 || sliceSum == ptr->MaxSlices))
-        return sliceSum;
-
-    unsigned int sliceSum1 = RecursionBackTracking(ptr, sliceSum, index-1, temp + " " + to_string(ptr->slices[index]));
-    unsigned int sliceSum2 = RecursionBackTracking(ptr, sliceSum + ptr->slices[index], index-1,temp + " " + to_string(ptr->slices[index]));
-
-    if(sliceSum1 < ptr->MaxSlices && sliceSum2 < ptr->MaxSlices && sliceSum2>sliceSum1)
+    if (index < 0 || sliceSum == ptr->MaxSlices)
     {
-        cout << sliceSum2 << endl;
-        return sliceSum2;
+
     }
-    cout << sliceSum1 << endl;
-    return sliceSum1;
+    else
+    {
+        unsigned int sliceSum1 = 0;
+        sliceSum = RecursionBackTracking(ptr, sliceSum, index-1, temp + " " + to_string(ptr->slices[index]));
+
+        if(sliceSum + ptr->slices[index] < ptr->MaxSlices)
+            sliceSum1 = RecursionBackTracking(ptr, sliceSum + ptr->slices[index], index-1,temp + " " + to_string(ptr->slices[index]));
+
+        if(sliceSum1 < ptr->MaxSlices && sliceSum1>sliceSum)
+            sliceSum = sliceSum;
+    }
+    cout << temp << endl;
+    cout << sliceSum << endl << endl;
+    return sliceSum;
 }
 
 string GetString()

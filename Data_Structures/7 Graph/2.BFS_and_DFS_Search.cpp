@@ -10,6 +10,7 @@ private:
 
     void BFS(int);
     void DFS(int);
+    void DFS_Recursion(int,bool[]);
 
 public:
     Graph(int);
@@ -147,27 +148,19 @@ void Graph::BFS(int data)
 
 void Graph::DFS(int data)
 {
-    list<int> stack;
-    list<int> :: iterator itr;
     bool visited[m_vertex] = {false};
+    DFS_Recursion(data,visited);
+    cout <<endl<<endl;
+}
 
+void Graph::DFS_Recursion(int data,bool visited[])
+{
     visited[data] = true;
-    stack.push_back(data);
+    cout <<"|"<< data <<"| ";
 
-    while(!stack.empty())
-    {
-        cout <<"|"<< stack.front() << "| ";
-        data = stack.back();
-        stack.pop_back();
-        for(itr = ptr[data].begin(); itr != ptr[data].end(); ++itr)
-        {
-            if(!visited[*itr])
-            {
-                visited[*itr] = true;
-
-            }
-        }
-    }
+    for (auto temp : ptr[data])
+        if(!visited[temp])
+            DFS_Recursion(temp,visited);
 }
 
 Graph::~Graph()
