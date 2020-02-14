@@ -1,25 +1,33 @@
 #include <iostream>
 #include <cstring>
+#include <string>
+
+#define SIZE 4
+#define TARGET 14
 using namespace std;
 
-void RecursionBackTracking(int arr[], string s, int index)
+int RecursionBackTracking(int arr[], int index, int sum, string s)
 {
-    if (index < 0)
-    {
-        cout << s << endl;
-        return;
-    }
+    if (index > SIZE-1 || sum == TARGET)
+        return sum;
 
-    RecursionBackTracking(arr, s, index-1);
-    RecursionBackTracking(arr, s + " " + to_string(arr[index]), index-1);
+    int sum1 = RecursionBackTracking(arr, index+1, sum, s);
+
+    if (sum + arr[index+1] <= TARGET)
+        sum = RecursionBackTracking(arr, index+1, sum + arr[index], s + " " + to_string(arr[index]));
+
+    sum = (sum>sum1) ? sum : sum1;
+
+    cout << sum << endl;
+    return sum;
 }
 
 int main()
 {
-    int size = 4;
-    int arr[size] = {2,5,6,8};
-    //int arr[size] = {4,14,15,18,29,32,36,82,95,95};
-    RecursionBackTracking(arr, "", size-1);
+    int arr[SIZE] = {2,5,6,8};
+    //int arr[SIZE] = {4,14,15,18,29,32,36,82,95,95};
+    cout << RecursionBackTracking(arr, 0,arr[0], "");
 
+    system("pause");
     return 0;
 }
