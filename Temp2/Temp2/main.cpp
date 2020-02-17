@@ -6,8 +6,8 @@
 using namespace std;
 using namespace std::chrono;
 
-#define SIZE 10
-#define TARGET 100
+#define SIZE 4
+#define TARGET 17
 int CURRENTSUM = 0;
 std::string ABC = "";
 

@@ -5,6 +5,9 @@
 #include <map>
 using namespace std;
 
+int TARGET = 0;
+int CURRENTSUM = 0;
+std::string TEMP = "";
 
 struct DataTemplate
 {
@@ -23,7 +26,7 @@ struct DataTemplate* ConvertData(string);
 string GetString();
 void ProcessData(struct DataTemplate*);
 void SetString(struct DataTemplate*);
-unsigned int RecursionBackTracking(DataTemplate*, unsigned int, int, string);
+int RecursionBackTracking(DataTemplate*, int, int, string);
 
 int main()
 {
@@ -38,10 +41,10 @@ int main()
     for (unsigned int i = 0; i < ptr->slices.size(); i++)
         cout << ptr->slices[i] << " ";
     cout << endl << endl;*/
-    ProcessData(ptr);
-    //SetString(ptr);
 
-    //system("pause");
+    ProcessData(ptr);
+    SetString(ptr);
+
     return 0;
 }
 
@@ -71,30 +74,35 @@ struct DataTemplate* ConvertData(string s)
 
 void ProcessData(struct DataTemplate* ptr)
 {
-    unsigned int sliceSum = 0;
-    cout << RecursionBackTracking(ptr,sliceSum, ptr->NoOfPizzas-1,"") << endl;
+    //cout << "Combination Trace : "<<endl;
+    cout << RecursionBackTracking(ptr,0, 0,"") << endl << endl;
+    //cout << "Ans : " << CURRENTSUM << endl;
+    //cout << "Ans : " << TEMP << endl;
 }
 
-unsigned int RecursionBackTracking(DataTemplate * ptr, unsigned int sliceSum, int index, string temp)
+int RecursionBackTracking(DataTemplate * ptr, int index, int sum, string s)
 {
-    if (index < 0 || sliceSum == ptr->MaxSlices)
+    if (index > ptr->NoOfPizzas || sum == ptr->MaxSlices)
     {
-
+        if (sum > CURRENTSUM && sum <= ptr->MaxSlices)
+        {
+            CURRENTSUM = sum;
+            TEMP = s;
+        }
+        else
+            sum = CURRENTSUM;
+        return sum;
     }
-    else
-    {
-        unsigned int sliceSum1 = 0;
-        sliceSum = RecursionBackTracking(ptr, sliceSum, index-1, temp + " " + to_string(ptr->slices[index]));
 
-        if(sliceSum + ptr->slices[index] < ptr->MaxSlices)
-            sliceSum1 = RecursionBackTracking(ptr, sliceSum + ptr->slices[index], index-1,temp + " " + to_string(ptr->slices[index]));
+    int sum1 = RecursionBackTracking(ptr,index+1, sum, s);
 
-        if(sliceSum1 < ptr->MaxSlices && sliceSum1>sliceSum)
-            sliceSum = sliceSum;
-    }
-    cout << temp << endl;
-    cout << sliceSum << endl << endl;
-    return sliceSum;
+    if(sum + ptr->slices[index] <= ptr->MaxSlices)
+        sum = RecursionBackTracking(ptr, index+1, sum + ptr->slices[index], s + " " + to_string(ptr->slices[index]));
+
+    sum = (sum > sum1) ? sum : sum1;
+
+    cout << sum << " ";
+    return sum;
 }
 
 string GetString()
@@ -116,18 +124,17 @@ string GetString()
 
 void SetString(struct DataTemplate* ptr)
 {
-    size_t size = ptr->slices.size();
-    string temp = "";
+    int size = 0;
+    for (int i=0; i<TEMP.size(); i++)
+        if(TEMP[i] == ' ')
+            size++;
     try
     {
         ofstream DATA_FILE;
         DATA_FILE.open("Ans.out", ios::out);
-
         DATA_FILE << size << endl;
-        for (int i = 0; i < size; i++)
-            temp = temp + " " + to_string(ptr->slices[i]);
-        temp.erase(0, 1);
-        DATA_FILE << temp << endl;
+        TEMP.erase(0, 1);
+        DATA_FILE << TEMP << endl;
 
         DATA_FILE.close();
     }

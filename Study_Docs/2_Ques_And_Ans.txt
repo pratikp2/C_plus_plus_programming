@@ -83,7 +83,7 @@ whereas abstract classes can contain both.
 *************************************************************************************************************************************
 ## Can we define Pure virtual function and if yes How to call it.
 
-We can define pure virtual function, but it has to br defined out side of the class body.
+We can define pure virtual function, but it has to be defined out side of the class body.
 I can be called via derived class using scope resolution.
 e.g, Interface :: Function();
 
