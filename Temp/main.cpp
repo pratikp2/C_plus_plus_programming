@@ -1,103 +1,34 @@
 #include <iostream>
-#include <fstream>
 #include <cstring>
 #include <string>
-#include <map>
+#include <chrono>
+
 using namespace std;
+using namespace std::chrono;
 
-int TARGET = 0;
+#define SIZE 4
+#define TARGET 17
 int CURRENTSUM = 0;
-std::string TEMP = "";
+std::string ABC = "";
 
-struct DataTemplate
+int RecursionBackTracking(int arr[], int index, int sum, string s)
 {
-    int MaxSlices;
-    int NoOfPizzas;
-    map<int, int> slices;
-
-    DataTemplate()
+    if (index > SIZE - 1 || sum == TARGET)
     {
-        this -> MaxSlices = 0;
-        this->NoOfPizzas = 0;
-    }
-};
-
-struct DataTemplate* ConvertData(string);
-string GetString();
-void ProcessData(struct DataTemplate*);
-void SetString(struct DataTemplate*);
-int RecursionBackTracking(DataTemplate*, int, int, string);
-
-int main()
-{
-    DataTemplate* ptr;
-    string s = GetString();
-    ptr = ConvertData(s);
-
-    /*cout << "Input Str  :   " << s << endl << endl;
-    cout << "Maxium No  :   " << ptr->MaxSlices << endl;
-    cout << "Pizza No   :   " << ptr->NoOfPizzas << endl;
-    cout << "Sequence   :   ";
-    for (unsigned int i = 0; i < ptr->slices.size(); i++)
-        cout << ptr->slices[i] << " ";
-    cout << endl << endl;*/
-
-    ProcessData(ptr);
-    SetString(ptr);
-
-    return 0;
-}
-
-struct DataTemplate* ConvertData(string s)
-{
-    DataTemplate* ptr = new DataTemplate();
-    size_t start = 0, end = 0;
-    try
-    {
-        end = s.find(" ");
-        ptr->MaxSlices = stoi(s.substr(start, end));
-
-        start = end;
-        end = s.find(" ", end + 1);
-        ptr->NoOfPizzas = stoi(s.substr(start, end));
-    }
-    catch (...) {}
-
-    for (int i = 0; i < ptr->NoOfPizzas; i++)
-    {
-        start = end;
-        end = s.find(" ", end + 1);
-        ptr->slices.insert(pair<int, int>(i, stoi(s.substr(start, end))));
-    }
-    return ptr;
-}
-
-void ProcessData(struct DataTemplate* ptr)
-{
-    //cout << "Combination Trace : "<<endl;
-    cout << RecursionBackTracking(ptr,0, 0,"") << endl << endl;
-    //cout << "Ans : " << CURRENTSUM << endl;
-    //cout << "Ans : " << TEMP << endl;
-}
-
-int RecursionBackTracking(DataTemplate * ptr, int index, int sum, string s)
-{
-    if (index > ptr->NoOfPizzas || sum == ptr->MaxSlices)
-    {
-        if (sum > CURRENTSUM && sum <= ptr->MaxSlices)
+        if (sum > CURRENTSUM && sum <= TARGET)
         {
             CURRENTSUM = sum;
-            TEMP = s;
+            ABC = s;
         }
         else
             sum = CURRENTSUM;
         return sum;
     }
 
-    int sum1 = RecursionBackTracking(ptr,index+1, sum, s);
+    int sum1 = RecursionBackTracking(arr, index + 1, sum, s);
 
-    if(sum + ptr->slices[index] <= ptr->MaxSlices)
-        sum = RecursionBackTracking(ptr, index+1, sum + ptr->slices[index], s + " " + to_string(ptr->slices[index]));
+    if (sum + arr[index] <= TARGET)
+        sum = RecursionBackTracking(arr, index + 1, sum + arr[index], s + " " + to_string(arr[index]));
 
     sum = (sum > sum1) ? sum : sum1;
 
@@ -105,38 +36,25 @@ int RecursionBackTracking(DataTemplate * ptr, int index, int sum, string s)
     return sum;
 }
 
-string GetString()
+int main()
 {
-    string s1, s2;
-    ifstream DATA_FILE;
+    auto start = high_resolution_clock::now();
+    int arr[SIZE] = {2,5,6,8};
+    //int arr[SIZE] = {4,14,15,18,29,32,36,82,95,95};
+    /*int arr[SIZE] = { 7, 12, 12, 13, 14, 28, 29, 29, 30, 32,
+        32, 34, 41, 45, 46, 56, 61, 61, 62, 63,
+        65, 68, 76, 77, 77, 92, 93, 94, 97, 103,
+        113, 114, 114, 120, 135, 145, 145, 149, 156, 157,
+        160, 169, 172, 179, 184, 185, 189, 194, 195, 195 };*/
 
-    try
-    {
-        DATA_FILE.open("a_example.in", ios::in);
-        getline(DATA_FILE, s1);
-        getline(DATA_FILE, s2);
-        s1 = s1 + " " + s2;
-        DATA_FILE.close();
-    }
-    catch (exception x) { cout << "File Error ... !" << endl; }
-    return s1;
-}
+    cout << RecursionBackTracking(arr, 0, 0, "") << endl;
+    cout << "Ans : " << CURRENTSUM << endl;
+    cout << "Ans : " << ABC << endl;
 
-void SetString(struct DataTemplate* ptr)
-{
-    int size = 0;
-    for (int i=0; i<TEMP.size(); i++)
-        if(TEMP[i] == ' ')
-            size++;
-    try
-    {
-        ofstream DATA_FILE;
-        DATA_FILE.open("Ans.out", ios::out);
-        DATA_FILE << size << endl;
-        TEMP.erase(0, 1);
-        DATA_FILE << TEMP << endl;
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "Time taken by function: "<< duration.count() << " microseconds" << endl;
 
-        DATA_FILE.close();
-    }
-    catch (exception x) { cout << "File Error ... !" << endl; }
+    system("pause");
+    return 0;
 }
