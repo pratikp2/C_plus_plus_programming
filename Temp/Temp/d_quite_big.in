@@ -1,0 +1,99 @@
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <chrono>
+
+using namespace std;
+using namespace std::chrono;
+
+int SIZE = 50;
+int TARGET = 4500;
+int CURRENTSUM = 0;
+std::string TEMP = "";
+
+int RecursionBackTracking(int[], int, int, string);
+
+void ComputeLargeDataSet(int arr[])
+{
+	int sum = 0;
+	int i = SIZE - 1;
+	int mediate = TARGET - (TARGET / SIZE);
+	string temp = "";
+
+	while (mediate > sum + arr[i] || i<0)
+	{
+		sum = sum + arr[i];
+		temp = to_string(i) + " " + temp;
+		i--;
+	}
+
+	TEMP = temp;
+	SIZE = i;
+	TARGET = TARGET - sum;
+	i = (i >= 10) ? i - 9 : i + 1;
+
+	cout << "Mediate			: " << mediate << endl;
+	cout << "Updated Sum		: " << sum << endl;
+	cout << "Used Indices		: " << temp << endl;
+	cout << "Difference Needed	: " << TARGET << endl;
+	sum = RecursionBackTracking(arr, i, 0, "") + sum;
+	TEMP = TEMP + " " + temp;
+	cout << "Final Sum			: " << sum << endl;
+	cout << "Final String		: " << TEMP << endl << endl;
+
+}
+
+int main()
+{
+	auto start = high_resolution_clock::now();
+	//int arr[SIZE] = {2,5,6,8};
+	//int arr[SIZE] = {4,14,15,18,29,32,36,82,95,95};
+	int arr[50] = {7, 12, 12, 13, 14, 28, 29, 29, 30, 32,
+		32, 34, 41, 45, 46, 56, 61, 61, 62, 63,
+		65, 68, 76, 77, 77, 92, 93, 94, 97, 103,
+		113, 114, 114, 120, 135, 145, 145, 149, 156, 157,
+		160, 169, 172, 179, 184, 185, 189, 194, 195, 195 };
+
+	int sum = 0;
+	for (size_t i = 0; i < SIZE; i++)
+		sum = sum + arr[i];
+	
+	cout << "Total Container	:" << sum << endl;
+	ComputeLArgeDataSet(arr);
+
+	/*cout << RecursionBackTracking(arr, 0, 0, "") << endl;
+	cout << "Ans : " << CURRENTSUM << endl;
+	cout << "Ans : " << TEMP << endl;*/
+
+	auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<milliseconds>(stop - start);
+	cout << "Time taken by function: " << duration.count() << " milliseconds" << endl;
+
+	system("pause");
+	return 0;
+}
+
+int RecursionBackTracking(int arr[], int index, int sum, string s)
+{
+	if (index > SIZE - 1 || sum == TARGET)
+	{
+		if (sum > CURRENTSUM&& sum <= TARGET)
+		{
+			CURRENTSUM = sum;
+			TEMP = s;
+		}
+		else
+			sum = CURRENTSUM;
+		return sum;
+	}
+
+	int sum1 = RecursionBackTracking(arr, index + 1, sum, s);
+
+	if (sum + arr[index] <= TARGET)
+		sum = RecursionBackTracking(arr, index + 1, sum + arr[index], s + " " + to_string(index));
+
+	sum = (sum > sum1) ? sum : sum1;
+
+	cout << sum << " ";
+	return sum;
+}

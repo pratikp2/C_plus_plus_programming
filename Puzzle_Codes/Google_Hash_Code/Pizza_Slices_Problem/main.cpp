@@ -3,9 +3,7 @@
 #include <cstring>
 #include <string>
 #include <map>
-using namespace std;
 
-int TARGET = 0;
 int CURRENTSUM = 0;
 std::string TEMP = "";
 
@@ -13,7 +11,7 @@ struct DataTemplate
 {
     int MaxSlices;
     int NoOfPizzas;
-    map<int, int> slices;
+    std::map<int, int> slices;
 
     DataTemplate()
     {
@@ -22,33 +20,25 @@ struct DataTemplate
     }
 };
 
-struct DataTemplate* ConvertData(string);
-string GetString();
+struct DataTemplate* ConvertData(std::string);
+std::string GetString();
 void ProcessData(struct DataTemplate*);
 void SetString(struct DataTemplate*);
-int RecursionBackTracking(DataTemplate*, int, int, string);
+void ComputeLargeDataSet(DataTemplate*);
+int RecursionBackTracking(DataTemplate*, int, int, std::string);
 
 int main()
 {
     DataTemplate* ptr;
-    string s = GetString();
+    std::string s = GetString();
     ptr = ConvertData(s);
-
-    /*cout << "Input Str  :   " << s << endl << endl;
-    cout << "Maxium No  :   " << ptr->MaxSlices << endl;
-    cout << "Pizza No   :   " << ptr->NoOfPizzas << endl;
-    cout << "Sequence   :   ";
-    for (unsigned int i = 0; i < ptr->slices.size(); i++)
-        cout << ptr->slices[i] << " ";
-    cout << endl << endl;*/
-
     ProcessData(ptr);
     SetString(ptr);
 
     return 0;
 }
 
-struct DataTemplate* ConvertData(string s)
+struct DataTemplate* ConvertData(std::string s)
 {
     DataTemplate* ptr = new DataTemplate();
     size_t start = 0, end = 0;
@@ -67,20 +57,41 @@ struct DataTemplate* ConvertData(string s)
     {
         start = end;
         end = s.find(" ", end + 1);
-        ptr->slices.insert(pair<int, int>(i, stoi(s.substr(start, end))));
+        ptr->slices.insert(std::pair<int, int>(i, stoi(s.substr(start, end))));
     }
     return ptr;
 }
 
 void ProcessData(struct DataTemplate* ptr)
 {
-    //cout << "Combination Trace : "<<endl;
-    cout << RecursionBackTracking(ptr,0, 0,"") << endl << endl;
-    //cout << "Ans : " << CURRENTSUM << endl;
-    //cout << "Ans : " << TEMP << endl;
+    if(ptr->NoOfPizzas <= 20)
+        RecursionBackTracking(ptr,0, 0,"");
+    else
+        ComputeLargeDataSet(ptr);
 }
 
-int RecursionBackTracking(DataTemplate * ptr, int index, int sum, string s)
+void ComputeLargeDataSet(struct DataTemplate* ptr)
+{
+    int sum = 0;
+    int i = ptr->NoOfPizzas - 1;
+    int mediate = ptr->MaxSlices - (ptr->MaxSlices / ptr->NoOfPizzas);
+    std::string temp = "";
+
+    while (mediate > sum + ptr->slices[i] || i<0)
+    {
+        sum = sum + ptr->slices[i];
+        temp = std::to_string(i) + " " + temp;
+        i--;
+    }
+
+    ptr->MaxSlices = ptr->MaxSlices - sum;
+    ptr->NoOfPizzas = i+1;
+    i = (i >= 10) ? i - 10 : i;
+    sum = RecursionBackTracking(ptr, i, 0, "") + sum;
+    TEMP = TEMP + " " + temp;
+}
+
+int RecursionBackTracking(DataTemplate * ptr, int index, int sum, std::string s)
 {
     if (index > ptr->NoOfPizzas || sum == ptr->MaxSlices)
     {
@@ -97,28 +108,26 @@ int RecursionBackTracking(DataTemplate * ptr, int index, int sum, string s)
     int sum1 = RecursionBackTracking(ptr,index+1, sum, s);
 
     if(sum + ptr->slices[index] <= ptr->MaxSlices)
-        sum = RecursionBackTracking(ptr, index+1, sum + ptr->slices[index], s + " " + to_string(ptr->slices[index]));
-
+        sum = RecursionBackTracking(ptr, index+1, sum + ptr->slices[index], s + " " + std::to_string(index));
     sum = (sum > sum1) ? sum : sum1;
 
-    cout << sum << " ";
     return sum;
 }
 
-string GetString()
+std::string GetString()
 {
-    string s1, s2;
-    ifstream DATA_FILE;
+    std::string s1, s2;
+    std::ifstream DATA_FILE;
 
     try
     {
-        DATA_FILE.open("a_example.in", ios::in);
+        DATA_FILE.open("c_medium.in", std::ios::in);
         getline(DATA_FILE, s1);
         getline(DATA_FILE, s2);
         s1 = s1 + " " + s2;
         DATA_FILE.close();
     }
-    catch (exception x) { cout << "File Error ... !" << endl; }
+    catch (std::exception x) { std::cout << "File Error ... !" << std::endl; }
     return s1;
 }
 
@@ -130,13 +139,13 @@ void SetString(struct DataTemplate* ptr)
             size++;
     try
     {
-        ofstream DATA_FILE;
-        DATA_FILE.open("Ans.out", ios::out);
-        DATA_FILE << size << endl;
+        std::ofstream DATA_FILE;
+        DATA_FILE.open("Ans.out", std::ios::out);
+        DATA_FILE << size << std::endl;
         TEMP.erase(0, 1);
-        DATA_FILE << TEMP << endl;
+        DATA_FILE << TEMP << std::endl;
 
         DATA_FILE.close();
     }
-    catch (exception x) { cout << "File Error ... !" << endl; }
+    catch (std::exception x) { std::cout << "File Error ... !" << std::endl; }
 }
