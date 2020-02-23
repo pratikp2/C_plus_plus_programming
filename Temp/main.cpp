@@ -2,59 +2,63 @@
 #include <cstring>
 #include <string>
 #include <chrono>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 using namespace std::chrono;
 
-#define SIZE 4
-#define TARGET 17
-int CURRENTSUM = 0;
-std::string ABC = "";
 
-int RecursionBackTracking(int arr[], int index, int sum, string s)
+bool checkValidity(string s)
 {
-    if (index > SIZE - 1 || sum == TARGET)
-    {
-        if (sum > CURRENTSUM && sum <= TARGET)
-        {
-            CURRENTSUM = sum;
-            ABC = s;
-        }
-        else
-            sum = CURRENTSUM;
-        return sum;
-    }
-
-    int sum1 = RecursionBackTracking(arr, index + 1, sum, s);
-
-    if (sum + arr[index] <= TARGET)
-        sum = RecursionBackTracking(arr, index + 1, sum + arr[index], s + " " + to_string(arr[index]));
-
-    sum = (sum > sum1) ? sum : sum1;
-
-    cout << sum << " ";
-    return sum;
+	for (int a = 0; a < s.size(); a++)
+		if (int(s[a]) < 48 || int(s[a]) > 57)
+			throw(false);
+	return true;
 }
+
+bool isIPv4Address(std::string inputString)
+{
+	int start = 0, end = 0, sub = 0, count = 0;
+	string s = "";
+
+	for (auto temp : inputString)
+		if (temp == '.')
+			count++;
+	if (count != 3)
+		return false;
+
+	inputString = "." + inputString + ".";
+
+	for (int i = 0; i < 4; i++)
+	{
+		start = end;
+		end = inputString.find(".", start + 1);
+		try {
+			s = inputString.substr(start + 1, end - start - 1);
+			checkValidity(s);
+			sub = stoi(s);
+		}
+		catch (...) {
+			return false;
+		}
+		if (sub > 255)
+			return false;
+	}
+	return true;
+}
+
 
 int main()
 {
-    auto start = high_resolution_clock::now();
-    int arr[SIZE] = {2,5,6,8};
-    //int arr[SIZE] = {4,14,15,18,29,32,36,82,95,95};
-    /*int arr[SIZE] = { 7, 12, 12, 13, 14, 28, 29, 29, 30, 32,
-        32, 34, 41, 45, 46, 56, 61, 61, 62, 63,
-        65, 68, 76, 77, 77, 92, 93, 94, 97, 103,
-        113, 114, 114, 120, 135, 145, 145, 149, 156, 157,
-        160, 169, 172, 179, 184, 185, 189, 194, 195, 195 };*/
+	auto start = high_resolution_clock::now();
 
-    cout << RecursionBackTracking(arr, 0, 0, "") << endl;
-    cout << "Ans : " << CURRENTSUM << endl;
-    cout << "Ans : " << ABC << endl;
+	cout << isIPv4Address("0.245.255.0") << endl;
 
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
-    cout << "Time taken by function: "<< duration.count() << " microseconds" << endl;
+	auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop - start);
+	cout << "Time taken by function: " << duration.count() << " microseconds" << endl;
 
-    system("pause");
-    return 0;
+	system("pause");
+	return 0;
 }
