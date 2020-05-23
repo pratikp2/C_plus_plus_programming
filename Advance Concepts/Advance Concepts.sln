@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1082
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost_Serialization", "Boost_Serialization\Boost_Serialization.vcxproj", "{07C415CA-26F8-42D6-A060-7B0C240DD5D5}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STD Threads", "STD Threads\STD Threads.vcxproj", "{68BA4B31-EFAE-420C-A491-6169F01F4194}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashDump", "CrashDump\CrashDump.vcxproj", "{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CURL API", "CURL API\CURL API.vcxproj", "{D21AE568-AFB0-4A67-849F-18944B74A332}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows Service - C++", "Windows Service - C++\Windows Service - C++.vcxproj", "{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,22 @@ Global
 		{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}.Release|x64.ActiveCfg = Release|Win32
 		{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}.Release|x86.ActiveCfg = Release|Win32
 		{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}.Release|x86.Build.0 = Release|Win32
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Debug|x64.ActiveCfg = Debug|x64
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Debug|x64.Build.0 = Debug|x64
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Debug|x86.ActiveCfg = Debug|Win32
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Debug|x86.Build.0 = Debug|Win32
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Release|x64.ActiveCfg = Release|x64
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Release|x64.Build.0 = Release|x64
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Release|x86.ActiveCfg = Release|Win32
+		{D21AE568-AFB0-4A67-849F-18944B74A332}.Release|x86.Build.0 = Release|Win32
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Debug|x64.ActiveCfg = Debug|x64
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Debug|x64.Build.0 = Debug|x64
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Debug|x86.ActiveCfg = Debug|Win32
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Debug|x86.Build.0 = Debug|Win32
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Release|x64.ActiveCfg = Release|x64
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Release|x64.Build.0 = Release|x64
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Release|x86.ActiveCfg = Release|Win32
+		{A2B86440-7701-483A-A0C8-F3F3DF33F5BD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
