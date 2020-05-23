@@ -7,25 +7,25 @@ using namespace std;
 
 class Person
 {
-private :
+private:
     string PersonName;
     string Occupation;
     string Location;
     string Reference;
 
-public :
-    Person(){}
-    ~Person(){}
+public:
+    Person() {}
+    ~Person() {}
 
-    void SetPersonName(string X){PersonName = X;}
-    void SetPersonOccupation(string X){Occupation = X;}
-    void SetPersonLocation(string X){Location = X;}
-    void SetPersonReference(string X){Reference = X;}
+    void SetPersonName(string X) { PersonName = X; }
+    void SetPersonOccupation(string X) { Occupation = X; }
+    void SetPersonLocation(string X) { Location = X; }
+    void SetPersonReference(string X) { Reference = X; }
 
-    string GetPersonName(){return PersonName;}
-    string GetPersonOccupation(){return Occupation;}
-    string GetPersonLocation(){return Location;}
-    string GetPersonReference(){return Reference;}
+    string GetPersonName() { return PersonName; }
+    string GetPersonOccupation() { return Occupation; }
+    string GetPersonLocation() { return Location; }
+    string GetPersonReference() { return Reference; }
 
 };
 
@@ -36,7 +36,7 @@ void DisplayPerson();
 void SavePersonInFile();
 void LoadPersonFromFile();
 
-Person * ptrPerson;
+Person* ptrPerson;
 
 int main()
 {
@@ -44,7 +44,7 @@ int main()
     ptrPerson = new Person();
     cout << "Personal Database" << endl;
 
-    while (Choice !=6)
+    while (Choice != 6)
     {
 
         cout << " ------------------------- Main Menu -----------------------" << endl;
@@ -67,8 +67,8 @@ int main()
         case 3: SavePersonInFile(); break;
         case 4: LoadPersonFromFile(); break;
         case 5: DisplayPerson(); break;
-        case 6: cout << endl <<"Exiting Main Menu "; break;
-        default: cout << endl << "Invalid Input ";break;
+        case 6: cout << endl << "Exiting Main Menu "; break;
+        default: cout << endl << "Invalid Input "; break;
         }
     }
 
@@ -88,19 +88,19 @@ void EditPerson()
     string TEMP;
 
     cout << "NAME          : ";
-    getline(cin,TEMP);
+    getline(cin, TEMP);
     ptrPerson->SetPersonName(TEMP);
 
     cout << "Occupation    : ";
-    getline(cin,TEMP);
+    getline(cin, TEMP);
     ptrPerson->SetPersonOccupation(TEMP);
 
     cout << "Location       : ";
-    getline(cin,TEMP);
+    getline(cin, TEMP);
     ptrPerson->SetPersonLocation(TEMP);
 
     cout << "References     : ";
-    getline(cin,TEMP);
+    getline(cin, TEMP);
     ptrPerson->SetPersonReference(TEMP);
     cout << " ------------------------------------------" << endl;
 
@@ -110,7 +110,7 @@ void DisplayPerson()
 {
     system("CLS");
     cout << " ------------------------ Person Information --------------------" << endl;
-    cout << "|       1. NAME         : " << ptrPerson->GetPersonName() << endl;
+    cout << "|       1. Name         : " << ptrPerson->GetPersonName() << endl;
     cout << "|       2. Occupation   : " << ptrPerson->GetPersonOccupation() << endl;
     cout << "|       3. Location     : " << ptrPerson->GetPersonLocation() << endl;
     cout << "|       4. References   : " << ptrPerson->GetPersonReference() << endl;
@@ -122,7 +122,7 @@ void SavePersonInFile()
     try
     {
         ofstream DATA_FILE;
-        DATA_FILE.open("DATA1_FILE.txt",ios::out);
+        DATA_FILE.open("DATA1_FILE.txt", ios::out);
 
         DATA_FILE << ptrPerson->GetPersonName() << endl;
         DATA_FILE << ptrPerson->GetPersonOccupation() << endl;
@@ -130,14 +130,9 @@ void SavePersonInFile()
         DATA_FILE << ptrPerson->GetPersonReference() << endl;
 
         DATA_FILE.close();
-
         cout << "Success .. ! Data was Saved to File" << endl;
-
     }
-    catch (exception x)
-    {
-        cout << "File Error ... ! Could not save Person." << endl;
-    }
+    catch (exception x) { cout << "File Error ... ! Could not save Person." << endl; }
 }
 
 void LoadPersonFromFile()
@@ -146,27 +141,23 @@ void LoadPersonFromFile()
     {
         string TEMP;
         ifstream DATA_FILE;
-        DATA_FILE.open("DATA1_FILE.txt",ios::in);
+        DATA_FILE.open("DATA1_FILE.txt", ios::in);
 
-        getline(DATA_FILE,TEMP);
+        getline(DATA_FILE, TEMP);
         ptrPerson->SetPersonName(TEMP);
 
-        getline(DATA_FILE,TEMP);
+        getline(DATA_FILE, TEMP);
         ptrPerson->SetPersonOccupation(TEMP);
 
-        getline(DATA_FILE,TEMP);
+        getline(DATA_FILE, TEMP);
         ptrPerson->SetPersonLocation(TEMP);
 
-        getline(DATA_FILE,TEMP);
+        getline(DATA_FILE, TEMP);
         ptrPerson->SetPersonReference(TEMP);
 
         DATA_FILE.close();
 
         cout << "Success .. ! Data was Saved to File" << endl;
-
     }
-    catch (exception x)
-    {
-        cout << "File Error ... ! Could not Load Person." << endl;
-    }
+    catch (exception x) { cout << "File Error ... ! Could not Load Person." << endl; }
 }
