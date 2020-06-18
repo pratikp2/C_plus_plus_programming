@@ -1,0 +1,37 @@
+// Custome COM Lib.idl : IDL source for Custome COM Lib
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CustomeCOMLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(184cb220-75fe-44db-a342-dad9f6c5d3cc),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ICoustomCOMClass : IDispatch
+{
+	[id(1)] HRESULT MySampleFunction([out] DOUBLE* variable);
+};
+[
+	uuid(3f69f654-baa0-460a-882a-dbe3aabeb553),
+	version(1.0),
+]
+library CustomeCOMLibLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(170e7d37-980d-47bb-bd9c-f3fd4f702677)
+	]
+	coclass CoustomCOMClass
+	{
+		[default] interface ICoustomCOMClass;
+	};
+};
+
+import "shobjidl.idl";

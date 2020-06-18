@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1082
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IPC", "IPC", "{3AF30EC3-AF9B-4B26-9C8C-4211E41804CA}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost Serialization", "Boost Serialization\Boost_Serialization.vcxproj", "{07C415CA-26F8-42D6-A060-7B0C240DD5D5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Crash Dump Generation", "Crash Dump Generation\CrashDump.vcxproj", "{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Component Object Model (COM) APIs", "Component Object Model (COM) APIs", "{97D6612B-F45E-41A6-AE1A-89F12BDE123D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Custome COM Lib", "Custome COM Lib\Custome COM Lib.vcxproj", "{198E69C4-A627-4FB0-9751-90860F7703CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +107,14 @@ Global
 		{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}.Release|x64.ActiveCfg = Release|Win32
 		{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}.Release|x86.ActiveCfg = Release|Win32
 		{C8E23137-3FB6-4DAA-8251-6869DC37A8BA}.Release|x86.Build.0 = Release|Win32
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Debug|x64.ActiveCfg = Debug|x64
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Debug|x64.Build.0 = Debug|x64
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Debug|x86.ActiveCfg = Debug|Win32
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Debug|x86.Build.0 = Debug|Win32
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Release|x64.ActiveCfg = Release|x64
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Release|x64.Build.0 = Release|x64
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Release|x86.ActiveCfg = Release|Win32
+		{198E69C4-A627-4FB0-9751-90860F7703CF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +124,7 @@ Global
 		{BA432CAF-1DF7-47B6-94C2-C2524A2BDFA9} = {3AF30EC3-AF9B-4B26-9C8C-4211E41804CA}
 		{CF7D73C5-0E3D-47CF-ACCA-1DE27C0827C4} = {A312DC03-84A9-44CF-A863-C0D5FD73112F}
 		{68BA4B31-EFAE-420C-A491-6169F01F4194} = {A312DC03-84A9-44CF-A863-C0D5FD73112F}
+		{198E69C4-A627-4FB0-9751-90860F7703CF} = {97D6612B-F45E-41A6-AE1A-89F12BDE123D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5E5081C-A2EB-41B2-9473-02854E7A4CB3}

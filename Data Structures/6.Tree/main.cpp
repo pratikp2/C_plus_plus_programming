@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 class Binary_Search_Tree;
@@ -247,4 +249,24 @@ void Binary_Search_Tree :: displayTree()
     }
     else
         cout << "Binary Search Tree Empty. Please Add data First."<< endl;
+}
+
+
+int returnLongpath(Node* node, vector<int> vec, int count)
+{
+    if (node == nullptr)
+        return vec.size();
+
+    std::vector<int>::iterator it = std::find(vec.begin(), vec.end(), node->data);
+    if (it == vec.end())
+    {
+        vec.push_back(node->data);
+    }
+    else
+        return count;
+
+    int nodel = returnLongpath(node->left, vec, vec.size());
+    int noder = returnLongpath(node->right, vec, vec.size());
+
+    return max(nodel, noder);
 }

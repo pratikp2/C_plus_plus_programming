@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -15,28 +16,10 @@ struct DataTemplate
 
     DataTemplate()
     {
-        this -> MaxSlices = 0;
+        this->MaxSlices = 0;
         this->NoOfPizzas = 0;
     }
 };
-
-struct DataTemplate* ConvertData(std::string);
-std::string GetString();
-void ProcessData(struct DataTemplate*);
-void SetString(struct DataTemplate*);
-void ComputeLargeDataSet(DataTemplate*);
-int RecursionBackTracking(DataTemplate*, int, int, std::string);
-
-int main()
-{
-    DataTemplate* ptr;
-    std::string s = GetString();
-    ptr = ConvertData(s);
-    ProcessData(ptr);
-    SetString(ptr);
-
-    return 0;
-}
 
 struct DataTemplate* ConvertData(std::string s)
 {
@@ -62,36 +45,7 @@ struct DataTemplate* ConvertData(std::string s)
     return ptr;
 }
 
-void ProcessData(struct DataTemplate* ptr)
-{
-    if(ptr->NoOfPizzas <= 20)
-        RecursionBackTracking(ptr,0, 0,"");
-    else
-        ComputeLargeDataSet(ptr);
-}
-
-void ComputeLargeDataSet(struct DataTemplate* ptr)
-{
-    int sum = 0;
-    int i = ptr->NoOfPizzas - 1;
-    int mediate = ptr->MaxSlices - (ptr->MaxSlices / ptr->NoOfPizzas);
-    std::string temp = "";
-
-    while (mediate > sum + ptr->slices[i] || i<0)
-    {
-        sum = sum + ptr->slices[i];
-        temp = std::to_string(i) + " " + temp;
-        i--;
-    }
-
-    ptr->MaxSlices = ptr->MaxSlices - sum;
-    ptr->NoOfPizzas = i+1;
-    i = (i >= 10) ? i - 10 : i;
-    sum = RecursionBackTracking(ptr, i, 0, "") + sum;
-    TEMP = TEMP + " " + temp;
-}
-
-int RecursionBackTracking(DataTemplate * ptr, int index, int sum, std::string s)
+int RecursionBackTracking(DataTemplate* ptr, int index, int sum, std::string s)
 {
     if (index > ptr->NoOfPizzas || sum == ptr->MaxSlices)
     {
@@ -105,13 +59,42 @@ int RecursionBackTracking(DataTemplate * ptr, int index, int sum, std::string s)
         return sum;
     }
 
-    int sum1 = RecursionBackTracking(ptr,index+1, sum, s);
+    int sum1 = RecursionBackTracking(ptr, index + 1, sum, s);
 
-    if(sum + ptr->slices[index] <= ptr->MaxSlices)
-        sum = RecursionBackTracking(ptr, index+1, sum + ptr->slices[index], s + " " + std::to_string(index));
+    if (sum + ptr->slices[index] <= ptr->MaxSlices)
+        sum = RecursionBackTracking(ptr, index + 1, sum + ptr->slices[index], s + " " + std::to_string(index));
     sum = (sum > sum1) ? sum : sum1;
 
     return sum;
+}
+
+void ComputeLargeDataSet(struct DataTemplate* ptr)
+{
+    int sum = 0;
+    int i = ptr->NoOfPizzas - 1;
+    int mediate = ptr->MaxSlices - (ptr->MaxSlices / ptr->NoOfPizzas);
+    std::string temp = "";
+
+    while (mediate > sum + ptr->slices[i] || i < 0)
+    {
+        sum = sum + ptr->slices[i];
+        temp = std::to_string(i) + " " + temp;
+        i--;
+    }
+
+    ptr->MaxSlices = ptr->MaxSlices - sum;
+    ptr->NoOfPizzas = i + 1;
+    i = (i >= 10) ? i - 10 : i;
+    sum = RecursionBackTracking(ptr, i, 0, "") + sum;
+    TEMP = TEMP + " " + temp;
+}
+
+void ProcessData(struct DataTemplate* ptr)
+{
+    if (ptr->NoOfPizzas <= 20)
+        RecursionBackTracking(ptr, 0, 0, "");
+    else
+        ComputeLargeDataSet(ptr);
 }
 
 std::string GetString()
@@ -121,7 +104,7 @@ std::string GetString()
 
     try
     {
-        DATA_FILE.open("c_medium.in", std::ios::in);
+        DATA_FILE.open("Pizza_Slices_Problem\\c_medium.in", std::ios::in);
         getline(DATA_FILE, s1);
         getline(DATA_FILE, s2);
         s1 = s1 + " " + s2;
@@ -134,13 +117,13 @@ std::string GetString()
 void SetString(struct DataTemplate* ptr)
 {
     int size = 0;
-    for (int i=0; i<TEMP.size(); i++)
-        if(TEMP[i] == ' ')
+    for (int i = 0; i < TEMP.size(); i++)
+        if (TEMP[i] == ' ')
             size++;
     try
     {
         std::ofstream DATA_FILE;
-        DATA_FILE.open("Ans.out", std::ios::out);
+        DATA_FILE.open("Pizza_Slices_Problem\\Ans.out", std::ios::out);
         DATA_FILE << size << std::endl;
         TEMP.erase(0, 1);
         DATA_FILE << TEMP << std::endl;
