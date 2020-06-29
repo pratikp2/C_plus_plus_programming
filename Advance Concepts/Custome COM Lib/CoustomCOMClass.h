@@ -55,6 +55,8 @@ private:
 	double m_ClassMember = 10;
 public:
 	STDMETHOD(MySampleFunction)(DOUBLE* variable);
+	STDMETHOD(get_MySampleProperty)(DOUBLE* pVal);
+	STDMETHOD(put_MySampleProperty)(DOUBLE newVal);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CoustomCOMClass), CCoustomCOMClass)

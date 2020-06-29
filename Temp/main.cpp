@@ -1,112 +1,129 @@
-/*
-Task Description
-interval_map<K,V> is a data structure that efficiently associates intervals of keys of type K with values of type V. Your task is to implement the assign member function of this data structure, which is outlined below.
-interval_map<K, V> is implemented on top of std::map. In case you are not entirely sure which functions std::map provides, what they do and which guarantees they provide, we provide an excerpt of the C++ standard here:
-Each key-value-pair (k,v) in the std::map means that the value v is associated with the interval from k (including) to the next key (excluding) in the std::map.
-Example: the std::map (0,'A'), (3,'B'), (5,'A') represents the mapping
-0 -> 'A'
-1 -> 'A'
-2 -> 'A'
-3 -> 'B'
-4 -> 'B'
-5 -> 'A'
-6 -> 'A'
-7 -> 'A'
-... all the way to numeric_limits<int>::max()
-The representation in the std::map must be canonical, that is, consecutive map entries must not have the same value: ..., (0,'A'), (3,'A'), ... is not allowed. Initially, the whole range of K is associated with a given initial value, passed to the constructor of the interval_map<K,V> data structure.
-Key type K
-besides being copyable and assignable, is less-than comparable via operator<
-is bounded below, with the lowest value being std::numeric_limits<K>::lowest()
-does not implement any other operations, in particular no equality comparison or arithmetic operators
-Value type V
-besides being copyable and assignable, is equality-comparable via operator==
-does not implement any other operations
-*/
+#include <windows.h>
+#include <psapi.h>
+#include <tchar.h>
+#include <stdio.h>
+#include <iostream>
+#include <setupapi.h>
 
-#include <map>
-#include <limits>
-#include <ctime>
+// To ensure correct resolution of symbols, add Psapi.lib to TARGETLIBS
+// and compile with -DPSAPI_VERSION=1
 
-template<typename K, typename V>
-class interval_map
+#define ARRAY_SIZE 1024
+
+void EnumerateDeviceDrivers()
 {
-	std::map<K, V> m_map;
+	LPVOID drivers[ARRAY_SIZE];
+	DWORD cbNeeded;
+	int cDrivers, i;
 
-public:
-	// constructor associates whole range of K with val by inserting (K_min, val) into the map
-	interval_map(V const& val)
+	if (EnumDeviceDrivers(drivers, sizeof(drivers), &cbNeeded) && cbNeeded < sizeof(drivers))
 	{
-		m_map.insert(m_map.end(), std::make_pair(std::numeric_limits<K>::lowest(), val));
+		TCHAR szDriver[ARRAY_SIZE];
+		TCHAR fzDriver[ARRAY_SIZE];
+		cDrivers = cbNeeded / sizeof(drivers[0]);
+
+		_tprintf(TEXT("There are %d drivers:\n"), cDrivers);
+		for (i = 0; i < cDrivers; i++)
+		{
+			if (GetDeviceDriverBaseName(drivers[i], szDriver, sizeof(szDriver) / sizeof(szDriver[0])))
+				_tprintf(TEXT("%d: %s\n"), i + 1, szDriver);
+
+			if (GetDeviceDriverFileName(drivers[i], fzDriver, sizeof(szDriver) / sizeof(szDriver[0])))
+				_tprintf(TEXT("%s\n\n"), fzDriver);
+		}
+	}
+	else
+		_tprintf(TEXT("EnumDeviceDrivers failed; array size needed is %d\n"), cbNeeded / sizeof(LPVOID));
+}
+
+void print_property(__in HDEVINFO hDevInfo, __in SP_DEVINFO_DATA DeviceInfoData, __in PCWSTR Label, __in DWORD Property)
+{
+	DWORD  DataT;
+	LPTSTR buffer = NULL;
+	DWORD  buffersize = 0;
+
+	while (!SetupDiGetDeviceRegistryProperty(hDevInfo, &DeviceInfoData, Property, &DataT, (PBYTE)buffer, buffersize, &buffersize))
+	{
+		if (ERROR_INSUFFICIENT_BUFFER == GetLastError())
+		{
+			if (buffer)
+				LocalFree(buffer);
+
+			buffer = (LPTSTR)LocalAlloc(LPTR, buffersize * 2);
+		}
+		else
+			break;
 	}
 
-	void assign(K const& keyBegin, K const& keyEnd, V const& val)
+	wprintf(L"%s %s\n", Label, buffer);
+
+	if (buffer)
+		LocalFree(buffer);
+}
+
+int setupdi_version()
+{
+	HDEVINFO hDevInfo;
+	SP_DEVINFO_DATA DeviceInfoData;
+	DWORD i;
+
+	// Create a HDEVINFO with all present devices.
+	hDevInfo = SetupDiGetClassDevs(NULL, 0, 0, DIGCF_PRESENT | DIGCF_ALLCLASSES);
+
+	if (INVALID_HANDLE_VALUE == hDevInfo)
 	{
-		if (keyEnd < keyBegin)
-			return;
+		// Insert error handling here.
+		return 1;
+	}
 
-		std::pair<K, V> beginPair, endPair;
-		bool beginActive = false, endActive = false, midActive = true;
-		typename std::map<K, V>::const_iterator itrBegin = m_map.lower_bound(keyBegin);
+	// Enumerate through all devices in Set.
 
-		if (itrBegin != m_map.end() && keyBegin < itrBegin->first)
-			if (itrBegin != m_map.begin())
-			{
-				beginActive = true;
-				--itrBegin;
-				beginPair = std::make_pair(itrBegin->first, itrBegin->second);
-			}
+	DeviceInfoData.cbSize = sizeof(SP_DEVINFO_DATA);
 
-		typename std::map<K, V>::const_iterator itrEnd;
-		itrEnd = m_map.lower_bound(keyEnd);
+	for (i = 0; SetupDiEnumDeviceInfo(hDevInfo, i, &DeviceInfoData); i++)
+	{
+		LPTSTR buffer = NULL;
+		DWORD  buffersize = 0;
 
-		if (itrEnd != m_map.end() && keyEnd < itrEnd->first)
+		print_property(hDevInfo, DeviceInfoData, L"Friendly name :", SPDRP_FRIENDLYNAME);
+
+		while (!SetupDiGetDeviceInstanceId(hDevInfo, &DeviceInfoData, buffer, buffersize, &buffersize))
 		{
-			endActive = true;
-			typename std::map<K, V>::const_iterator extraIt = itrEnd;
-			--extraIt;
-			endPair = std::make_pair(keyEnd, extraIt->second);
+			if (buffer)
+				LocalFree(buffer);
+
+
+			if (ERROR_INSUFFICIENT_BUFFER == GetLastError())
+				buffer = (LPTSTR)LocalAlloc(LPTR, buffersize * 2);
+			else
+			{
+				wprintf(L"error: could not get device instance id (0x%x)\n", GetLastError());
+				break;
+			}
 		}
 
-		if (beginActive)
-			if (beginPair.second == val)
-				midActive = false;
-		else
-			if (itrBegin != m_map.begin())
-			{
-				typename std::map<K, V>::const_iterator beforeMid = itrBegin;
-				--beforeMid;
-				if (beforeMid->second == val)
-					midActive = false;
-			}
+		if (buffer)
+			wprintf(L"\tDeviceInstanceId : %s\n", buffer);
 
-		if (endActive)
-			if ((midActive && endPair.second == val) || (!midActive && endPair.second == beginPair.second))
-				endActive = false;
-		else
-			if ((midActive && itrEnd != m_map.end() && itrEnd->second == val) || (!midActive && itrEnd != m_map.end() && itrEnd->second == beginPair.second))
-				itrEnd = m_map.erase(itrEnd);
-
-		itrBegin = m_map.erase(itrBegin, itrEnd);
-		if (beginActive)
-			itrBegin = m_map.insert(itrBegin, beginPair);
-		if (midActive)
-			itrBegin = m_map.insert(itrBegin, std::make_pair(keyBegin, val));
-		if (endActive)
-			m_map.insert(itrBegin, endPair);
+		print_property(hDevInfo, DeviceInfoData, L"\tClass :", SPDRP_CLASS);
+		print_property(hDevInfo, DeviceInfoData, L"\tClass GUID :", SPDRP_CLASSGUID);
 	}
 
-	// look-up of the value associated with key
-	V const& operator[](K const& key) const
+	if (NO_ERROR != GetLastError() && ERROR_NO_MORE_ITEMS != GetLastError())
 	{
-		return (--m_map.upper_bound(key))->second;
+		// Insert error handling here.
+		return 1;
 	}
-};
+
+	SetupDiDestroyDeviceInfoList(hDevInfo);
+	return 0;
+}
 
 int main()
 {
-	int value = 10;
-	interval_map<unsigned int, int> obj(value);
-	obj.assign(0, 10, value);
-	obj.assign(2, 8, 6);
-	obj.assign(4, 6, 2);
+	//EnumerateDeviceDrivers();
+	setupdi_version();
+	std::cout << "Program End" << std::endl;
+	std::system("pause");
+	return 0;
 }

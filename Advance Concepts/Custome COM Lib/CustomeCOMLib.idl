@@ -17,6 +17,8 @@ import "ocidl.idl";
 interface ICoustomCOMClass : IDispatch
 {
 	[id(1)] HRESULT MySampleFunction([out] DOUBLE* variable);
+	[propget, id(2)] HRESULT MySampleProperty([out, retval] DOUBLE* pVal);
+	[propput, id(2)] HRESULT MySampleProperty([in] DOUBLE newVal);
 };
 [
 	uuid(3f69f654-baa0-460a-882a-dbe3aabeb553),
