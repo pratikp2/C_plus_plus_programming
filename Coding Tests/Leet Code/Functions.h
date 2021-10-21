@@ -185,3 +185,20 @@ int findPairs_532(vector<int>& nums, int k)
 
     return count;
 }
+
+char firstNotRepeatingCharacter(string s) 
+{
+    map<char, int> track;
+    
+       for(int i=0; i<s.length(); i++)
+        track.insert(pair<char,int>((char)s[i],0));
+    
+    for(int i=0; i<s.length(); i++)
+        ++track[(char)s[i]];
+    
+    for(int i=0; i< track.size(); i++)
+        if(track[i] == 1)
+            return track[i];
+    
+    return '_';        
+}

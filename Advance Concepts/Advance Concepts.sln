@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows Drivers", "Windows 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TP", "TP\TP.vcxproj", "{86ABFA4E-2109-45D6-9A69-CEF55C1FC4FC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows Process", "Windows Process\Windows Process.vcxproj", "{7211EA86-7F00-4416-81A2-8B8C22F625B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -145,6 +147,14 @@ Global
 		{86ABFA4E-2109-45D6-9A69-CEF55C1FC4FC}.Release|x64.Build.0 = Release|x64
 		{86ABFA4E-2109-45D6-9A69-CEF55C1FC4FC}.Release|x86.ActiveCfg = Release|Win32
 		{86ABFA4E-2109-45D6-9A69-CEF55C1FC4FC}.Release|x86.Build.0 = Release|Win32
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Debug|x64.ActiveCfg = Debug|x64
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Debug|x64.Build.0 = Debug|x64
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Debug|x86.ActiveCfg = Debug|Win32
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Debug|x86.Build.0 = Debug|Win32
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Release|x64.ActiveCfg = Release|x64
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Release|x64.Build.0 = Release|x64
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Release|x86.ActiveCfg = Release|Win32
+		{7211EA86-7F00-4416-81A2-8B8C22F625B9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

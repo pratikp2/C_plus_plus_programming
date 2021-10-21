@@ -11,7 +11,7 @@
  *  7. Rest of the operations are similar to the Set.
  *
  *  UNORDER SET :
- *  8. It can store element in given order, elements are sorted.
+ *  8. It can store element in given order, elements are not sorted.
  *  9. Rest of the operations are similar to the Set.
  *
  *  UNORDER MULTISET :
