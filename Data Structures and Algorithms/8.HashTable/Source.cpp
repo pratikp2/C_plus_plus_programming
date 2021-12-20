@@ -5,7 +5,7 @@ using namespace std;
 
 class HashTable
 {
-private : 
+private:
 	static const int m_HashGroup = 10;
 	list <pair<int, string>> m_table[m_HashGroup];
 
@@ -36,7 +36,6 @@ int HashTable::HashFunction(int key)		// Ideally Complexity O(1) : Constant Time
 void HashTable::InsertItem(int key, string value)	// Collision Not Handled ....!!!!
 {
 	auto& cell = m_table[HashFunction(key)];
-	
 	auto itr = begin(cell);
 	bool keyExist = false;
 

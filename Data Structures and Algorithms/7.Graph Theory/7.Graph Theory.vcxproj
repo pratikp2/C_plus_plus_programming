@@ -23,6 +23,7 @@
     <ProjectGuid>{BB47B548-3C3D-4AA5-A411-9095EDA083C1}</ProjectGuid>
     <RootNamespace>My7GraphTheory</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>5. .Graph Theory</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

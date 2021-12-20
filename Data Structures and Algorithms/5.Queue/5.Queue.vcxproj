@@ -23,6 +23,7 @@
     <ProjectGuid>{1A62B1B7-EF06-481A-BA63-2A90370D4BF6}</ProjectGuid>
     <RootNamespace>My5Queue</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>3. Queue</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
