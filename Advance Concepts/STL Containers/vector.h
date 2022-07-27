@@ -29,16 +29,16 @@
 void InitVector()
 {
     vector<int> vec;
-    vector<int> vec2{ 100,200,300,400,500 };                     // Way to initiliaze vector C++ 11 Feature
-    vector<int> ::iterator Itr = vec.begin();
-    vector<int> ::reverse_iterator rItr = vec.rbegin();
+    vector<int> vec2{100, 200, 300, 400, 500}; // Way to initiliaze vector C++ 11 Feature
+    vector<int>::iterator Itr = vec.begin();
+    vector<int>::reverse_iterator rItr = vec.rbegin();
 
     for (int i = 0; i < 10; i++)
         vec.push_back(i * 100);
 
-    cout << "vector size = " << vec.size() << endl;             //  No of elements present in the vector. = 10
-    cout << "Capacity : " << vec.capacity() << endl;            //  No of positions Present in the vector = 16
-    cout << "Max_Size : " << vec.max_size() << endl << endl;    //  This is the maximum potential size the container can reach.
+    cout << "vector size = " << vec.size() << endl;  //  No of elements present in the vector. = 10
+    cout << "Capacity : " << vec.capacity() << endl; //  No of positions Present in the vector = 16
+    cout << "Max_Size : " << vec.max_size() << endl  << endl; //  This is the maximum potential size the container can reach.
 
     cout << "Printing via iteraror          :   ";
     for (Itr = vec.begin(); Itr != vec.end(); Itr++)
@@ -48,7 +48,8 @@ void InitVector()
     cout << "Printing via Reverse iteraror  :   ";
     for (rItr = vec.rbegin(); rItr != vec.rend(); rItr++)
         cout << *rItr << " ";
-    cout << endl << endl;;
+    cout << endl << endl;
+    ;
 
     // Insert data at desired index or position.
     for (int i = 5; i < 10; i++)
@@ -61,38 +62,36 @@ void InitVector()
 
     cout << "Getting Index of entry 900     :   ";
     Itr = find(vec2.begin(), vec2.end(), 900);
-    cout << distance(vec2.begin(), Itr) << endl << endl;
+    cout << distance(vec2.begin(), Itr) << endl
+         << endl;
 }
 
+// begin() ï¿½ Returns an iterator pointing to the first element in the vector
+// end() ï¿½ Returns an iterator pointing to the theoretical element that follows the last element in the vector
+// rbegin() ï¿½ Returns a reverse iterator pointing to the last element in the vector. It moves from last to first element.
+// rend() ï¿½ Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector.
+// cbegin() ï¿½ Returns a constant iterator pointing to the first element in the vector.
+// cend() ï¿½ Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
+// crbegin() ï¿½ Returns a constant reverse iterator pointing to the last element in the vector. It moves from last to first element.
+// crend() ï¿½ Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector.
 
-
-//begin() – Returns an iterator pointing to the first element in the vector
-//end() – Returns an iterator pointing to the theoretical element that follows the last element in the vector
-//rbegin() – Returns a reverse iterator pointing to the last element in the vector. It moves from last to first element.
-//rend() – Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector.
-//cbegin() – Returns a constant iterator pointing to the first element in the vector.
-//cend() – Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
-//crbegin() – Returns a constant reverse iterator pointing to the last element in the vector. It moves from last to first element.
-//crend() – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector.
-
-//assign - assigns values to the container
-//at - access specified element with bounds checking
-//front - access the first element
-//back - access the last element
-//data - direct access to the underlying array
-//empty - checks whether the container is empty
-//size - returns the number of elements
-//max_size - returns the maximum possible number of elements
-//reserve - reserves storage
-//capacity - returns the number of elements that can be held in currently allocated storage
-//shrink_to_fit - reduces memory usage by freeing unused memory
-//clear - clears the contents
-//insert - inserts elements
-//emplace - constructs element in - place
-//erase - erases elements
-//push_back - adds an element to the end
-//emplace_back - constructs an element in - place at the end
-//pop_back - removes the last element
-//resize - changes the number of elements stored
-//swap - swaps the contents
-
+// assign - assigns values to the container
+// at - access specified element with bounds checking
+// front - access the first element
+// back - access the last element
+// data - direct access to the underlying array
+// empty - checks whether the container is empty
+// size - returns the number of elements
+// max_size - returns the maximum possible number of elements
+// reserve - reserves storage
+// capacity - returns the number of elements that can be held in currently allocated storage
+// shrink_to_fit - reduces memory usage by freeing unused memory
+// clear - clears the contents
+// insert - inserts elements
+// emplace - constructs element in - place
+// erase - erases elements
+// push_back - adds an element to the end
+// emplace_back - constructs an element in - place at the end
+// pop_back - removes the last element
+// resize - changes the number of elements stored
+// swap - swaps the contents

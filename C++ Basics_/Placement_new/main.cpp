@@ -32,11 +32,14 @@ int main()
 
 }
 
-//Normal new allocates memory in heap and constructs objects tehre whereas using placement new, object construction can be done at known address.
-//With normal new, it is not known that, at what address or memory location it’s pointing to, whereas the address or memory location that it’s 
-// pointing is known while using placement new.
-//The deallocation is done using delete operation when allocation is done by new but there is no placement delete, but if it is needed one can 
-// write it with the help of destructor.
+//Normal new allocates memory in heap and constructs objects, whereas using placement new, object construction can be done at known
+//address.
 
-// We can not delete ptr3 because the memory allocated in the placement new is aloocated in the stack by the previous variable.
-// Hence deleting ptr3 will give error.
+//With normal new, it is not known that, at what address or memory location it's pointing to, whereas the address or memory location
+//that it's pointing is known while using placement new.
+
+//The deallocation is done using delete operation when allocation is done by new but there is no placement delete, but if it is needed one can 
+//write it with the help of destructor.
+
+//We can not delete ptr3 because the memory allocated in the placement new is aloocated in the stack by the previous variable.
+//Hence deleting ptr3 will give error.

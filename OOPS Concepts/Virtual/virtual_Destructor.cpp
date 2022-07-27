@@ -3,50 +3,50 @@ using namespace std;
 
 class Parent
 {
-	public :
-	Parent() {cout << "Constructor of Parent Called" << endl;}
-	~Parent(){cout << "Destructor of Parent called" << endl;}
+public:
+	Parent() { cout << "Constructor of Parent Called" << endl; }
+	~Parent() { cout << "Destructor of Parent called" << endl; }
 };
 
 class Child : public Parent
 {
-	public :
-	Child() {cout << "Constructor of Child Called" << endl;}
-	~Child(){cout << "Destructor of Child called" << endl;}
+public:
+	Child() { cout << "Constructor of Child Called" << endl; }
+	~Child() { cout << "Destructor of Child called" << endl; }
 };
 
 class Base
 {
-	public :
-	Base() {cout << "Constructor of Base Called" << endl;}
-	virtual ~Base(){cout << "Destructor of Base called" << endl;}
+public:
+	Base() { cout << "Constructor of Base Called" << endl; }
+	virtual ~Base() { cout << "Destructor of Base called" << endl; }
 };
 
 class Derived : public Base
 {
-	public :
-	Derived() {cout << "Constructor of Derived Called" << endl;}
-	~Derived(){cout << "Destructor of Derived called" << endl;}
+public:
+	Derived() { cout << "Constructor of Derived Called" << endl; }
+	~Derived() { cout << "Destructor of Derived called" << endl; }
 };
 
 int main()
 {
-	Parent * ptrParent = new Child();
+	Parent *ptrParent = new Child();
 	if (ptrParent != NULL)
 	{
-		delete ptrParent;			// 	<- Need of virtual Destructor
+		delete ptrParent; // 	<- Need of virtual Destructor
 		ptrParent = NULL;
 	}
-	
+
 	cout << endl;
-	
-	Base * ptrBase = new Derived();
+
+	Base *ptrBase = new Derived();
 	if (ptrBase != NULL)
 	{
 		delete ptrBase;
 		ptrBase = NULL;
 	}
-	
+
 	return 0;
 }
 
@@ -58,4 +58,4 @@ int main()
 
 // Virtual Destructor is use full when deleting all clsses in inheritance hierarchy because if Destructor is not virtual
 // compiler will only delete Base class memory as pointer is of type base class at such time Derived classes memory stays
-// as it is. 
+// as it is.

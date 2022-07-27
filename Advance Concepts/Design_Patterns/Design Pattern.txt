@@ -18,4 +18,4 @@ Behavioral Pattern : To carry out the communication between objects.
 	2. Interpreter
 	3. Mediator 
 	4. Memento
-        5. Observer
+    5. Observer

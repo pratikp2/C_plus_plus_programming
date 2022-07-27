@@ -30,3 +30,15 @@ int main()
 }
 
 // Reference can not be inilized to NULL.
+
+//The performances are exactly the same as references are implemented internally as pointers. But still, you can keep some points in
+//your mind to decide when to use what:  
+
+//Use references: 
+//In function parameters and return types.
+
+//Use pointers: 
+//If pointer arithmetic or passing a NULL pointer is needed. For example, for arrays (Note that accessing an array is implemented 
+//using pointer arithmetic).
+//To implement data structures like a linked list, a tree, etc. and their algorithms. This is so because, in order to point to
+//different cells, we have to use the concept of pointers.
