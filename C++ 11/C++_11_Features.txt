@@ -9,7 +9,7 @@ Features Added in C++ 11 :
 -- storage classes volatile and mutable
 -- unique, shared and weak pointer (Smart Poointer) Improvement over auto pointer.
 -- unordered set and multiset
-
+-- Constant Expression (constexpr)
 
  C++ has six kinds of special member functions:
 •Default constructors

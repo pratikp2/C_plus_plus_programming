@@ -105,7 +105,7 @@ Ideally delete operator should not be used for this pointer. However, if used, t
 
 1) delete operator works only for objects allocated using operator new . If the object is created using new, then we can
    do delete this, otherwise behavior is undefined.
-2) Once delete this is done, any member of the deleted object should not be accessed after deletion.
+2) Once delete this is done, any member of the deleted object should not be accessed after deletion. 
 
 Delete this is legal and does what you would expect: it calls your class's destructor and free the underlying memory.
 After delete this returns, your this pointer value does not change, so it is now a dangling pointer that should not be dereferenced.
