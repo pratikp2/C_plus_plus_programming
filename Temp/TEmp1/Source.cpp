@@ -1,38 +1,54 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
-#include<memory>
+#include <memory>
+#include <vector>
+#include <map>
 
 using namespace std;
 
-class AliasDataType
-{};
+class Solution {
+public:
+    int findSpecialInteger(vector<int>& arr) {
 
-shared_ptr<AliasDataType> ptr5(new AliasDataType);
+        std::map<int, int> holder;
+        int maxint = -1;
+        int maxcount = -1;
 
-shared_ptr<AliasDataType> TestFunction()
-{
-    
-    cout << "Address Of the First shared_ptr  :    " << ptr5.get() << endl; // gives address of the pointer.
+        for (int i = 0; i < arr.size(); i++) {
+            if (holder.find(arr[i]) != holder.end()) {
+                holder[arr[i]] = 1;
+                std::cout << "Old Element" << std::endl;
+            }
+            else {
+                holder[arr[i]] = holder[arr[i]] + 1;
+                std::cout << "New Element" << std::endl;
+            }
 
-    shared_ptr<AliasDataType> ptr6(ptr5);
-    shared_ptr<AliasDataType> ptr7(ptr5);
-    cout << "Address Of the Second shared_ptr :    " << ptr6.get() << endl;
-    cout << "Pointers Count Pointing to the address of the Second Pointer :    " << ptr6.use_count() << endl;
-    cout << endl << endl;
+            if (holder[arr[i]] > maxcount) {
+                maxint = arr[i];
+                maxcount = holder[arr[i]];
+            }
 
-   return ptr7;
-}
+            std::cout << "Array Element         : " << arr[i] << std::endl;
+            std::cout << "Array Element Count   : " << holder[arr[i]] << std::endl;
+            std::cout << "Current Maxint        : " << maxint << std::endl;
+            std::cout << "Current maxcount      : " << maxcount << std::endl << std::endl;
+
+            if (maxcount >= (arr.size() + 1) / 4)
+                return maxint;
+        }
+
+        return maxint;
+    }
+};
 
 int main()
 {
 
-    shared_ptr<AliasDataType> ptr7 = TestFunction();
-    
-    cout << "************************ MAIN ****************************************** " << endl;
-    cout << "Address Of the Second Pointer After resetting first Pointer :    " << ptr7.get() << endl;
-    cout << "Pointers Count Pointing to the address of the Second Pointer :    " << ptr7.use_count() << endl;
-    cout << endl << endl;
+    std::vector<int> arr = { 1,2,2,6,6,6,6,7,10 };
+    Solution sln;
+    std::cout << sln.findSpecialInteger(arr) << std::endl;
 
 	return 0;
 }
