@@ -1,23 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.Searching Algorithm", "1.Searching Algorithm\1.Searching Algorithm.vcxproj", "{F98D9982-0052-4DB0-BD90-DD9FB67B8DC3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.Sorting Algorithms", "2.Sorting Algorithms\2.Sorting Algorithms.vcxproj", "{1390D0A2-3C0B-47FE-B0A9-D0E900CE6ED6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3.Linked Lists", "3.Linked Lists\3.Linked Lists.vcxproj", "{E097E7BD-F115-4A64-B787-9F4C7BC9E56B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1. Linked Lists", "3.Linked Lists\3.Linked Lists.vcxproj", "{E097E7BD-F115-4A64-B787-9F4C7BC9E56B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4.Stack", "4.Stack\4.Stack.vcxproj", "{A9D53909-E891-43C6-820C-F6567B82EC38}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2. Stack", "4.Stack\4.Stack.vcxproj", "{A9D53909-E891-43C6-820C-F6567B82EC38}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5.Queue", "5.Queue\5.Queue.vcxproj", "{1A62B1B7-EF06-481A-BA63-2A90370D4BF6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3. Queue", "5.Queue\5.Queue.vcxproj", "{1A62B1B7-EF06-481A-BA63-2A90370D4BF6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6.Tree", "6.Tree\6.Tree.vcxproj", "{A102AAA6-DEAB-4059-A4E8-3F366C77B629}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "4. Trees", "6.Tree\6.Tree.vcxproj", "{A102AAA6-DEAB-4059-A4E8-3F366C77B629}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7.Graph Theory", "7.Graph Theory\7.Graph Theory.vcxproj", "{BB47B548-3C3D-4AA5-A411-9095EDA083C1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5. .Graph Theory", "7.Graph Theory\7.Graph Theory.vcxproj", "{BB47B548-3C3D-4AA5-A411-9095EDA083C1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "8.HashTable", "8.HashTable\8.HashTable.vcxproj", "{FE52F29B-FBEC-422F-8543-EE373485CBBB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6. .HashTable", "8.HashTable\8.HashTable.vcxproj", "{FE52F29B-FBEC-422F-8543-EE373485CBBB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STL Containers", "STL Containers\STL Containers.vcxproj", "{4F58A70E-7EF2-4ECD-881B-96B53728A34F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,14 @@ Global
 		{FE52F29B-FBEC-422F-8543-EE373485CBBB}.Release|x64.Build.0 = Release|x64
 		{FE52F29B-FBEC-422F-8543-EE373485CBBB}.Release|x86.ActiveCfg = Release|Win32
 		{FE52F29B-FBEC-422F-8543-EE373485CBBB}.Release|x86.Build.0 = Release|Win32
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Debug|x64.ActiveCfg = Debug|x64
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Debug|x64.Build.0 = Debug|x64
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Debug|x86.Build.0 = Debug|Win32
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Release|x64.ActiveCfg = Release|x64
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Release|x64.Build.0 = Release|x64
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Release|x86.ActiveCfg = Release|Win32
+		{4F58A70E-7EF2-4ECD-881B-96B53728A34F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
