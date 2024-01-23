@@ -12,7 +12,9 @@ int main()
 	//InitList();
 	//InitVector();
 	//InitQueue();
-	InitStack();
+	//InitStack();
+
+	std::cout << "Mira" << std::endl;
 
 	return 0;
 }
