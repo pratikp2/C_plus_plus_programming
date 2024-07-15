@@ -1,69 +1,63 @@
 # include <iostream>
 using namespace std;
 
-class ConstructorTypes
-{
+class ConstructorTypes {
+
     private :
         int size;
         double * arr_ptr;
+
     public :
         //int x,y;
-        ConstructorTypes();                                 // 1.Default Constructor
-        ConstructorTypes(int var1,int var2);                // 2.Parameterized Constructor
-        ConstructorTypes(int var);                          // 3.Conversion Constructor
-        explicit ConstructorTypes(char val);                // 4.Explicit Constructor
-        ConstructorTypes(const ConstructorTypes&);          // 5.Copy Constructor
-        ConstructorTypes(ConstructorTypes&&);               // 6.Move Constructor.
-        ConstructorTypes& operator = (const ConstructorTypes &obj);// Assignment Operator
-        ~ConstructorTypes();                                // Destructor
+        ConstructorTypes();                                         // 1.Default Constructor
+        ConstructorTypes(int var1,int var2);                        // 2.Parameterized Constructor
+        ConstructorTypes(int var);                                  // 3.Conversion Constructor
+        explicit ConstructorTypes(char val);                        // 4.Explicit Constructor
+        ConstructorTypes(const ConstructorTypes&);                  // 5.Copy Constructor
+        ConstructorTypes(ConstructorTypes&&);                       // 6.Move Constructor.
+        ConstructorTypes& operator = (const ConstructorTypes &obj); // Assignment Operator
+        ~ConstructorTypes();                                        // Destructor
 
         ConstructorTypes GiveObjectCopy(ConstructorTypes obj);
         void ProcessObjectCopy(ConstructorTypes obj);
 };
 
-ConstructorTypes :: ConstructorTypes()
-{
+ConstructorTypes :: ConstructorTypes() {
     cout << "Invoking Default Constructor" <<endl;
     size = 10;
     arr_ptr = new double [size];
 }
 
-ConstructorTypes :: ConstructorTypes(int size)
-{
+ConstructorTypes :: ConstructorTypes(int size) {
     cout << "Invoking Parameterized Constructor as a Conversion Constructor." << endl;
     this -> size = size;
     arr_ptr = new double [this->size];
 }
 
-ConstructorTypes :: ConstructorTypes(int size1, int size2)
-{
+ConstructorTypes :: ConstructorTypes(int size1, int size2) {
     cout << "Invoking Parameterized Constructor." << endl;
     this -> size = (size1+size2);
     this -> arr_ptr = new double [this->size];
 }
 
-ConstructorTypes :: ConstructorTypes(char size)
-{
+ConstructorTypes :: ConstructorTypes(char size) {
     cout << "Invoking Parameterized Constructor as Explicit Constructor." << endl;
     if (size == 'A') this -> size = 10;
     this -> arr_ptr = new double [this->size];
 }
 
- ConstructorTypes :: ConstructorTypes(const ConstructorTypes& obj)
- {
+ ConstructorTypes :: ConstructorTypes(const ConstructorTypes& obj) {
     cout << "Invoking Copy Constructor." << endl;
 
     this -> size = obj.size;
     this -> arr_ptr = new double [size];
 
     for (int i=0; i<size; i++)
-    {
         this -> arr_ptr[i] = obj.arr_ptr[i];    // Making Expensive Deep Copy.
-    }
+    
  }
 
-ConstructorTypes :: ConstructorTypes(ConstructorTypes&& obj)
-{
+ConstructorTypes :: ConstructorTypes(ConstructorTypes&& obj) {
     cout << "Invoking Move Constructor." << endl;
 
     this -> size = obj.size;
@@ -73,30 +67,25 @@ ConstructorTypes :: ConstructorTypes(ConstructorTypes&& obj)
                                             // Avoid dangling pointer due to shallow copy.
 }
 
-ConstructorTypes :: ~ConstructorTypes()
-{
+ConstructorTypes :: ~ConstructorTypes() {
     delete arr_ptr;
     arr_ptr = nullptr;
 }
 
-ConstructorTypes& ConstructorTypes :: operator = (const ConstructorTypes &obj)
-{
+ConstructorTypes& ConstructorTypes :: operator = (const ConstructorTypes &obj) {
     cout << "Invoking Assignment Operator" << endl;
 }
 
-ConstructorTypes ConstructorTypes :: GiveObjectCopy(ConstructorTypes obj)
-{
+ConstructorTypes ConstructorTypes :: GiveObjectCopy(ConstructorTypes obj) {
     return obj;
 }
 
-void ConstructorTypes :: ProcessObjectCopy(ConstructorTypes obj)
-{
+void ConstructorTypes :: ProcessObjectCopy(ConstructorTypes obj) {
    // Any Definition
 }
 
 
-int main ()
-{
+int main () {
   cout <<endl<< "1. ";
   ConstructorTypes obj1;                                        // 1. Default Constructor
 
@@ -162,7 +151,6 @@ int main ()
 // 6.Assignment Operator.
 // When passing object to the assignment operator by "pass by value" 1st copy constructor and then assignment
 // operator will get called
-
 
 //NOTE :
 //compile with flag "g++ -std=c++11 main.cpp" to include "C++ 11" features,and make necessary

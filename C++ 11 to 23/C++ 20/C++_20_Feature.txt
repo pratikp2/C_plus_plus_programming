@@ -1,0 +1,20 @@
+--Concepts: A new way to specify constraints on template parameters.
+--Ranges: A new library for range-based operations on collections.
+--Coroutines: Support for writing asynchronous code using co_await, co_yield, and co_return.
+--Modules: A new way to organize and manage code, replacing traditional header files.
+--Three-Way Comparison Operator (<=>): The "spaceship operator" for simplifying comparisons.
+--Calendar and Time Zone Library: Standardized support for date, time, and time zones.
+--std::span: A non-owning view over a contiguous sequence of objects.
+--std::format: A new way to format strings, similar to Python's str.format.
+--std::jthread: A thread that automatically joins when it goes out of scope.
+--Ranges: A new library for range-based operations on collections.
+--Default Member Initializers for Aggregates: Allowing default member initializers in aggregate types.
+--consteval: Functions that are evaluated at compile-time.
+--constinit: Ensuring a variable is constant-initialized.
+--Expanded constexpr: Allowing more things to be constexpr, like virtual functions.
+--Immediate Functions: Using consteval for immediate function execution.
+--New Attributes: [[likely]] and [[unlikely]] for branch prediction hints.
+--Enhanced constexpr: More extensive support for constexpr functions and lambdas.
+--Lambda Improvements: Lambdas can now use template and default arguments.
+--New Standard Attributes: [[likely]], [[unlikely]], and [[no_unique_address]].
+--Simplified Implicit Move: More situations where move operations are automatically applied.

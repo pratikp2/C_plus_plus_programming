@@ -7,7 +7,7 @@
  *  5. The data in the set is stored in the form of tree, hence it is soterd automatically and can't be modified.
  *
  *  MULTISET :
- *  6. To have duplicate entried multiset can be used.
+ *  6. To have duplicate entries multiset can be used.
  *  7. Rest of the operations are similar to the Set.
  *
  *  UNORDER SET :
@@ -40,7 +40,6 @@ void InitSet()
     unordered_multiset <int> mulUnCollection;
     unordered_multiset <int> ::iterator mulUnItr = mulUnCollection.begin();
 
-
     Collection.insert(45);
     Collection.insert(20);
     Collection.insert(92);
@@ -61,7 +60,6 @@ void InitSet()
     cout << endl << "Output after Duplicate Entry  : ";
     for (itr = Collection.begin(); itr != Collection.end(); ++itr) { cout << *itr << " "; }
 
-
     mulCollection.insert(45);
     mulCollection.insert(20);
     mulCollection.insert(92);
@@ -72,7 +70,6 @@ void InitSet()
     cout << endl << "Output after Duplicate Entry  : ";
     for (mItr = mulCollection.begin(); mItr != mulCollection.end(); ++mItr) { cout << *mItr << " "; }
 
-
     unCollection.insert(45);
     unCollection.insert(20);
     unCollection.insert(92);
@@ -82,7 +79,6 @@ void InitSet()
     cout << endl << endl << "Unordered Set Example : ";
     cout << endl << "Output after Adding           : ";
     for (unItr = unCollection.begin(); unItr != unCollection.end(); ++unItr) { cout << *unItr << " "; }
-
 
     mulUnCollection.insert(45);
     mulUnCollection.insert(20);

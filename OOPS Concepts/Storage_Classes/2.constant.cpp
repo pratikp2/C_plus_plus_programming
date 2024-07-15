@@ -7,7 +7,7 @@ class Explore
     const int val2;
     const int val3 = 30;                // must use -std=c++11 flag to work.
 public:
-    Explore(): val1(10),val2(20){}      // In Previous version Initilizer Lisr is used to initiliaze const member parameter
+    Explore(): val1(10),val2(20){}      // In Previous version Initilizer List is used to initiliaze const member parameter
 
     void Function1 () const             // Must be declared const at both times i,e. while prototyping and while defining.
     {

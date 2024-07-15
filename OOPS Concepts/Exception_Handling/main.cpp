@@ -36,45 +36,31 @@ int main ()
     cout << endl;
 
 
-    try                     // Program statement that you want to monitor for exceptions are written in try block.
-    {
+    try {                    // Program statement that you want to monitor for exceptions are written in try block.
         if(SonAge > DadAge)
-        {
             throw 1;        // Any exceptions occurred int the try block is thrown.
-        }
         else if ((SonAge+15) > DadAge)
-        {
-            throw 2;
-        }
+            throw 2;  
         else if (DadAge<25)
-        {
             throw 3;
-        }
         else
-        {
-            cout << "Entered ages are valid" << endl;
-        }
+            cout << "Entered ages are valid" << endl; 
     }
 
-    catch(int x)            // An exception is caught in the catch block and handled in it.
-    {
-        if(x == 1)
-        {
+    catch(int x) {          // An exception is caught in the catch block and handled in it.
+        if(x == 1) {
             cout << "Received error code : " << x <<endl;
             cout << "Father's age can not be smaller than Child's age." << endl;
         }
-        else if(x == 2)
-        {
+        else if(x == 2) {
             cout << "Received error code : " << x <<endl;
             cout << "Father's age should be greater than Child's age by at least 15 years." << endl;
         }
-        else if(x == 3)
-        {
+        else if(x == 3) {
             cout << "Received error code : " << x <<endl;
             cout << "Father's age should be greater than 24 years." << endl;
         }
-        else
-        {
+        else {
             cout << "Received Invalid Error Code : "<< x << endl;
         }
     }

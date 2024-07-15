@@ -1,32 +1,27 @@
 # include <iostream>
 using namespace std;
 
-class Base
-{
+class Base {
 public :
     void Rand_Function(){cout << " This is Random Function from Base" << endl;}
 };
 
-class Derived_One : public virtual Base
-{
+class Derived_One : public virtual Base {
 public:
     void Rand_Function(){cout << " This is Random Function from Derived_One" << endl;}
 };
 
-class Derived_Two : public virtual Base
-{
+class Derived_Two : public virtual Base {
 public :
     void Rand_Function(){cout << " This is Random Function from Derived_Two" << endl;}
 };
 
-class Derived_Three : public Derived_Two, public Derived_One
-{
+class Derived_Three : public Derived_Two, public Derived_One {
 public:
     void Rand_Function(){cout << " This is Random Function from Derived_Three" << endl;}
 };
 
-int main()
-{
+int main() {
     Derived_Three ObjDerivedThree;
 
     ObjDerivedThree.Base::Rand_Function();

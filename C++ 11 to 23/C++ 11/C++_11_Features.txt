@@ -1,0 +1,21 @@
+Features Added in C++ 11 :
+
+01. Auto Keyword: Type inference for variables.
+02. Range-Based For Loop: Simplified iteration over containers.
+03. Lambda Expressions: Anonymous functions for more concise and functional code.
+04. nullptr: A type-safe null pointer.
+05. Static Assertions: Compile-time assertions with static_assert.
+06. Move Semantics and Rvalue References: Optimized resource management with &&.
+07. Smart Pointers: std::unique_ptr, std::shared_ptr, and std::weak_ptr.
+08. Type Aliases: Using using as an alternative to typedef.
+09. Uniform Initialization Syntax: Brace-initialization for all types.
+10. Delegating Constructors: Calling one constructor from another in the same class.
+11. Default and Deleted Functions: Explicitly default or delete special member functions.
+12. Variadic Templates: Template programming with a variable number of arguments.
+13. constexpr: Compile-time constant expressions.
+14. Standard Thread Library: Multithreading support with std::thread and related constructs.
+15. Extended constexpr: Enabling more complex constant expressions.
+16. Override and Final: Explicitly specifying overrides and preventing further derivations.
+17. User-Defined Literals: Custom literal suffixes.
+18. Enum Classes: Strongly typed and scoped enums.
+29. nullptr: A new keyword replacing NULL.

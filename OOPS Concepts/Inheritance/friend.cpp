@@ -26,26 +26,22 @@ public:
     friend class NeedAccess;
 };
 
-class NeedAccess
-{
+class NeedAccess {
 public :
-    void getParam(SuperSet ObjSuperSet)
-    {
+    void getParam(SuperSet ObjSuperSet) {
         cout << "Printing from the freind Class" << endl;
         cout << "Name of the Object is  : " << ObjSuperSet.Name<<endl;
         cout << "Age of the Object is   : " << ObjSuperSet.Age<<endl<<endl;
     }
 };
 
-void getParam(SuperSet ObjSuperSet)
-{
+void getParam(SuperSet ObjSuperSet) {
     cout << "Printing from the freind Function" << endl;
     cout << "Name of the Object is  : " << ObjSuperSet.Name<<endl;
     cout << "Age of the Object is   : " << ObjSuperSet.Age<<endl<<endl;
 }
 
-int main()
-{
+int main() {
     SuperSet ObjSuperSet;
     NeedAccess ObjNeedAccess;
 

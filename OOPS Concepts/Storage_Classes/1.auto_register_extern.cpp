@@ -3,13 +3,11 @@
 int count;
 extern int write_extern();
 
-
-int main ()
+int main()
 {
-    auto int var1 = 10;     //OR int var1 = 10;     // OR auto vatr1 = 10;
+    auto var1 = 10; // OR int var1 = 10;
     register int var2 = 20;
     count = 5;
-
 
     cout << "Value for auto VAR 1       :  " << var1 << endl;
     cout << "Value for register VAR 2   :  " << var2 << endl;

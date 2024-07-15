@@ -17,7 +17,7 @@
 using namespace std;
 
 template <typename Any>
-void Swap(Any &a,Any &b)
+void Swap(Any &a, Any &b)
 {
     Any s;
     s = a;
@@ -28,25 +28,24 @@ void Swap(Any &a,Any &b)
 int main()
 {
 
-    int i=10,j=20;
-    float x=10.2,y=20.2;
-    string p = "Hi" , q = "Hello";
-
-
-    cout << endl;
-    cout<< "Value before swap A = "<<i<<" and B = "<<j<<endl;
-    Swap(i,j);
-    cout<< "Value before swap A = "<<i<<" and B = "<<j<<endl;
+    int i = 10, j = 20;
+    float x = 10.2, y = 20.2;
+    string p = "Hi", q = "Hello";
 
     cout << endl;
-    cout<< "Value before swap X = "<<x<<" and Y = "<<y<<endl;
-    Swap(x,y);
-    cout<< "Value before swap X = "<<x<<" and Y = "<<y<<endl;
+    cout << "Value before swap A = " << i << " and B = " << j << endl;
+    Swap(i, j);
+    cout << "Value before swap A = " << i << " and B = " << j << endl;
 
     cout << endl;
-    cout<< "Value before swap P = "<<p<<" and Q = "<<q<<endl;
-    Swap(p,q);
-    cout<< "Value before swap P = "<<p<<" and Q = "<<q<<endl;
+    cout << "Value before swap X = " << x << " and Y = " << y << endl;
+    Swap(x, y);
+    cout << "Value before swap X = " << x << " and Y = " << y << endl;
+
+    cout << endl;
+    cout << "Value before swap P = " << p << " and Q = " << q << endl;
+    Swap(p, q);
+    cout << "Value before swap P = " << p << " and Q = " << q << endl;
 
     cout << endl;
     return 0;

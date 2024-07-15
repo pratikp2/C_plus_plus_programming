@@ -1,0 +1,34 @@
+New Language Feature :
+-- variable templates
+-- generic lambdas
+-- lambda init-capture
+-- new/delete elision
+-- relaxed restrictions on constexpr functions
+-- binary literals
+-- digit separators
+-- return type deduction for functions
+-- aggregate classes with default non-static member initializers.
+
+New library features
+-- std::make_unique
+-- std::shared_timed_mutex and std::shared_lock
+-- std::integer_sequence
+-- std::exchange
+-- std::quoted
+        and many small improvements to existing library facilities, such as
+        two-range overloads for some algorithms
+        type alias versions of type traits
+        user-defined literals for basic_string, duration and complex
+        etc.
+
+
+
+
+1. Binary Literals: Writing binary numbers directly using 0b or 0B prefix.
+2. Generic Lambdas: Lambdas with auto parameters.
+3. Return Type Deduction: Automatically deducing return types for functions.
+4. Relaxed constexpr: Allowing more complex operations in constexpr functions.
+5. Variable Templates: Templates for variables.
+6. declaration of auto function return types: Allowing auto in function return types for template functions.
+7. Aggregate Member Initialization: More flexible initialization of aggregate classes.
+8. Extended constexpr: Even more relaxed constraints on constexpr functions.

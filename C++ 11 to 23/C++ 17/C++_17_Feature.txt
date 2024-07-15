@@ -1,0 +1,15 @@
+01. Structured Bindings: Decomposing objects into individual named variables.
+02. If and Switch with Initializers: Allowing initializers within if and switch statements.
+03. Inline Variables: Defining variables with inline keyword.
+04. Fold Expressions: Simplifying template programming by folding over variadic template parameters.
+05. std::optional: Optional values indicating the presence or absence of a value.
+06. std::variant: A type-safe union.
+07. std::any: A type-safe container for single values of any type.
+08. std::string_view: A non-owning view of a string.
+09. Parallel Algorithms: Parallel versions of the STL algorithms.
+10. Filesystem Library: Standardized support for file and path manipulation.
+11. constexpr if: Conditional compilation within constexpr functions.
+12. Template Argument Deduction for Class Templates: Deduction of template arguments from constructor arguments.
+13. New Attributes: [[nodiscard]], [[maybe_unused]], etc.
+14. Enhanced constexpr: Allowing more complex computations and usage contexts.
+15. Lambda Capture by *this: Capturing the current object by value in lambdas.

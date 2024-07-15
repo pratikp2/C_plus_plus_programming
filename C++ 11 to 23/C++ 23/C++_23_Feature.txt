@@ -1,0 +1,16 @@
+--Deduction Guides for std::pair and std::tuple: Simplified usage of pairs and tuples.
+--Explicit Object Parameter: Allowing explicit this parameters in member functions.
+--Multidimensional std::span: Support for multidimensional spans.
+--Standard Library Polymorphic Allocators: Enhancing memory management flexibility.
+--std::expected: A type for operations that may return a value or an error.
+--std::flat_map and std::flat_set: Flat versions of associative containers.
+--constexpr std::vector and other containers: Making more standard containers usable in constant expressions.
+--std::generator: Simplifying the creation of coroutines for generating sequences.
+--Improved constexpr Support: Further enhancements to constexpr capabilities.
+--Unicode Support: Better support for Unicode characters and strings.
+--Library Modules: Modularization of the standard library.
+--Networking Library: A standardized networking library based on Boost.Asio (potentially).
+--Extended Floating-Point Types: Support for wider floating-point types.
+--Reflection: Introspection capabilities to inspect program structure.
+--Pattern Matching: A new feature for matching values against patterns.
+--std::hive: A new container optimized for specific use-cases (tentative).

@@ -16,40 +16,40 @@ using namespace std;
 template <class DataType>
 class Explore
 {
-    private :
-        DataType A;
+private:
+    DataType A;
 
-    public :
-        Explore(DataType A){this -> A = A;}
-        DataType increment(){return ++A;}
+public:
+    Explore(DataType A) { this->A = A; }
+    DataType increment() { return ++A; }
 };
 
-template<>
-class Explore <char>
+template <>
+class Explore<char>
 {
-    private :
-        char A;
+private:
+    char A;
 
-    public :
-        Explore(char A){ this->A = A; }
-        char upperCase()
+public:
+    Explore(char A) { this->A = A; }
+    char upperCase()
+    {
+        if ((A >= 'a') && (A <= 'z'))
         {
-            if ((A >= 'a')&&(A <= 'z'))
-            {
-                A += 'A'-'a';
-                return A;
-            }
+            A += 'A' - 'a';
+            return A;
         }
+    }
 };
 
 int main()
 {
     cout << endl;
-    Explore <int> ObjExplore(9);
-    cout <<"Resutl for int : "<<ObjExplore.increment() << endl;
+    Explore<int> ObjExplore(9);
+    cout << "Resutl for int : " << ObjExplore.increment() << endl;
 
-    Explore <char> ObjExplore1('a');
-    cout <<"Resutl for char : "<<ObjExplore1.upperCase() <<endl;
+    Explore<char> ObjExplore1('a');
+    cout << "Resutl for char : " << ObjExplore1.upperCase() << endl;
     cout << endl;
     return 0;
 }

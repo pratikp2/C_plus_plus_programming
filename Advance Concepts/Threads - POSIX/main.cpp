@@ -82,7 +82,6 @@ int main()
             cout << "Error in the thread creation with thread id : " << tid[i].x << endl;    
     }
 
-
     // Detaching thread
     errCode = pthread_attr_init(&attr);
     if (errCode) { cout << "Attribute initiliazation Failed" << endl; }

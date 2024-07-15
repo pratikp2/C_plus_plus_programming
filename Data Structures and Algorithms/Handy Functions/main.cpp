@@ -41,6 +41,16 @@ int main() {
 
         /**************************************************************************************/
 
+    // String Operations
+
+    // 1. substr() function is used to extract a sub-string from a string.
+    std::string str = "We think in generalities, but we live in details.";// (quoting Alfred N. Whitehead)
+    std::string str2 = str.substr (3,5);     // str2 = "think"
+    std::size_t pos = str.find("live");      // pos = 26
+    std::string str3 = str.substr (pos);     // str3 = "live in details."
+
+        /**************************************************************************************/
+
     // String Manupulations
     std::to_string(12345);                      // Convert given number in string
     std::stoi("12345");                         // convert a string in to number

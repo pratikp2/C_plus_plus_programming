@@ -4,30 +4,29 @@ using namespace std;
 template <class Datatype>
 class Sample
 {
-private :
+private:
     Datatype A, B;
 
-public :
+public:
     Sample(Datatype A, Datatype B);
-    void getMax ();
+    void getMax();
     void add();
     void getStatVal();
     static Datatype C;
-
 };
 
 template <class Datatype>
-Datatype Sample <Datatype> :: C;
+Datatype Sample<Datatype>::C;
 
 template <class Datatype>
-Sample <Datatype> :: Sample(Datatype A, Datatype B)
+Sample<Datatype>::Sample(Datatype A, Datatype B)
 {
-    this -> A = A;
-    this -> B = B;
+    this->A = A;
+    this->B = B;
 }
 
 template <class Datatype>
-void Sample <Datatype> :: getMax()
+void Sample<Datatype>::getMax()
 {
     Datatype result;
     result = (A > B) ? A : B;
@@ -35,7 +34,7 @@ void Sample <Datatype> :: getMax()
 }
 
 template <class Datatype>
-void Sample <Datatype> :: add()
+void Sample<Datatype>::add()
 {
     Datatype result;
     result = A + B;
@@ -43,42 +42,42 @@ void Sample <Datatype> :: add()
 }
 
 template <class Datatype>
-void Sample <Datatype> :: getStatVal()
+void Sample<Datatype>::getStatVal()
 {
     cout << C << endl;
 }
 
 int main()
 {
-    Sample <int> ObjSample1(2,10);
-    Sample <char> ObjSample2('A','B');
-    Sample <float> ObjSample3(2.8,1.2);
-    Sample <string> ObjSample4("Pratik ","Prakash");
-    
-    Sample <int> :: C = 15;
-    Sample <char> :: C = 'C';
-    Sample <float> :: C = 10.10;
-    Sample <string> :: C = "Patil";
-    
+    Sample<int> ObjSample1(2, 10);
+    Sample<char> ObjSample2('A', 'B');
+    Sample<float> ObjSample3(2.8, 1.2);
+    Sample<string> ObjSample4("Pratik ", "Prakash");
+
+    Sample<int>::C = 15;
+    Sample<char>::C = 'C';
+    Sample<float>::C = 10.10;
+    Sample<string>::C = "Patil";
+
     ObjSample1.getMax();
     ObjSample2.getMax();
     ObjSample3.getMax();
     ObjSample4.getMax();
-    
+
     cout << endl;
-    
+
     ObjSample1.add();
-    //ObjSample2.add();      // char Variables can not be added.
+    // ObjSample2.add();      // char Variables can not be added.
     ObjSample3.add();
-    ObjSample4.add();       // After addition string variables will be concatinated.
-    
+    ObjSample4.add(); // After addition string variables will be concatinated.
+
     cout << endl;
-    
+
     ObjSample1.getStatVal();
     ObjSample2.getStatVal();
     ObjSample3.getStatVal();
     ObjSample4.getStatVal();
-    
+
     return 0;
 }
 
@@ -87,4 +86,3 @@ int main()
 
 // Once done for class, Template declaration has to be done every initilization and function declaration
 // outside class
-
