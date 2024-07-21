@@ -58,53 +58,42 @@ void Merge_Sort(int arr[], int leftStart, int rightEnd) // Time Complexity : O(n
 		int leftSize = middle - leftStart + 1;
 		int rightSize = rightEnd - middle;
 
-		int* leftArray = new int[leftSize];
-		int* righArray = new int[rightSize];
+		int* leftArray = new int[leftSize];		// == > Create two new array Left and Right
+		int* righArray = new int[rightSize];	// == >
 
 		int leftItr = 0, rightItr = 0;
 		int mainItr = leftStart;
 
-		for (leftItr = 0; leftItr < leftSize; leftItr++)
-			leftArray[leftItr] = arr[leftStart + leftItr];
-		for (rightItr = 0; rightItr < rightSize; rightItr++)
-			righArray[rightItr] = arr[middle + 1 + rightItr];
+		for (leftItr = 0; leftItr < leftSize; leftItr++) leftArray[leftItr] = arr[leftStart + leftItr];			// Copy main array in left and right array.
+		for (rightItr = 0; rightItr < rightSize; rightItr++) righArray[rightItr] = arr[middle + 1 + rightItr];  // 
 
 		leftItr = rightItr = 0;
 
-		while (leftItr < leftSize && rightItr < rightSize)
-		{
-			if (leftArray[leftItr] <= righArray[rightItr])
-			{
+		while (leftItr < leftSize && rightItr < rightSize) { // Check which array element is smallest and copy it in 
+			if (leftArray[leftItr] <= righArray[rightItr]) { // - main array
 				arr[mainItr] = leftArray[leftItr];
 				leftItr++;
-			}
-			else
-			{
+			} else {
 				arr[mainItr] = righArray[rightItr];
 				rightItr++;
 			}
 			mainItr++;
 		}
 
-		while (leftItr < leftSize)
-		{
+		while (leftItr < leftSize) {				// If left array still have some elements merge it in main array.
 			arr[mainItr] = leftArray[leftItr];
 			leftItr++;
 			mainItr++;
 		}
 
-		while (rightItr < rightSize)
-		{
+		while (rightItr < rightSize) {				// If right array still have some elements merge it in main array.
 			arr[mainItr] = righArray[rightItr];
 			rightItr++;
 			mainItr++;
 		}
 
-		if (leftArray != nullptr)
-			delete[] leftArray;
-		if (righArray != nullptr)
-			delete[] righArray;
-
+		if (leftArray != nullptr) delete[] leftArray;
+		if (righArray != nullptr) delete[] righArray;
 		leftArray = righArray = nullptr;
 	}
 }

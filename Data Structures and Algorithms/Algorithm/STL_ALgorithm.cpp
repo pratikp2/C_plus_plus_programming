@@ -10,8 +10,6 @@ int main()
 	std::string stringSample = "ABC";
 	char charSample = 'A';
 
-
-
 	// 1. Sort Function
 	std::sort(vecSample.begin(), vecSample.end());
 

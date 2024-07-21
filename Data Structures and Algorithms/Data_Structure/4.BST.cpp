@@ -106,7 +106,7 @@ Node* Binary_Search_Tree::createNode(int data)
 	}
 }
 
-Node* Binary_Search_Tree::search(int data)
+Node* Binary_Search_Tree::search(int data)			// O(log n)
 {
 	Node* temp = m_root;
 	while (temp != nullptr)
@@ -121,7 +121,7 @@ Node* Binary_Search_Tree::search(int data)
 	return temp;
 }
 
-void Binary_Search_Tree::insert(int data)
+void Binary_Search_Tree::insert(int data)			// O(log n)
 {
 	if (m_root == nullptr)
 		m_root = createNode(data);
@@ -166,7 +166,7 @@ bool Binary_Search_Tree::doesNodeExist(int data)
 	return false;
 }
 
-void Binary_Search_Tree::preOrdertraversal(Node* parent)  // Root -> Left -> Right
+void Binary_Search_Tree::preOrdertraversal(Node* parent)  // Root -> Left -> Right  O(n)
 {
 	if (parent == nullptr)
 		return;
@@ -176,7 +176,7 @@ void Binary_Search_Tree::preOrdertraversal(Node* parent)  // Root -> Left -> Rig
 	preOrdertraversal(parent->right);
 }
 
-void Binary_Search_Tree::inOrdertraversal(Node* parent)   // Left -> Root -> Right
+void Binary_Search_Tree::inOrdertraversal(Node* parent)   // Left -> Root -> Right  O(n)
 {
 	if (parent == nullptr)
 		return;
@@ -186,7 +186,7 @@ void Binary_Search_Tree::inOrdertraversal(Node* parent)   // Left -> Root -> Rig
 	inOrdertraversal(parent->right);
 }
 
-void Binary_Search_Tree::postOrdertraversal(Node* parent) // Left -> Right -> Root
+void Binary_Search_Tree::postOrdertraversal(Node* parent) // Left -> Right -> Root  O(n)
 {
 	if (parent == nullptr)
 		return;
@@ -250,7 +250,6 @@ void Binary_Search_Tree::displayTree()
 	else
 		cout << "Binary Search Tree Empty. Please Add data First." << endl;
 }
-
 
 int returnLongpath(Node* node, vector<int> vec, int count)
 {
