@@ -112,3 +112,12 @@ Status codes indicate the result of the HTTP request. Common status codes includ
 - 404 Not Found: The server can not find the requested resource.
 - 500 Internal Server Error: The server has encountered a situation it doesn't know how to handle.
 - Example: REST API for a User Resource.
+
+---
+<br>
+
+[REST API INTERVIEW QUESTIONS - TURING](https://www.turing.com/interview-questions/rest-api)
+<br>
+
+---
+

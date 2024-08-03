@@ -1,0 +1,121 @@
+1. Docker build image :
+
+docker build -t <Name for docker image> -f <Name of docker file>
+"docker build -t hello-docker ."
+
+2. Run Image :
+
+"docker run <image name>"
+"docker run hello-docker"
+
+3. Delete an image
+
+docker rmi <image name>
+"docker rmi hello-docker" OR "docker rmi hello-docker -f"
+
+4. List all Images
+
+"docker images"       OR
+"docker image -ls"
+
+5. List all contaiers
+
+"docker ps" 
+"docker ps -a" to list all containers(running or terninated)
+
+6. Pull a image from docker hub
+
+docker <remot image name>
+docker pull ubuntu
+
+7. To access a container shell
+
+docker run -it <image>      -it to run interactive mode 
+"docker run -it ubuntu"
+-i = interactive, t = tty or shell, d = detached 
+
+8. To access volume menu
+
+"docker volume --help" OR 
+"docker volume <command> --help"
+
+9. To create volume 
+
+docker volume create <name for volume>
+"docker volume create myContainerVolume"
+
+10 To list all created volume
+
+"docker volume ls"
+
+11. To find more info about volume
+
+docker volume inspect <volume name>
+"docker volume inspect myContainerVolume"
+
+12. To remove your volume
+
+docker volume rm <volume name>
+"docker volume rm myContainerVolume"
+
+13. Mount a volume to the container 
+
+docker run -itd --name <name of the container> mount source=<name of the volume>, target=/<path for target inside container> <image>  
+docker run -itd --name myContainer mount source=/myContainerVolume, target=/vol alpine      OR
+docker run -itd --name myContainer -v /myContainerVolume:/vol alpine
+
+14. Docker inspect network and all the container IPs connected to docker0(virtual docker network)
+
+docker inspect <name of bridge>
+docker inspect bridge
+
+15. To create Docker network
+
+docker network create <network name>
+docker network ls                       -- to list all network
+
+----------------------------------------------------------------------------------------------------------------------
+
+Push Docker Image into docker Hub
+
+1. Creation of docker Repository : 
+    - Login into Docker Hub account.
+    - Locate and click Create repository button. Upon clickig "Create Repository" options will be shown.
+    - In Options add Repository name, select private or public option, and add additional information and click create.
+    - Once creation is done repo is available. Note the docker push command syntax to push in to repo
+            docker push <docker user name>/<repo name>:<tagname>
+
+2. Push Repository from command line :
+    - Open command prompt and fire command "docker login". You will be asked your docker account credentials. Enter those.
+    - Now to directly push command 1st identify the pre build image by running command "docker image ls".
+    - Note the image name and image tag from the provided list.
+    - push the docker image via mentiones command
+            docker push <docker user name>/<repo name>:<tagname>
+    - Verify that image has been pushed in the docker hub.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Export Docker images to tar and import it.
+
+The docker export - Export a container’s filesystem as a tar archive
+The docker import - Import the contents from a tarball to create a filesystem image
+The docker save - Save one or more images to a tar archive (streamed to STDOUT by default)
+The docker load - Load an image from a tar archive or STDIN
+
+----------------------------------------------------------------------------------------------------------------------
+
+Docker Layer : 
+
+        Docker container is a runnable instance of an image, which is actually made by writing a readable/writable
+        layer on top of some read-only layers.
+
+        The parent image used to create another image from a Dockerfile is read-only. When we execute instructions
+        on this parent image, new layers keep adding up. These layers are created when we run docker build command.
+
+        The instructions RUN, COPY, ADD mostly contribute to the addition of layers in a Docker build.
+
+        Each layer is read-only except the last one - this is added to the image for generating a runnable container.
+        This last layer is called “container layer”. All changes made to the container, like making new files, 
+        installing applications, etc. are done in this thin layer.
+
+----------------------------------------------------------------------------------------------------------------------

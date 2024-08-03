@@ -1,0 +1,205 @@
+Docker Concepts : 
+
+Pain points that docker solves :
+- No need to maintain dependencies on every machine.
+- No need to manage software version dependencied for all instances.
+- Same setup configuration can be easily maintained across all instances
+
+So if docker setup runs on developer environment then it will for sure run the setup on all other test and 
+production environment
+
+- So no need to do a tedious installation procedure on all the instances
+- Multiple versions of same software can run on single machine on different nodes parallely.
+- Once work is completed on a specific container we can remove entire development environment in one go without 
+	individually removing every dependency. We can just drop the node or container.
+
+----------------------------------------------------------------------------------------------------------------------
+	
+Container : 
+- Container is a active instance of docker image.
+- A container is an isolated environment to run an application.
+- Techinically Container is just a process like other process.
+- Its differnt than a vm which used entire copy of operation system and resource intensive where as container do the
+	same task but instead of flashing a new operating system it used existing host OS to do task hence its light weight.
+- As it used host OS ity can start quickly and do not need a lot hardware resources.
+- Due to this we can run a lot containers parallely than compare to VM on same machine.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Docker Architecture  :
+
+- It has a Client server architecture. And communication between client and server is carried out by REST APIs.
+- Server is also called "Docker Engine", which sits in background an takes care of building and running 
+	docker Containers.
+- All Container on the host shares same Kernel of the Operating system of the Host.
+- Hence for example we can run linux container on only on linux machin beacause linux container need linux kernel
+	to execute the container. However we can use Linux as well as windows container on windows as windows can be 
+	shipped with linux kernel(WSL). In case of MAC it dose not support containerised application. Hence docker on MAC 
+	uses a light weight linux VM to run linux container.
+	
+----------------------------------------------------------------------------------------------------------------------
+
+Docker Work Flow
+
+Step 1 : Dockerize the Intented Application 
+	- In this step we make a small change in application so that it can be run by docker.
+	- we Add a dockerfile to it. A dockerfile is plain text file which contains a instruction read by docker so that it
+		can package it to be run on docker. This Image contains everything that application need to run.
+	- The content of package may be 
+		1. A cut down OS
+		2. A runtime environment (a node)
+		3. Application files
+		4. Third - Party libs 
+		5. Environment Variables
+		Hence a docker file is needed to have every dependecy information in it so that docker can package that
+		application into image. And once a image is ready we can tell docker to start a container using that image.
+	- Once an image is propely working the we can push that image on Docker Hub to be pulled on another machines.
+		Docker to Docker hub is similar like git to GitHub. It stores all ddevelopment images across all versions,
+		to be pulled on and worked on later.
+	- Once Dockerfile is added in setup you can build docker file command
+
+		docker build -t <tag to indetify docker image> <location of the dockerfile>
+		"docker build -t hello-docker ."
+	
+	- Once its built successfully we can not see image in setup or project folder docker stores it at different locations
+		in multiple files as an image. 
+	
+	- To list all the docker images present in machine
+
+		"docker image ls"
+
+Step 2 : Run Docker Image
+	- To run docker Image can simply run following command provided that image is present in the machine.
+
+	"docker run <image name>"
+	"docker run hello-docker"
+
+----------------------------------------------------------------------------------------------------------------------
+
+Docker Multistage Build : 
+	A multi-stage build is a process that allows you to break the steps in building a Docker image into multiple stages.
+This will enable you to create images that include only the dependencies that are necessary for the desired functionality
+of the final application, cutting down on both time and space.
+
+			-----	Docker File -----
+
+FROM alpine AS stage1
+LABEL maintainer="Collabnix"
+RUN echo "Welcome to Docker Labs!" > /opt/index.html
+
+FROM nginx:alpine
+LABEL maintainer="Collabnix"
+COPY --from=stage1 /opt/index.html /usr/share/nginx/html/
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+
+			----- End of Docker file -----
+
+----------------------------------------------------------------------------------------------------------------------
+
+Docker Persistant - Docker persistance for data can be managed by below 4 methods.
+
+Persistant Data : 
+		- Is is data persisted by docker throughout application lifecycle, which will be present when application will
+		stop and start again.
+		- Example is customer records, application database and logs.
+
+Non Persistant Data :
+		- It is the type data which is removed or deleted upon container stop.
+
+1. tmpfs :
+	- tmpfs is the storage availble to container which uses memory present in the docker host which is also fast in memory 
+		storage.
+	- Its not Persistant because its not being stored in disk, and can't be shared with other containers.
+	- It should be used for storing sensetive data which is not supposed to be stored for long time or on disk.
+
+2. Volumes :
+	- Volume is memory which is independent of the start and stop of container. It is recomended due to following reason.
+		1. Volume is independent of container life cycle.
+		2. They can mapped to external storage.
+		3. Multiple container can share single volume.
+	- The Volume storage is managed by the docker and created on the fly as needed   
+
+	Generally way to use use a volue is simple. Create a volume and map that that volume to the container.
+
+3. Bind Mount : 
+	- Bind mount allows you to take a folder inside a hosts file system and mount a storage in that folder.
+	- That mounted foler can be shared among multiple container hence very helpful for sharing data among container.
+	- It also introduces some drawbacks 
+		1. container using Bind mount can be highly dependent on the data on the mounted location.
+		2. If data is or location of the bind mount is changed the container might not work properly
+		3. If same folder structure is not present on other host then container may not work properly.
+
+4. Named Pipes :
+
+----------------------------------------------------------------------------------------------------------------------
+
+Docker Network
+
+Default Network : 
+- After Installing docker, docker will hae its own ip address similar to host machine which it gets via router directly.
+- Whenever a container is created, docker creates a virtual ethernet interface which connects docker and container via 
+	virtual ethernet. Docker acts like a virtual switch which can connects multiple container to network similar to router
+	and PCs. Which means docker is also runnign DHCP. This is how docker containers can communicate to each other via vietual
+	docker network.
+- Port forwarding is disabled by default so access running website in a contaier we need to forwars the port of container to
+	external world.
+- the usage of default network should be avoided, instead user network or other networks can be used.
+
+
+User Created network : 
+- User created network is similar to the default network except its created by the user.
+
+
+Host Network 
+- when you deply a container in host network, which menas your container will be running in yous systems host network.
+- other container may use default network or user network property, but container ran is host will always share hosts 
+	network property.
+- means no need t expose any ports, meaning if any server runnig on this container can be directly accessed
+- Its just runs like a application on your host operating system.
+
+
+MAC VLAN Nwtwork : 
+- Mac vlan removes all the complications in previous types and directly connects the container to physical router present
+	in the network.
+- due to this container gets its own mac address similar to a personal computer in your network.
+- if you are trying to connect up in netwoking hirarchy it may not work as your container have mac address and 
+	your mac address and yous hosts mac address is getting reported by the same physical ethernet connetction to 
+	your router to a single port. So that port can not differentiate between those two mca ids coming from same 
+	wired connection. To overcome this promiscious mode is required.
+Promiscious mode <extra info> 
+- Another problem with mac vlan is that while creating macvlan bridge you need to mention ip address too. Your routers
+	DHCP wont assign an it to it, instead docker dhcp will assign ip yo your container which can create problem
+
+	It has two modes 1. mac vlan bridge mode - connect directly to the host network
+					 2. mac vlan (802.1q) mode - makes docker create a seperate network with only single container
+
+
+IP VLAN Network L2: 
+- Similar to vlan each container has its own ip address but unline to MAC vlan network, instead of having seperate 
+	mac id contianer will have same mac id as of host.
+- this solves the Promiscious mode problem and helps container communicate up in hirarchy.
+- so on a sinlge routr port multiple ips will ne rported but mac address will be one.
+
+
+IP VLAN Network L3:
+- Connects to the host like router. It convets yous host into a router.
+- No broadcast information
+- No way to connect to outer network because no entry for container network exists in routing table.
+- which menas container is not conneted to internet. it gives more control over network container.
+- its like hosting two different network incapable to talking to each other beacause no routing is known.
+- to make the routing way known and talk to outer network we can add entry in routing tables. and then 
+	contianer can access internet.
+
+
+Overlay network : 
+- if you have multiple hosts in the network all of which are running their own docker container, so 
+	if they need to communincate over differnt hosts overlay network is used.
+- Docker sworm <extra info>
+
+The none network : 
+- No netwok already present in the docker. May not be able to connect to it via network <more info>
+
+Reference : 
+https://www.youtube.com/watch?v=bKFMS5C4CG0&ab_channel=NetworkChuck
+
+----------------------------------------------------------------------------------------------------------------------
