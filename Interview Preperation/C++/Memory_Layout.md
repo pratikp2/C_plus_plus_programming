@@ -1,7 +1,7 @@
 # Memory Layout
 
 <p align="center">
-  <img src="images/Memory_Layout.jpg" alt="Sample Image" width="700" height="500">
+  <img src="../images/Memory_Layout.jpg" alt="Sample Image" width="700" height="500">
 </p>
 
 ***

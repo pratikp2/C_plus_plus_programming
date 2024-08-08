@@ -215,7 +215,7 @@ The linker combines one or more object files into a single executable. It resolv
 - ***Library Inclusion*** : Links with static or dynamic libraries to resolve external references.
 ***
 
-#### Libraries and Executables.
+### Libraries and Executables.
 
 ***Executable*** : 
 These are files consisting mostly driver logic or self contained code that can be run directly.

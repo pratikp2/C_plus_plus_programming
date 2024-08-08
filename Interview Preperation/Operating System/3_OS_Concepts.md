@@ -1,11 +1,10 @@
-*************************************************************************************************************************************
-## What are Memory Management Techniques ?
+### What are Memory Management Techniques ?
 
     Desired Out Come 1. More Memory Space
                      2. Less Access Time
                      3. Less per unit Cost
                      
-    | CPU | -----> | Cashe | -----> | Main Memory |  -----> | Physical Address |
+    | CPU | -----> | Cache | -----> | Main Memory |  -----> | Physical Address |
     
     OS Duties 1. "Address Allocation" for the process between Physical Address abd logical address.
               2. "Address Translation" for translating addresses between logical address and physical address.
@@ -35,7 +34,7 @@ Types of Memory Allocation :
 
 2. Variable Sized Partition :
 	-- Entire memory block is treated as single block. If some process requires some amount of space only that amount of space is allocated
-	   instead of allocatiog entire partition.
+	   instead of allocating entire partition.
 	-- No internal fragmentation.
 	-- Hard to manage compared to fixed size partition tech.
 
@@ -44,46 +43,45 @@ Algorithm for memory management
 	2. Best fit policy
 	3. Worst fit policy
 *************************************************************************************************************************************
-## What is Paging and Frames ?
+### What is Paging and Frames ?
 
-
-In computer operating systems, paging is a memory management scheme by which the secondery memory of the computer is divided into
-same-size blocks of memory called "Pages" to solve the problem of the non-contigous memory allocation.
+In computer operating systems, paging is a memory management scheme by which the secondary memory of the computer is divided into
+same-size blocks of memory called "Pages" to solve the problem of the non-contiguous memory allocation.
 
 A computer stores and retrieves data from secondary storage for use in main memory.In this scheme, the operating system retrieves
 data from secondary storage, stored in pages. Paging is an important part of virtual memory implementations in modern operating
 systems, using secondary storage to let programs exceed the size of available physical memory.
 
-In Case of main memory, In order to copy the data from the pages(memory blocks) of the secondery memory the memory blocks on primary
+In Case of main memory, In order to copy the data from the pages(memory blocks) of the secondary memory the memory blocks on primary
 memory should be of same size. These memory blocks on the Primary memory are called "Frames"
 
 Main Memory :   RAM (an acronym of "random-access memory")  ---------> Physical Address
-Secondery Memory : Disk (a shorthand for "hard disk drive") ---------> Logical Address
+Secondary Memory : Disk (a shorthand for "hard disk drive") ---------> Logical Address
 
-Maintaning "Page Table" :
-1. It is a Data structure which maintains the address of the Frame present in main memory of the corresponding Page in secondety memory.
+Maintaining "Page Table" :
+1. It is a Data structure which maintains the address of the Frame present in main memory of the corresponding Page in secondary memory.
 2. Every process has a different Pages table and no of entries in the page table is equal to the no of pages in that process.
 
-Squence for process execution :
+Sequence for process execution :
 1. CPU generates a logical address of the Page. (Logical Address contains Page number and Instruction offset).
-2. With the help of PTBR (Page Table Base Register) holdes the the value of appropriate PT. PTBR is stored in the PCB (Process Control Block)
+2. With the help of PTBR (Page Table Base Register) holds the the value of appropriate PT. PTBR is stored in the PCB (Process Control Block)
 3. Now with Page no present in the logical address PC identifies the address og the corresponding frame in tne main memory and combines
-    it with the instruction offset received from logical address. when frame address and instruction address comes togehter it forms
+    it with the instruction offset received from logical address. when frame address and instruction address comes together it forms
     Physical address.
 
 Advantages :
  --Fast Access
- --No Exrernal Fragmentation.
+ --No External Fragmentation.
 
 Disadvantages :
  --Internal Fragmentation
- --Suffers from the double time for Instruction Access.(Still better than reading from the secondery)
+ --Suffers from the double time for Instruction Access.(Still better than reading from the secondary)
 
 The hardware implementation of page table can be done by using dedicated registers. But the usage of register for the page table is
 satisfactory only if page table is small. If page table contain large number of entries then we can use TLB(translation Look-aside buffer),
 a special, small, fast look up hardware cache.
 *************************************************************************************************************************************
-Scheduling Algorithm :
+### Scheduling Algorithm :
 
 CPU scheduling is a process which allows one process to use the CPU while the execution of another process is on hold(in waiting state)
 due to unavailability of any resource like I/O etc, thereby making full use of CPU. The aim of CPU scheduling is to make the system
@@ -128,7 +126,7 @@ Types of Process scheduling algorithm :
     4. Round Robin
     
 CPU Scheduling: Scheduling Criteria
-There are many different criterias to check when considering the "best" scheduling algorithm, they are:
+There are many different criteria to check when considering the "best" scheduling algorithm, they are:
 
 1. CPU Utilization  :
     To make out the best use of CPU and not to waste any CPU cycle, CPU would be working most of the time(Ideally 100% of the time).
@@ -154,42 +152,17 @@ Turn Around Time: Time taken to complete after arrival. In simple words, it is t
     Arrival time.
 Waiting Time: Total time the process has to wait before it's execution begins. It is the difference between the Turn Around time
     and the Burst time of the process.
-*************************************************************************************************************************************
-##. What is a core dump ?
+***
+
+### What is a core dump ?
 
 In computing, a core dump, memory dump, or system dump consists of the recorded state of the working memory of a computer program at
 a specific time, generally when the program has crashed or otherwise terminated abnormally.
+***
 
-*************************************************************************************************************************************
-##. What is Segmentation Fault ?
+### What is Segmentation Fault ?
 
 Core Dump/Segmentation fault is a specific kind of error caused by accessing memory that “does not belong to you.”
 When a piece of code tries to do read and write operation in a read only location in memory or freed block of memory, it is known as
 core dump.It is an error indicating memory corruption.
-
-*************************************************************************************************************************************
-## What is fpic in linux ?
-
-The f is the gcc prefix for options that "control the interface conventions used in code generation" The PIC stands for
-"Position Independent Code", it is a specialization of the fpic for m68K and SPARC.
-
-Position Independent Code means that the generated machine code is not dependent on being located at a specific address in order to work.
-E.g. jumps would be generated as relative rather than absolute.
-
-Pseudo-assembly:
-
-PIC: This would work whether the code was at address 100 or 1000
-
-100: COMPARE REG1, REG2
-101: JUMP_IF_EQUAL CURRENT+10
-...
-111: NOP
-
-Non-PIC: This will only work if the code is at address 100
-
-100: COMPARE REG1, REG2
-101: JUMP_IF_EQUAL 111
-...
-111: NOP
-
-*************************************************************************************************************************************
+***

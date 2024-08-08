@@ -1,7 +1,7 @@
 # SOLID Design Principles
 
 <p align="center">
-  <img src="images/SOLID_design_principle.jpg" alt="Sample Image" width="600" height="500">
+  <img src="../images/SOLID_design_principle.jpg" alt="Sample Image" width="600" height="500">
 </p>
 
 [YouTube Reference : Solid design Principles](https://www.youtube.com/watch?v=XI7zep97c-Y)

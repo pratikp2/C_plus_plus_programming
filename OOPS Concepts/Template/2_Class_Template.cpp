@@ -69,7 +69,7 @@ int main()
     ObjSample1.add();
     // ObjSample2.add();      // char Variables can not be added.
     ObjSample3.add();
-    ObjSample4.add(); // After addition string variables will be concatinated.
+    ObjSample4.add(); // After addition string variables will be concatenated.
 
     cout << endl;
 
@@ -81,8 +81,8 @@ int main()
     return 0;
 }
 
-// Initilization of the Static template variable can be done as shown.
-// Static template variable has to public or they can't be initilize
+// Initialization of the Static template variable can be done as shown.
+// Static template variable has to public or they can't be initialize
 
-// Once done for class, Template declaration has to be done every initilization and function declaration
+// Once done for class, Template declaration has to be done every initialization and function declaration
 // outside class
