@@ -4,7 +4,7 @@
        stores the start of executable code.
     2) Unlike normal pointers, we do not allocate De-allocate memory using function pointers.
 
-    Protoytpe   :   return_type (*fptr)(args) = &functuion_Name;
+    Prototype   :   return_type (*fptr)(args) = &function_Name;
     Invoking    :   (*fptr)(args);
 
  ******************************************************************************************************************/
