@@ -16,7 +16,6 @@ void InitStack(){
     return;
 }
 
-
 //empty     :   Test whether container is empty(public member function)
 //size      :   Return size(public member function)
 //top	    :   Access next element(public member function)
